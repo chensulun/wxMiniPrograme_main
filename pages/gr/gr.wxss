@@ -150,9 +150,9 @@ page {
   position: absolute;
   left: 50%;
   top: 0;
-  margin-left: -150px;
+  margin-left: -100px;
 }
 
 .logo-img1 image {
-  width: 300px;
+  width: 200px;
 }
