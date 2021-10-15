@@ -1,0 +1,76 @@
+<!--pages/rwdmx/rwdmx.wxml-->
+<view class="rwdmx-container">
+  <view class="basic-container">
+    <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/basic_info.png"></image> 基本信息</view>
+    <view class="basic-content">
+      <view class="clear">
+        <view class="info-name" >客户名称:</view>
+        <view class="info-content">{{custom_name}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">工程名称:</view>
+        <view class="info-content">{{engineer_name}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">砼类型:</view>
+        <view class="info-content">{{concrete_name}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">运输方式:</view>
+        <view class="info-content">{{transport_way}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">施工部位:</view>
+        <view class="info-content">{{site_name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="basic-container" style="margin-top: 20px;">
+    <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/task_info.png"></image>任务信息</view>
+    <view class="basic-content">
+      <view class="clear">
+        <view class="info-name">审核状态:</view>
+        <view class="info-content">{{audit_status}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">任务单状态:</view>
+        <view class="info-content">{{task_status}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">计划量:</view>
+        <view class="info-content">{{plan_amount}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">追加量:</view>
+        <view class="info-content">{{append_amount}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">合计量:</view>
+        <view class="info-content">{{total_amount}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="basic-container" style="margin-top: 20px;">
+    <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/other_info.png"></image>其他信息</view>
+    <view class="basic-content">
+      <view class="clear">
+        <view class="info-name" style="width: 90px;">发车间隔时间:</view>
+        <view class="info-content" style="width: calc(100% - 90px);">{{interval_start}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name" style="width: 90px;">调度计划时间:</view>
+        <view class="info-content" style="width: calc(100% - 90px);">{{scheduled_open}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name" style="width: 90px;">工地供应时间:</view>
+        <view class="info-content" style="width: calc(100% - 90px);">{{site_supply}}</view>
+      </view>
+    </view>
+  </view>
+  <view style="margin-top: 24px;text-align: center;">
+    <button size="mini" class="btn-red mr-10"  bindtap='sh'>审核</button>
+    <button size="mini" class="btn-gray-light"  bindtap='toBack'>返回</button>
+  </view>
+</view>

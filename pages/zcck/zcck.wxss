@@ -1,0 +1,38 @@
+/* pages/zcck/zcck.wxss */
+page {
+  background-color: #F0F0F0;
+}
+.zcck-container {
+  padding: 20px 10px;
+}
+.cells-container {
+  border-radius: 11px;
+  overflow: hidden;
+}
+.cells-item input {
+  text-align: right;
+  color: #999999;
+}
+.photo-container {
+  padding: 20px;
+  padding-bottom: 4px;
+  background-color: #fff;
+  border-radius: 11px;
+}
+.photo-item {
+  width: calc((100% - 32px) / 3);
+  height: 94px;
+  background-color: #D8D8D8;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.photo-item image {
+  width: 100%;
+  height: 100%;
+}
+.photo-item:nth-child(3n) {
+  margin-right: 0;
+}

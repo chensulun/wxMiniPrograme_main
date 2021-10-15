@@ -1,0 +1,130 @@
+<!--pages/sylr/sylr.wxml-->
+<view class="zcck-container">
+ <!-- <form id="form" bindsubmit="bindsave"> -->
+ <form id="form" catchsubmit="bindsave3">
+  <view class="cells-item">
+  <!-- <view>
+    <view wx:for="{{obj3}}" wx:for-index="key"  wx:for-item="value">{{key}} : {{value}}</view>
+  </view> -->
+    <mp-form id="form">
+      <view>
+        <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../../img/basic_info.png"></image>基本信息</view>
+        <view class="cells-container">
+          <mp-cells ext-class="cells-item">
+           <mp-cell title="实验编号:" ext-class="">
+                <input data-field="syNumber"  placeholder="自动/请输入"
+                value="{{syNumber}}" name='syNumber' class="weui-input" disabled/>
+            </mp-cell>
+            <!-- 试验项目 -->
+            <mp-cell title="试验项目" ext-class="">
+              <picker bindchange="projectChange" value="{{projectIndex}}" range="{{projects}}">
+                <view class="picker">
+                  {{projects[projectIndex]}}
+                </view>
+              </picker>
+            </mp-cell>
+                  <!-- 样品编号 -->
+            <mp-cell title="样品编号:" ext-class="">
+                <input data-field="ypNumber"  placeholder="请输入或通过扫描读取"
+                value="{{ypNumber}}" name='ypNumber' class="weui-input" bindtap="sysYp" disabled />
+            </mp-cell>
+            <!-- 样品种类 -->
+            <mp-cell title="样品名称:" ext-class="">
+                <input data-field="ypName"  placeholder="自动/请输入"
+                value="{{ypName}}" name='ypName' class="weui-input" disabled/>
+            </mp-cell>
+           
+            <!-- 试验内容 -->
+            <mp-cell title="试验内容" ext-class="">
+              <picker bindchange="contentChange" value="{{contentIndex}}" range="{{contents}}">
+                <view class="picker">
+                  {{contents[contentIndex]}}
+                </view>
+              </picker>
+            </mp-cell>
+      
+            <!-- 试验设备 -->
+            <mp-cell title="试验设备:" ext-class="">
+                <input data-field="name1" data-index="{{index}}" placeholder="请扫描设备上二维码"
+                value="{{name1}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell ext-class="basic-bottom">
+              <view class="basic-item">电热古风干燥箱</view>
+              <view class="basic-item">沥青针入度试验仪</view>
+            </mp-cell>
+          </mp-cells>
+        </view>
+        <view class="basic-title mt-20">
+          <image style="width: 18px;vertical-align: -3px;margin-right: 6px;"
+          mode="widthFix" src="../../../img/gys_info.png"></image>实验数据
+        </view>
+        <view class="cells-container">
+         <!-- 试验分组 -->
+            <mp-cell title="试验分组" ext-class="">
+              <picker  bindchange="typeNumberChange" value="{{typeNumberIndex}}" range="{{typeNumbers}}" range-key="{{'value'}}">
+                <view class="picker">
+                  {{typeNumbers[typeNumberIndex].value}}
+                </view>
+              </picker>
+            </mp-cell>
+          <mp-cells ext-class="cells-item">
+            <!-- <mp-cell title="试验项目" ext-class="">
+              <picker bindchange="zhandianChange" value="{{zhandian.id}}"
+              range-key="name" range="{{zhandian.list}}">
+                <view class="picker">
+                  {{zhandian.list[zhandian.index].name}}
+                </view>
+              </picker>
+            </mp-cell> -->
+            <!-- 实验录入1 -->
+            <mp-cell wx:if="{{!isShow}}">
+              <view>
+                <view class="table-tr clear" wx:for="{{paramList}}" wx:key="{{paramList}}" wx:for-index="index" wx:for-item="item">
+                <view class="table-td">
+                  <input data-field="{{item.desc}}" 
+                value="{{item.desc}}" class="weui-input" disabled="true"/>
+                </view>
+                <view class="table-td">
+                  <input data-field="{{item.name}}" name="{{item.name}}"  placeholder="请输入{{item.desc}}"
+                value="{{item.value}}" class="weui-input"/>
+                </view>
+              </view>
+              </view>
+              <view>
+                <view style="padding: 12px;">备注:</view>
+                <view class="textarea"><textarea name="remark" bindblur="bindTextAreaBlur" value="{{remark}}" placeholder="请输入" /></view>
+              </view>
+            </mp-cell>
+            <!-- 实验录入2 -->
+            <mp-cell wx:else>
+              <view class="table">
+                <view class="tb-th" >
+                  <view class="tb-td" wx:for="{{paramTitleList}}" wx:key="{{paramTitleList}}" wx:for-index="index" wx:for-item="item">{{item}}</view>
+                </view>
+                <view class="tb-tbody">
+                  <view class="tb-tr"  wx:for="{{paramList}}" wx:key="{{paramList}}" wx:for-index="index" wx:for-item="item">
+                  
+                    <view class="tb-td" wx:for="{{item}}" wx:for-index="key1"  wx:for-item="value1">
+                      <input placeholder="请输入"
+                    value="{{value1}}" name="{{key1}}" class="weui-input"/>
+                    </view>
+                  
+                  </view>
+                </view>
+                <view style="padding: 12px;">备注:</view>
+                <view class="textarea"><textarea name="remark" bindblur="bindTextAreaBlur" placeholder="请输入" value="{{remark}}"/></view>
+              </view>
+            </mp-cell>
+          </mp-cells>
+        </view>
+      </view>
+    </mp-form>
+  </view>
+  <view class="mt-20 text-center">
+      <!-- <button size="mini" class="btn-red mr-10"  form-type='submit'  >保存</button> formType="submit"-->
+      <button size="mini" class="btn-red mr-10"   formType="submit"  data-type="1"  >保存</button> 
+      <button size="mini" class="btn-green mr-10" formType="submit"  data-type="2">预览</button>
+      <button size="mini" class="btn-blue"  bindtap="bindsave1">结束</button>
+  </view>
+</form>
+</view>

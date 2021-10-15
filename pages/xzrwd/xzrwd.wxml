@@ -1,0 +1,99 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="xzrw-title">
+    <view class="title-item {{titleVal==='basic'?'active':''}}" bindtap="switchTitle" data-type="basic">基本信息</view>
+    <view class="title-item {{titleVal==='task'?'active':''}}" bindtap="switchTitle" data-type="task">任务信息</view>
+    <view class="title-item {{titleVal==='other'?'active':''}}" bindtap="switchTitle" data-type="other">其他信息</view>
+  </view>
+  <view class="cells-item">
+    <form id="form" bindsubmit="submitForm">
+      <view hidden="{{titleVal!=='basic'}}">
+        <mp-cells ext-class="cells-item">
+         <mp-cell title="项目编号" ext-class="">
+              <picker bindchange="xmnopickerChange"  value="{{listVal}}" range-key="project_no_name"
+              range="{{xmnoList}}" data-projectid="{{xmnoList[index].project_id}}" data-customname="{{xmnoList[index].custom_name}}" data-sgdw="{{xmnoList[index].sgdw}}" data-projectno="{{xmnoList[index].project_no}}"  data-projectname="{{xmnoList[index].project_name}}">
+                <view class="picker">
+                  {{xmnoList[index].project_no_name}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="工程名称" ext-class="">
+              <input data-field="engineer_name" value="{{project_name}}" class="weui-input"  disabled='disabled'/>
+          </mp-cell>
+          <mp-cell title="客户名称" ext-class="">
+              <input data-field="custom_name" name="custom_name"  value="{{custom_name}}"  class="weui-input"  disabled='disabled'/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="砼类型" ext-class="">
+               <picker bindchange="qlxpickerChange"  value="{{listVal}}" range-key="qlx"
+              range="{{qlxList}}" data-id="{{qlxList[qlxindex].id}}">
+                <view class="picker">
+                  {{qlxList[qlxindex].qlx}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="运输方式" ext-class="">
+              <input data-field="transport_way" name="transport_way" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="施工部门" ext-class="">
+              <input data-field="site_name" name="site_name"  class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+      </view>
+      <view hidden="{{titleVal!=='task'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="审核状态" ext-class="" disabled='disabled'>
+            <radio-group class="radio-group"  bindchange="radioChange">
+              <radio class="radio" disabled='disabled' value="1" checked="checked" style="margin-right:20px;">未审核</radio>
+              <radio class="radio" disabled='disabled' value="2">已审核</radio>
+            </radio-group>
+          </mp-cell>
+          <mp-cell title="任务单状态" ext-class="">
+              <radio-group class="radio-group"  bindchange="radioChange">
+               <!-- <input type="hidden" name="task_status"  value="{{task_status}}"  type="hidden"/> -->
+                <radio class="radio" value="2"  checked="checked" style="margin-right:20px;">待供</radio>
+                <radio class="radio" value="1" style="margin-right:20px;">正供</radio>
+                <radio class="radio"disabled='disabled'  value="3">供毕</radio>
+              </radio-group>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="计划量" ext-class="">
+            <input data-field="plan_amount" name="plan_amount"  type="number" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="追加量" ext-class="">
+              <input data-field="append_amount" name="append_amount" type="number" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="合计量" ext-class="">
+              <input data-field="total_amount" name="total_amount"  type="number" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+      </view>
+      <view hidden="{{titleVal!=='other'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="发车间隔时间" ext-class="">
+              <input data-field="interval_start" name="interval_start"  type="number" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="调度计划时间" ext-class="">
+              <picker data-field="scheduled_open" name="scheduled_open" mode="date" value="{{date}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{date}}</view>
+              </picker>
+          </mp-cell>
+           <mp-cell title="工地需求供应时间" ext-class="">
+              <picker data-field="site_supply" name="site_supply" mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+                  <view class="weui-input">{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:{{dateTimeArray[5][dateTime[5]]}}</view>
+              </picker>
+          </mp-cell>
+        </mp-cells>
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type='submit' bindtap="submitForm">确定</button>
+          <!-- <button class="weui-btn" type="primary" form-type='submit'>确定</button> -->
+        </view>
+      </view>
+      
+    </form>
+  </view>
+</view>

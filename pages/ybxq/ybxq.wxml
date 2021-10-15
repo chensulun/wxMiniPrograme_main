@@ -1,0 +1,35 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <view>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="样品编号:" ext-class="">
+              <input data-field="kucun" bindinput="formInputChange" disabled
+              value="{{bianhao}}" class="weui-input"/>
+          </mp-cell>
+          <mp-cell title="样品名称:" ext-class="">
+              <input data-field="kucun" bindinput="formInputChange" disabled
+              value="{{name}}" class="weui-input" />
+          </mp-cell>
+          <mp-cell title="委托单位:" ext-class="">
+              <input data-field="kucun" bindinput="formInputChange" disabled
+              value="{{danwei}}" class="weui-input" />
+          </mp-cell>
+          <mp-cell title="项目名称:" ext-class="">
+              <input data-field="kucun" bindinput="formInputChange" disabled
+              value="{{projectName}}" class="weui-input" />
+          </mp-cell>
+          <mp-cell title="样品状态:" ext-class="yangpin-status">
+              <input data-field="kucun" bindinput="formInputChange" disabled
+              value="{{status}}" class="weui-input" />
+          </mp-cell>
+        </mp-cells>
+      </view>
+      <view class="mt-20 text-center">
+          <button size="mini" class="btn-red mr-10" bindtap="bindsave">结束</button>
+          <button size="mini" class="btn-green mr-10" bindtap="bindsave1">扫一扫</button>
+      </view>
+    </mp-form>
+  </view>
+</view>

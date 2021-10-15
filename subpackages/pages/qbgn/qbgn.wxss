@@ -1,0 +1,18 @@
+/* pages/qbgn/qbgn.wxss */
+.flex__itemz{
+  float: left;
+  width: 25%;
+  text-align: center;
+  color: rgb(122, 123, 124);
+  font-size: 15px;
+}
+.flex__item_img{
+  width: 32px;
+  height: 32px;
+}
+.flex__itemz:nth-child(n+5) {
+  margin-top: 10px;
+}
+.navplace{
+  margin: 12px 0 12px 0; 
+}

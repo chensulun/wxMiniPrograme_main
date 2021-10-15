@@ -1,0 +1,282 @@
+<!--viewages/sbwx/sbwx.wxml-->
+<view class="position">
+  <image class="header_dw" src="/icon/dw_g.png"></image>
+  <text class="position_text">{{address}}</text>  
+  <image class="header_you" src="/icon/you.png"></image>
+  <!-- <image class="sys_icon_header" src="/icon/sys_g.png" ></image> -->
+</view>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <input name="equipmentId" value="{{equipmentId}}" disabled="true" style="display:none" />
+
+  <view class="weui-cells contain1">
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="jux_title"></view>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  设备维修</text>
+        </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  维修科目:</text>
+      </view>
+      <view class="weui-cell__bd">
+        <picker disabled="{{wxxg}}" name="subjectRepair" bindchange="bindsubjectChange" value="{{subjectIndex}}" range="{{subject}}">
+          <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{subject[subjectIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  维修站点:</text>
+      </view>
+      <view class="weui-cell__bd">
+        <picker disabled="{{wxxg}}" name="site" bindchange="bindSiteChange" value="{{siteIndex}}" range="{{site}}">
+          <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{site[siteIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  维修位置:</text>
+      </view>
+      <view class="weui-cell__bd">
+        <picker disabled="{{wxxg}}" name="positionRepair" bindchange="bindPositionChange" value="{{positionIndex}}" range="{{position}}">
+          <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{position[positionIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  维修说明</text>
+        </view>
+    </view>
+
+    <view class="weui-cell noneline">
+        <view class="weui-cell__bd">
+            <textarea bindinput="inputWxsm" maxlength='200' name="explainRepair"  class="weui-textarea" placeholder="请输入维修说明" rows="3" value="{{explainRepair}}"></textarea>
+        </view>
+    </view>
+
+    <navigator bindtap="showlsjv" url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <text class="weui-badge weui-badge_dot"></text>
+      </view>
+      <text class="weui-cell__bd weight_font" space="ensp">  维修历史记录</text>
+      <view class="weui-cell__ft weui-cell__ft_in-access">查看</view>
+    </navigator>
+
+    <view wx:if="{{lsjv}}" class="lsjv">
+       <view> <image src="/icon/bujian.png"/> 整体更换2次</view>
+       <view> <image src="/icon/zujian.png"/> 更换组件2次</view>
+       <view> <image src="/icon/weixiu.png"/> 维修2次</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+      </view>
+      <view class="weui-cell__bd weight_font">
+            <text space="ensp">  来源</text>
+      </view> 
+    </view>
+
+    <radio-group name="wxlaiyuan" bindchange="laiyCheckboxChange">
+      <view class="weui-flex">
+        <view class="weui-flex__item" wx:for="{{laiyItems}}" wx:key="name">
+            <label class="weui-cell weui-check__label">
+               <radio  class="radio"  value="{{item.name}}" checked="{{item.checked}}">
+                    <text class="weui-cell__bd checkbox_text">{{item.name}}</text>
+                </radio>
+            </label>
+        </view>
+    </view>
+    </radio-group>
+
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+      </view>
+      <view class="weui-cell__bd weight_font">
+            <text space="ensp">  维修类别</text>
+      </view> 
+    </view>
+
+     <radio-group name="categoryRepair" bindchange="wxlbCheckboxChange">
+      <view class="weui-flex">
+        <view class="weui-flex__item" wx:for="{{checkboxItems_leibie}}" wx:key="name">
+            <label class="weui-cell weui-check__label">
+                <radio  class="radio"  value="{{item.name}}" checked="{{item.checked}}">
+                    <text class="weui-cell__bd checkbox_text">{{item.name}}</text>
+                </radio>
+            </label>
+        </view>
+    </view>
+    </radio-group>
+
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea bindinput="inputWxqk" maxlength='200' name="wxqingkuang" class="weui-textarea" placeholder="请输入维修情况" rows="3"></textarea>
+        </view>
+    </view>
+
+    <view wx:if="{{wx_ls}}" class="weui-cell">
+        <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  设备维修状态</text>
+        </view>
+    </view>
+
+    <radio-group wx:if="{{wx_bsls}}" name="stateRepair" bindchange="ztCheckboxChange">
+      <view class="weui-flex">
+        <view class="weui-flex__item" wx:for="{{checkboxItems_wxzt}}" wx:key="name">
+            <label class="weui-cell weui-check__label">
+                <radio  class="radio"  value="{{item.name}}" checked="{{item.checked}}">
+                    <text class="weui-cell__bd checkbox_text">{{item.name}}</text>
+                </radio>
+            </label>
+        </view>
+    </view>
+    </radio-group>
+
+    <view wx:if="{{wx_wwc&&wx_bsls}}" class="weui-cell">
+        <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  异常原因</text>
+        </view>
+    </view>
+
+    <view wx:if="{{wx_wwc&&wx_bsls}}" class="weui-cell noneline">
+        <view class="weui-cell__bd">
+            <textarea bindinput="inputWxyc" maxlength='200' name="yichangyy" class="weui-textarea" placeholder="请输异常原因" rows="3"></textarea>
+            <view class="weui-textarea-counter"><span>{{ycCount}}</span>/100</view>
+        </view>
+    </view>
+
+    <view wx:if="{{wx_wwc&&wx_bsls}}" class="weui-cell weui-cell_select">
+      <view class="weui-cell__bd">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_weixr weight_font" space="ensp">  下一阶段维修人:</text>
+      </view>
+      <view class=" weui-cell__hd weui-cell__hd_in-select-after">
+        <picker name="nextrepair" bindchange="next_personRepairChoose" value="{{personRepair_nextIndex}}" range="{{personRepair_next}}">
+          <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{personRepair_next[personRepair_nextIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="contain1">
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="jux_title"></view>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  上传附件</text>
+        </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">图片上传</view>
+            <view class="weui-uploader__info">{{files.length}}/10</view>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{files}}" wx:key="*this">
+                <view class="weui-uploader__file" id="{{item}}">
+                  <image bindtap="previewImage" class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  <icon type="cancel" class="cancel" size="23" data-imgurl="{{item}}" bindtap="cancelImg"></icon>
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cell lybq">
+      <view class="weui-cell__bd">
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">录音上传</view>
+            <view class="weui-uploader__info">{{record_files.length}}/10</view>
+          </view>
+      </view>
+    </view>
+
+    <view wx:for="{{record_files}}" class="yuyinplay">
+        <view class="yuyinlist">
+          <audio class=""  name="未知音频" author="未知作者" src="{{item}}"  controls="true">
+          </audio> 
+          <icon type="cancel" class="cancelyuyin" size="23" data-yuyinurl="{{item}}" bindtap="cancelYuyin"></icon> 
+        </view>
+    </view>
+
+    <view wx:if="{{onrecord}}"  class="weui-flex__item ly__itemz">
+          <text>{{recordingTimeqwe}}</text>
+          <image bindtap="shutRecording" class="ly_img" src="/img/luyin.png"></image>
+          <text>正在录音...</text>
+    </view>
+
+    <button class="yyin" bindtap="startRecorder">{{lytip}}</button>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">视频上传</view>
+            <view class="weui-uploader__info">{{sp_files.length}}/10</view>
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderSpFiles">
+              <block wx:for="{{sp_files}}" wx:key="*this">
+                <view class="weui-uploader__file" bindtap="previewSp" id="{{item}}">
+                  <video class="video weui-uploader__img" src="{{item}}" ></video>
+                  <icon type="cancel" class="cancelship" size="23" data-shipurl="{{item}}" bindtap="cancelshiping"></icon> 
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseVideo"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder"><button class="tjyl tjan" formType="submit" type="primary" >提交</button></view></view>
+      <!-- <view class="weui-flex__item"><view class="placeholder">
+        <navigator bindtap="toYl" url="">
+          <button class="tjyl" type="default">预览</button>
+        </navigator>
+        </view>
+      </view> -->
+  </view>
+</form>
+
+  

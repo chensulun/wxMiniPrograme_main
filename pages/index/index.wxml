@@ -1,0 +1,189 @@
+<!--index.wxml-->
+<view class="indexContain" wx:if="{{hasUserInfo && canIUse}}">
+  <view class="position">
+    <image class="header_dw" src="/icon/dw_b.png"></image>
+    <text class="position_text">{{address}}</text>
+    <image class="header_you" src="/icon/you.png"></image>
+    <image bindtap="syscode" class="sys_icon_header" src="/icon/sys_b.png"></image>
+  </view>
+
+  <swiper indicator-dots="true" indicator-color="rgba(212, 219, 241, .3)" indicator-active-color="rgb(69, 152, 97)"
+    autoplay="true" interval="3000" class="lb" circular="true">
+    <swiper-item>
+      <image src="/img/lb1.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/img/lb1.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/img/lb1.png"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="tz_db" style="flex-direction:row;">
+    <view class="flex-item">
+      <navigator url="/pages/ggdb/ggdb?dbsx=false" class="flex-item_nei">
+        <image class="tzdb_img" src="/img/tzgg.png"></image>
+        <view class="tzdb_wb">
+          <mp-badge content="{{tongzhicount}}" class="{{tongzhicount==0?'blue':''}}"></mp-badge>
+          <view></view>
+          <text>通知公告</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="flex-item">
+
+      <navigator url="/subpackages/pages/dbsxnew/dbsxnew?dbsx=false" class="flex-item_nei">
+        <image class="tzdb_img" src="/img/dbsx.png"></image>
+        <view class="tzdb_wb">
+          <mp-badge content="{{dbsxshcount+dbsxbycount}}" class="{{dbsxshcount+dbsxbycount==0?'blue':''}}"></mp-badge>
+          <view></view>
+          <text>待办事项</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="fgx"></view>
+
+
+  <view class="navplace clear">
+    <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_xmgl.png"></image>
+      </view>
+      <view>项目管理</view>
+    </navigator>
+
+
+    <navigator url="/subpackages/pages/rwdglnew/rwdglnew" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_rwdgl.png"></image>
+      </view>
+      <text>任务管理</text>
+    </navigator>
+
+    <navigator url="/subpackages/pages/rwpc/rwpc" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>生产计划</view>
+    </navigator>
+    <navigator url="/subpackages/pages/pbsc1/pbsc1" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_pbsc.png"></image>
+      </view>
+      <text>配比上传</text>
+    </navigator>
+
+    <navigator url="/subpackages/pages/zlkz/zlkz" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/zlkz.png"></image>
+      </view>
+      <view>质量控制</view>
+    </navigator>
+    <navigator url="/subpackages/pages/cargps/cargps" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/clgps.png"></image>
+      </view>
+      <view>车辆GPS</view>
+    </navigator>
+    <navigator url="/subpackages/pages/spjk/spjk" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/spjk.png"></image>
+      </view>
+      <view>视频监控</view>
+    </navigator>
+
+    <navigator url="/subpackages/pages/qbgn/qbgn" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/ckqb.png"></image>
+      </view>
+      <view>查看全部</view>
+    </navigator>
+  </view>
+  <view class="fgx"></view>
+
+  <view class="kb_head">
+    <navigator url="../scjk/scjk?fhl={{prodcut.fhl}}" style="display: inline-block;">
+      <text class="kb_title">生产看板</text>
+    </navigator>
+    <!-- 下拉框 -->
+    <view class="kb_yzs weui-cell__ft_in-access">
+      <picker mode="selector" bindchange="PickerChange" value="{{multiIndex}}" range="{{multiArray}}"
+        range-key="{{'msName'}}">
+        <view class="picker">
+          {{multiArray[multiIndex].msName}}</view>
+      </picker>
+      -
+      <picker mode="selector" bindchange="PickerColumnChange" value="{{checkValue}}" range="{{arrColumn0}}">
+        <view class="picker">
+          {{arrColumn0[checkValue]}}</view>
+      </picker>
+    </view>
+
+    <!-- <text class="kb_yzs weui-cell__ft_in-access">站点 </text> -->
+  </view>
+  <view class="weui-flex sckb">
+    <view class="weui-flex__item" style="flex:2;">
+      <view class="scfh_title">
+        <view class="weui-badge_dot1 fhbz"></view>
+        <text style="font-size:10px;" space="ensp">发货量:{{prodcut.fhl||0}}</text>
+        <view class="weui-badge_dot1 scbz"></view>
+        <text style="font-size:10px;">生产量:{{prodcut.scl||0}}</text>
+      </view>
+      <view><text class="scfh_title">生产量</text><progress class="progress_sfh" percent="{{prodcut.scl/45}}"
+          activeColor="rgb(129, 88, 255)" /></view>
+      <view><text class="scfh_title">发货量</text><progress class="progress_sfh" percent="{{prodcut.fhl/45}}" /></view>
+      <view>
+        <view class="weui-flex scfh_title">
+          <view class="weui-flex__item">0吨</view>
+          <view class="weui-flex__item">1500吨</view>
+          <view class="weui-flex__item">3000吨</view>
+          <view class="weui-flex__item">4500吨</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-flex__item" style="flex: 1;position: relative;">
+      <view class="jczb-right">
+        <!-- <view class="weui-flex__item">
+              <canvas canvas-id="canvas2" style="width:70pt;height:70pt;margin-top:20px;"></canvas>
+            </view> -->
+        <view class="scfh_title">
+          <view class="yczb">
+            异常: {{prodcut.yc_count || 0}}次
+          </view>
+          <view>
+            <view>
+              <text class="jczb jcwd"></text>温度: {{prodcut.yc_details.wd}}
+            </view>
+            <view>
+              <text class="jczb jcpb"></text>配比:{{prodcut.yc_details.pb}}
+            </view>
+            <view>
+              <text class="jczb jcysb"></text>油石比:{{prodcut.yc_details.ysb}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <button class="getuserinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取你的基本信息 </button> -->
+<!-- 页面的遮罩层 -->
+<view wx:if="{{modal}}" class="cover"></view>
+<!-- 页面的弹出框 -->
+<view wx:if="{{smModal}}" class="modal">
+  <image bindtap="colseSysModal" class=".close" src="/icon/close.png"></image>
+  <view class="sysTitle">请选择</view>
+  <view class="sysButtonZ">
+    <button bindtap="tap_baoyang">保养</button> <button bindtap="tap_weixiu">维修</button> <button
+      bindtap="tap_zichan">资产</button> <button>记录</button>
+  </view>
+  <view class="sysZysx">注意事项</view>
+  <text class="sysZynr">
+    1.这是要注意事项这是要注意事项这是要注意事项\n
+    2.这是要注意事项这是要注意事项\n
+    3.这是要注意事项这是要注意事项这是要注意事项
+  </text>
+</view>

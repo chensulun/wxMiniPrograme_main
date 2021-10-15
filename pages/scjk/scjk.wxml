@@ -1,0 +1,90 @@
+<!--pages/scjk/scjk.wxml-->
+<view class="scjk">
+  <view class="scjk-banner">
+    <cover-image class="banner" src="/img/lb1.png"></cover-image>
+    <!-- <view class="search-container">
+      <input type="text" placeholder="搜索"></input>
+      <mp-icon extClass="search-icon" type="field" icon="search" color="#C3C3C2" size="{{20}}"></mp-icon>
+    </view> -->
+  </view>
+  <view class="data-container">
+    <view class="data-top">
+      <!-- 生产总量 -->
+      <view class="sczl">
+        <view class="text-md" style="line-height: 14px;">生产总量</view>
+        <view style="margin-top: 8px;"><text style="line-height: 20px;" class="text-xxl">{{totalNum}}</text> <text
+            class="text-xs pl-4">吨</text></view>
+      </view>
+      <!-- 核算总量 -->
+      <view class="hszl">
+        <view class="text-md" style="line-height: 14px;">核算总量</view>
+        <view style="margin-top: 8px;"><text style="line-height: 20px;" class="text-xxl">{{fhl}}</text> <text
+            class="text-xs pl-4">吨</text></view>
+      </view>
+    </view>
+    <!-- 材料类型等 -->
+    <view class="data-bottom">
+      <view class="data-bottom-item">
+        <view class="title">材料类型</view>
+        <view class="data-value">{{produceType}}</view>
+        <view class="line"></view>
+      </view>
+      <view class="data-bottom-item">
+        <view class="title" wx:if="{{appId==='wx2242bdf7b68a52dd'}}">原生温度</view>
+        <view class="title" wx:else>集料温度</view>
+        <view class="data-value">{{guliaoTemp}}</view>
+        <view class="line"></view>
+      </view>
+      <view class="data-bottom-item">
+        <view class="title" wx:if="{{appId==='wx2242bdf7b68a52dd'}}">再生温度</view>
+        <view class="title" wx:else>尾气温度</view>
+        <view class="data-value">{{zsTemp}}</view>
+        <view class="line"></view>
+      </view>
+      <view class="data-bottom-item">
+        <view class="title">出料温度</view>
+        <view class="data-value">{{chuliaoTemp}}</view>
+      </view>
+    </view>
+    <!-- 表格 -->
+    <view class="table-container">
+      <view class="table-th" wx:if="{{appId==='wx2242bdf7b68a52dd'}}">
+        <view class="table-td table-td-lg">时间</view>
+        <view class="table-td table-td-lg">仓一</view>
+        <view class="table-td">回收料</view>
+        <view class="table-td">粉料1</view>
+        <view class="table-td">粉料2</view>
+        <view class="table-td">油石比</view>
+      </view>
+      <view class="table-th" wx:else>
+        <view class="table-td table-td-lg">时间</view>
+        <view class="table-td table-td-lg">粉仓</view>
+        <view class="table-td">沥青</view>
+        <view class="table-td">新粉1</view>
+        <view class="table-td">新粉2</view>
+        <view class="table-td">油石比</view>
+      </view>
+      <view class="table-tbody">
+        <view class="table-tr" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
+          <view style="vertical-align: middle;">
+            <view class="table-td table-td-lg">{{item.dateTime}}</view>
+            <view class="table-td table-td-lg">{{item.one_S_B}}</view>
+            <view class="table-td">{{item.zsl_S_B}}</view>
+            <view class="table-td">{{item.seven_S_B}}</view>
+            <view class="table-td">{{item.six_1_S_B}}</view>
+            <view class="table-td">{{item.ysb}}</view>
+          </view>
+          <!-- <view wx:else>
+            <view class="table-td table-td-lg">{{item.dateTime}}</view>
+            <view class="table-td table-td-lg" style="{{item.one}}">{{item.one_S}}</view>
+            <view class="table-td" style="{{item.two}}">{{item.eight}}</view>
+            <view class="table-td" style="{{item.four}}">{{item.six_S}}</view>
+            <view class="table-td" style="{{item.five}}">{{item.seven_S}}</view>
+            <view class="table-td" style="{{item.three}}">{{item.ysb}}</view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

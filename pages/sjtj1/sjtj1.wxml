@@ -1,0 +1,63 @@
+<!--pages/rwdcx/rwdcx.wxml-->
+<view class="rwdcx-container">
+  <view class="rwdcx-header">
+    <view class="header-item">
+      <picker bindchange="pickerChange" value="{{index}}" range="{{list}}">
+        <view>{{list[index]}}
+          <view class="select-icon">
+            <image src="/img/select_down.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="header-item">
+      <picker bindchange="pickerChange1" value="{{index1}}" range="{{list1}}">
+        <view>{{list1[index1]}}
+          <view class="select-icon">
+            <image src="/img/select_down.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="header-item" bindtap="openTimeModal">
+      <view>时间
+        <view class="select-icon">
+          <image src="/img/select_down.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="rwdcx-content">
+    <view>
+      <view class="content-item" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="listindex" wx:for-item="item">
+        <view class="item-td item-zhandian">{{list[index]}}</view>
+        <view class="item-td item-type">
+          <image src="/icon/user_tongzhi.png" style="vertical-align: -4px;width:18px; height: 18px;"></image>
+          生产月报
+        </view>
+        <view class="item-td item-time">{{item.year}}-{{item.month<10?('0'+item.month):item.month}}</view>
+        <view class="item-td item-btn"><button data-state="{{item.state}}" data-year="{{item.year}}" data-month="{{item.month}}" data-station="{{list[index]}}" class="btn-look" bindtap="sc">查看</button></view>
+      </view>
+    </view>
+  </view>
+  <view class="select-time-container {{timeModalShow ? 'select-time-show' : ''}}">
+    <view class="select-time-content">
+      <view class="begin-time">
+        开始时间
+        <picker data-field="date" style="display: inline-block;" mode="date" value="{{date}}" bindchange="DateChange">
+          <view class="weui-input select-time">{{date}}</view>
+        </picker>
+      </view>
+      <view class="end-time">
+        结束时间
+        <picker data-field="date" style="display: inline-block;" mode="date" value="{{date1}}" bindchange="DateChange1">
+          <view class="weui-input select-time">{{date1}}</view>
+        </picker>
+      </view>
+      <view class="btns-container">
+        <button size="mini" style="margin-right: 20px;" bindtap="cancel">取消</button>
+        <button size="mini" type="primary" bindtap="comfirm">确定</button>
+      </view>
+    </view>
+  </view> 
+</view>

@@ -1,0 +1,21 @@
+<!--subpackages/pages/dqys/dqys.wxml-->
+<view>
+    <view class="my-tip">
+        <view class="title">具体授权信息</view>
+        <view class="detail">
+            <text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit explicabo rerum inventore alias,
+                dolores laudantium eius quisquam sed. Sunt, inventore perspiciatis aspernatur reiciendis quam molestiae
+                unde laborum dolores quas distinctio voluptas, nobis suscipit eligendi iure exercitationem temporibus
+                quae nesciunt sapiente placeat provident illum! Natus quibusdam adipisci nesciunt fuga id dolor
+                repellendus aperiam beatae molestiae ab necessitatibus commodi asperiores nihil velit consectetur esse,
+                incidunt, laudantium ipsa, voluptate placeat iure perspiciatis nulla laboriosam iusto. Ipsa deleniti
+                accusantium assumenda voluptatum optio suscipit distinctio exercitationem, nulla nihil totam qui iste?
+                Ullam, sunt impedit minima suscipit ratione, ea quisquam aliquid, saepe repellat labore inventore
+                rerum!</text>
+        </view>
+        <view>
+            <button size="mini" type="default" hover-class="none" class="my-btn" bindtap="toBack">不同意</button>
+            <button size="mini" type="primary" hover-class="none" class="my-btn" bindtap="totxxx">同意</button>
+        </view>
+    </view>
+</view>

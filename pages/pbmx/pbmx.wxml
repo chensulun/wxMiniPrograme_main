@@ -1,0 +1,105 @@
+<!--pages/rwdmx/rwdmx.wxml-->
+<view class="rwdmx-container">
+  <view class="basic-container">
+    <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/basic_info.png"></image> 基本信息</view>
+    <view class="basic-content">
+      <view class="clear">
+        <view class="info-name">工程名称:</view>
+        <view class="info-content">{{gcmc}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">混合科类型:</view>
+        <view class="info-content">{{hhklx}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">级配模板:</view>
+        <view class="info-content">{{jpmb}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">沥青编号:</view>
+        <view class="info-content">{{lqbh}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">区间温度:</view>
+        <view class="info-content">{{qjwd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">班次:</view>
+        <view class="info-content">{{bc}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">天气:</view>
+        <view class="info-content">{{tq}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name" style="width: 110px;">石料加料温度(℃):</view>
+        <view class="info-content" style="width: calc(100% - 110px);">{{sljrwd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name" style="width: 110px;">产品出厂温度(℃):</view>
+        <view class="info-content" style="width: calc(100% - 110px);">{{cpccwd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name" style="width: 110px;">沥青加热温度(℃):</view>
+        <view class="info-content" style="width: calc(100% - 110px);">{{lqjrwd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">干拌时间(s):</view>
+        <view class="info-content">{{gbsj}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">审核状态:</view>
+        <view class="info-content">{{zt}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="basic-container" style="margin-top: 20px;">
+    <view class="basic-title"><image style="width: 20px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/pb_info.png"></image>冷料仓配比</view>
+    <view class="basic-content">
+      <view class="table-container llc" style="overflow:hiddenl;">
+        <view class="th">
+          <view class="td">冷料仓规格</view>
+          <view class="td">厂商</view>
+          <view class="td">规格</view>
+          <view class="td">重量</view>
+        </view>
+        <view class="tr" wx:for="{{llcpb}}" wx:key="*this">
+          <view class="td">{{item.llcgg}}</view>
+          <view class="td">{{item.yclcs}}</view>
+          <view class="td">{{item.yclgg}}</view>
+          <view class="td">{{item.zl}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="basic-container" style="margin-top: 20px;">
+    <view class="basic-title"><image style="width: 20px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/pb_info.png"></image>热料仓配比</view>
+    <view class="basic-content">
+      <view class="table-container rlc" style="overflow:hiddenl;">
+        <view class="th">
+          <view class="td">热料仓</view>
+          <view class="td">重量</view>
+          <view class="td">备注</view>
+        </view>
+        <view class="tr" wx:for="{{rlcpb}}" wx:key="*this">
+          <view class="td">{{item.rlc}}</view>
+          <view class="td">{{item.zl}}</view>
+          <view class="td">{{item.bz}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="basic-content clear" style="margin-top: 12px;">
+    <view class="person-item">操作人员: {{addUser}}</view>
+    <view class="person-item">填表人员: {{tbr}}</view>
+    <view class="person-item">复合人员: {{fhr}}</view>
+  </view>
+
+  <view style="margin-top: 24px;text-align: center;">
+    <button size="mini" class="btn-red mr-10" bindtap='sh'>审核</button>
+    <button size="mini" class="btn-gray-light" bindtap='toBack'>返回</button>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+<!--pages/ggdb/ggdb.wxml-->
+<view class="weui-tab">
+    <view class="weui-navbar">
+        <view bindtap="navchange" data-nav="nav1" class="weui-navbar__item {{nav_css1}}">
+            我的签审
+        </view>
+        <view bindtap="navchange" data-nav="nav2" class="weui-navbar__item {{nav_css2}}">
+            我的任务
+        </view>
+    </view>
+    <view class="weui-tab__panel">
+        <view wx:if="{{!nav_dbsx}}">
+          <view class="qs-container" wx:for="{{array}}"  wx:key="{{array}}" wx:for-index="index" wx:for-item="item" bindtap='toDetail' data-shid='{{item.shId}}' data-shlx='{{item.shlx}}'>
+            <view class="qs-title">标题:{{item.bt}}</view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;padding-right: 20px;box-sizing: border-box;">{{item.nr}}</view>
+              <view class="pull-right" style="width: 35%;">{{item.slmc}}: {{item.sl}}</view>
+            </view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;">上一级: {{item.sj}}</view>
+              <view class="pull-right" style="width: 35%;">时间: {{item.rq}}</view>
+            </view>
+          </view>
+        </view>
+     <view wx:if="{{nav_dbsx}}">
+          <view class="qs-container" wx:for="{{array2}}"  wx:key="{{array}}" wx:for-index="index" wx:for-item="item" bindtap='toTask' data-shid='{{item.shId}}' data-shlx='{{item.shlx}}'>
+            <view class="qs-title">标题:{{item.bt}}</view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;padding-right: 20px;box-sizing: border-box;">{{item.nr}}</view>
+            </view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;">上一级: {{item.sj}}</view>
+              <view class="pull-right" style="width: 35%;">时间: {{item.rq}}</view>
+            </view>
+          </view>
+        </view>
+
+              <view wx:if="{{nav_dbsx}}">
+          <view class="qs-container"bindtap="syscode" wx:for="{{wxtz}}"  data-kemu="{{item.subjectRepair}}" data-equipmentId="{{item.equipmentId}}" data-wxby="sbwx">
+            <view class="qs-title">标题:维修工单</view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;padding-right: 20px;box-sizing: border-box;">{{item.site}} {{item.subjectRepair}} {{item.positionRepair}}</view>
+            </view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;">上一级: {{item.personresponsible}}</view>
+              <view class="pull-right" style="width: 35%;">时间:{{item.datePlan?item.datePlan:''}}</view>
+            </view>
+          </view>
+    </view>
+    <view wx:if="{{nav_dbsx}}">
+          <view  bindtap="syscode"class="qs-container" wx:for="{{bytz}}" data-kemu="{{item.categoryMaintenance}}" data-equipmentId="{{item.maintenanceId}}" data-wxby="sbby">
+            <view class="qs-title">标题:保养工单</view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;padding-right: 20px;box-sizing: border-box;">{{item.site}} {{item.categoryMaintenance}} {{item.pointMonitor}}</view>
+            </view>
+            <view class="clear qs-content">
+              <view class="pull-left" style="width: 65%;">上一级: {{item.personresponsible}}</view>
+              <view class="pull-right" style="width: 35%;">时间:{{item.datePlan?item.datePlan:''}}</view>
+            </view>
+          </view>
+    </view>
+    </view>
+
+</view>

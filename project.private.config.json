@@ -1,0 +1,30 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "subpackages/pages/jtsq/jtsq",
+                    "pathName": "subpackages/pages/jtsq/jtsq",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "subpackages/pages/zdpd/zdpd",
+                    "pathName": "subpackages/pages/zdpd/zdpd",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

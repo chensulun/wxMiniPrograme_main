@@ -1,0 +1,335 @@
+/**index.wxss**/
+page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.indexContain {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.position {
+  margin: 0;
+  padding: 0;
+  height: 5.4%;
+}
+
+.header_dw {
+  height: 25px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.position_text {
+  display: inline-block;
+  height: 35px;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 3%;
+  line-height: 35px;
+}
+
+.header_you {
+  height: 28px;
+  width: 35px;
+  vertical-align: middle;
+}
+
+.sys_icon_header {
+  height: 31px;
+  width: 31px;
+  float: right;
+  margin: 2px 4% 2px 0;
+}
+
+.lb {
+  height: 20.7%;
+}
+
+.lb image {
+  width: 100%;
+  height: 100%;
+}
+
+.tz_db {
+  width: 100%;
+  height: 16%;
+}
+
+.fgx {
+  height: 3pt;
+  background-color: rgb(241, 241, 241)
+}
+
+.flex-item {
+  width: 44%;
+  height: 80%;
+  margin: 10px 3% 10px 3%;
+  float: left;
+  background: rgba(242, 246, 254, 0.5);
+  border-radius: 8px;
+}
+
+.flex-item_nei {
+  height: 33pt;
+  width: 80%;
+  margin: 13pt auto 14pt auto;
+  display: flex;
+  align-items: center
+}
+
+.flex-item_nei .tzdb_img {
+  height: 33pt;
+  width: 33pt;
+}
+
+.flex-item_nei .tzdb_wb {
+  display: inline-block;
+  width: 55%;
+  height: 33pt;
+  color: #aaa;
+  margin-left: 4pt;
+  font-size: 10pt;
+
+}
+
+.flex__itemz {
+  float: left;
+  width: 25%;
+  text-align: center;
+  color: rgb(122, 123, 124);
+  font-size: 12px;
+}
+
+.flex__itemz:nth-child(n+5) {
+  margin-top: 10px;
+}
+
+.navplace {
+  padding: 2.5% 0 2.5% 0;
+}
+
+.flex__item_img {
+  width: 32px;
+  height: 32px;
+}
+
+.kb_head {
+  display: flex;
+  justify-content: flex-end;
+  /* text-align: right; */
+  /* margin-top: 12px; */
+  height: 4.7%;
+  line-height: 26.08px;
+  /* position: relative; */
+
+}
+
+.kb_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.kb_yzs {
+  width: 150px;
+  display: flex;
+  justify-content: middle;
+  padding-right: 2px;
+
+
+  margin-right: 8px;
+  font-size: 14px;
+  /* display: inline-block; */
+  /* position: absolute; */
+  /* right: 0; */
+  /* height: 30px; */
+  /* width: 100px; */
+  /* top: 0px; */
+}
+
+.fhbz {
+  background: rgb(9, 187, 7);
+}
+
+.scbz {
+  background: rgb(129, 88, 255);
+}
+
+.scfh_title {
+  font-size: 12px;
+  color: rgb(122, 123, 124);
+  padding-left: 3px;
+  position: relative;
+}
+
+.progress_sfh {
+  width: 80%;
+}
+
+.sckb {
+  height: 23.4%;
+  margin: 0 4px 0 4px;
+}
+
+.sctubiao {
+  height: 70pt;
+  width: 70pt;
+}
+
+.sczbjk {
+  position: absolute;
+  bottom: 0px;
+}
+
+.yczb {
+  color: #009233;
+}
+
+.jczb {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  background: rgb(9, 187, 7);
+}
+
+.jcwd {
+  background: #5DB75D
+}
+
+.jcpb {
+  background: #5AC0DE;
+}
+
+.jcysb {
+  background: #7276DE;
+}
+
+.getuserinfo {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+}
+
+.cover {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+  height: 100%;
+  z-Index: 999;
+}
+
+.modal {
+  position: absolute;
+  width: 85%;
+  height: 32%;
+  top: 34%;
+  left: 7.5%;
+  z-Index: 1000;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.close {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.sysTitle {
+  height: 11%;
+  font-size: 18px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+
+.sysButtonZ {
+  width: 90%;
+  height: 16.5%;
+  margin: 0 auto;
+}
+
+.sysButtonZ::after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0
+}
+
+.sysButtonZ button {
+  float: left;
+  font-size: 12px;
+  width: 20%;
+  margin: 0 2.5% 0 2.5%;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(38, 196, 79, 1);
+  background: rgba(38, 196, 79, 0.1);
+  border-radius: 6px;
+}
+
+.sysZysx {
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 2.5%;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: rgba(102, 102, 102, 1);
+  line-height: 28px;
+}
+
+.sysZynr {
+  width: 90%;
+  height: 27%;
+  margin: 0 auto;
+  display: block;
+  padding-left: 2.5%;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 8px;
+  overflow: auto;
+}
+
+.blue view {
+  background: rgb(184, 184, 184)
+}
+
+.weui-badge_dot1 {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: 1px;
+  margin-right: 2px;
+}
+
+.weui-badge_dot123 {
+  width: 100%;
+  height: 1px;
+}
+
+.jczb-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

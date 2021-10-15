@@ -1,0 +1,37 @@
+/* pages/sjtj/sjtj.wxss */
+
+.placeholder{
+  width: 80%;
+  margin: 5pt auto 5pt auto;
+  height: 80pt;
+  border: 2px solid rgb(241, 241, 241);
+  box-shadow: darkgrey 5px 5px 5px 3px ;
+  border-radius:12px;
+  position:relative;
+}
+.sjtj_up{
+  height: 20pt;
+  margin: 5pt;
+}
+.sjtj_bzimg{
+  width: 20pt;
+  height: 20pt;
+}
+.sjtj_nextimg{
+  width: 10pt;
+  height: 10pt;
+  margin-top:5pt;
+  float: right;
+}
+.sjtj_bottom{
+  margin: 5pt;
+  position: absolute;
+  bottom: 0px;
+}
+.sjtj_bottom_h1{
+  font-weight: bold;
+}
+.sjtj_bottom_h2{
+  font-size: 12px;
+  color: #aaa;
+}

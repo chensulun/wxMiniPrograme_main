@@ -1,0 +1,45 @@
+<!--pages/sbbylist/sbbylist.wxml-->
+<wxs src="../../../wxs/subutil.wxs" module="tools" />
+<view class="weui-tab">
+    <view class="flex">
+      <view class="flex__item head_xl2">
+        <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
+          <view class="picker">
+            {{dateStart}}<image src="/icon/sjx.png" class="select_sj"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="clearfloat"></view>
+    </view>
+    <view class="weui-tab__panel">
+        <view style="display:{{nav_panl1}}">
+            
+            <view class="weui-cells weui-cells_form ">
+              <view wx:for="{{listByjd}}" wx:key="*this" class="weui-cells">
+                  <navigator url="{{'/pages/sbbynew/sbbynew?maintenanceId='+item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view style="width:100%;white-space:pre-line;">
+                      <view class="weui-cell__bd">
+                          <p>{{tools.sub(item.create_time)}}</p>
+                      </view>
+                      <view class="weui-cell__bd">
+                          <p>{{item.maintain_type}}</p>
+                      </view>
+                    </view>
+                    <view style="width:100%;white-space:pre-line;" class=" weui-cell__ft_in-access">
+                      <view class="weui-cell__bd">
+                          <p>{{item.assets_typename}}</p>
+                      </view>
+                      <view class="weui-cell__bd">
+                          <p>{{item.assets_name}}</p>
+                      </view>
+                      <view class="weui-cell__bd ">{{item.assets_clanme}}</view>
+                    </view>
+                  </navigator>
+
+              </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>

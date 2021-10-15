@@ -1,0 +1,211 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+
+<form bindsubmit='addpb'>
+<view class="xzrw-container">
+  <view class="xzrw-title">
+    <view class="title-item {{titleVal==='basic'?'active':''}}" bindtap="switchTitle" data-type="basic">基本信息</view>
+    <view class="title-item {{titleVal==='task'?'active':''}}" bindtap="switchTitle" data-type="task">冷料仓配比</view>
+    <view class="title-item {{titleVal==='other'?'active':''}}" bindtap="switchTitle" data-type="other">热料仓配比
+    </view>
+  </view>
+  <view class="cells-item">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <view hidden="{{titleVal!=='basic'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="工程名称" ext-class="">
+              <picker bindchange="pickerChange" value="{{value}}" range-key="name"
+              range="{{list}}" data-id="{{list[index].id}}">
+                <view class="picker">
+                  {{list[index].name}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="混合科类型" ext-class="">
+               <input name="hhklx" value='{{formData.hhklx}}' class="weui-input" disabled placeholder="请输入"/>
+          </mp-cell>
+           <mp-cell title="级配编号" ext-class="">
+               <input name="jpbh" class="weui-input" disabled value='{{test}}' placeholder="提交后自动生成"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="级配模板" ext-class="">
+               <input name="jpmb" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="沥青编号" ext-class="">
+               <input name="lqbh" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="区间温度" ext-class="">
+              <input name="qjwd" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="班次" ext-class="">
+              <input name="bc" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="天气" ext-class="">
+              <input name="tq" name="tq" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="石料加热温度(℃)" ext-class="">
+              <input name="sljrwd" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="产品出厂温度(℃)" ext-class="">
+              <input name="cpccwd" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="沥青加热温度(℃)" ext-class="">
+              <input name="lqjrwd" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="干拌时间(s)" ext-class="">
+              <input name="gbsj" type="number" bindinput="vNum" data-name="gbsj"value='{{formData.gbsj}}' class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="湿拌时间(s)" ext-class="">
+              <input name="sbsj" type="number"  bindinput="vNum"data-name="sbsj" value='{{formData.sbsj}}'  class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="审核状态" ext-class="">
+            <radio-group class="radio-group" name="zt"  bindchange="radioChange">
+              <radio class="radio" value="0"checked='true' style="margin-right:20px;">未审核</radio>
+              <radio class="radio" value="1" >已审核</radio>
+            </radio-group>
+          </mp-cell>
+        </mp-cells>
+      </view>
+
+      <view class="llc-container" hidden="{{titleVal!=='task'}}">
+        <mp-cells ext-class="cells-item">
+          <view class="weui-cell">
+            <view class="table-container">
+              <view class="th">
+                <view class="td">冷料仓规格</view>
+                <view class="td">厂商</view>
+                <view class="td">规格</view>
+                <view class="td">重量</view>
+                <view class="td"></view>
+              </view>
+              <view class="tr" wx:for="{{tableList1}}" wx:key="index">
+                <view class="td">{{item.llcgg}}</view>
+                <view class="td">{{item.cs}}</view>
+                <view class="td">{{item.gg}}</view>
+                <view class="td">{{item.zl}}</view>
+                <view class="td" data-index="{{index}}" bindtap="llcDelItem">
+                  <mp-icon icon="close" color="#E74F4F" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+              <view class="tr">
+                <view class="td">
+                  <input bindinput="llcInputChange1" value="{{llcData.llcgg}}" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td">
+                  <!-- <input  value="{{llcData.yclcs}}" class="weui-input"
+                  placeholder="请输入"/> -->
+                   <picker bindchange="csChange" value="{{value}}" range-key="name"
+                    range="{{yclcsList}}" >
+                      <view class="picker">
+                        {{yclcsList[csIndex].name}}
+                      </view>
+                  </picker>
+                  
+                </view>
+                <view class="td">
+                  <!-- <input bindinput="llcInputChange3" value="{{llcData.yclgg}}" class="weui-input"
+                  placeholder="请输入"/> -->
+                   <picker bindchange="ggChange" value="{{value}}" range-key="name"
+                    range="{{yclggList}}" >
+                      <view class="picker">
+                        {{yclggList[ggIndex].name}}
+                      </view>
+                  </picker>
+                </view>
+                <view class="td">
+                  <input bindinput="llcInputChange4" value="{{llcData.zl}}" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td" bindtap="llcAddItem">
+                  <mp-icon icon="done" color="#51aa38" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+            </view>
+          </view>
+        </mp-cells>
+
+        <!-- <mp-cells ext-class="cells-item">
+          <mp-cell title="操作人员" ext-class="">
+              <input name="" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="填表人员" ext-class="">
+              <input name="" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="复合人员" ext-class="">
+              <input name="" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells> -->
+      </view>
+      <view hidden="{{titleVal!=='other'}}">
+        <mp-cells ext-class="cells-item">
+          <view class="weui-cell">
+            <view class="table-container">
+              <view class="th">
+                <view class="td">热料仓</view>
+                <view class="td">重量</view>
+                <view class="td">备注</view>
+                <view class="td"></view>
+              </view>
+              <view class="tr" wx:for="{{tableList}}" wx:key="index">
+                <view class="td">{{item.rlc}}</view>
+                <view class="td">{{item.zl}}</view>
+                <view class="td">{{item.bz}}</view>
+                <view class="td" data-index="{{index}}" bindtap="rlcDelItem">
+                  <mp-icon icon="close" color="#E74F4F" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+              <view class="tr">
+                <view class="td">
+                  <input bindinput="rlcInputChange1" value="{{rlcData.rlc}}" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td">
+                  <input bindinput="rlcInputChange2" value="{{rlcData.zl}}" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td">
+                  <input bindinput="rlcInputChange3" value="{{rlcData.bz}}" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td" bindtap="rlcAddItem">
+                  <mp-icon icon="done" color="#51aa38" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+            </view>
+          </view>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="操作人员" ext-class="">
+              <input name="addUser" value='{{formData.addUser}}' class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="填表人员" ext-class="">
+              <input name="tbr" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="复合人员" ext-class="">
+              <input name="fhr" class="weui-input"value='{{test}}' placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+      </view>
+      <view class="text-center mt-20">
+          <button class="btn-red mr-10" size="mini" formType="submit" >保存</button>
+          <button class="btn-gray-light mr-10" size="mini" bindtap='reload'>添加</button>
+      </view>
+    </mp-form>
+  </view>
+</view>
+</form>

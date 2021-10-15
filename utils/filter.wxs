@@ -1,0 +1,26 @@
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(3) // 此处3为保留两位小数，保留几位小数，这里写几    
+  },
+  toStr: function (value) {
+    return value.toString()
+  },
+  toNum: function (value) {
+    return value.toNumber()
+  },
+  kgTodun:function (value){
+    console.log(value);
+    if(value>0){
+      value=value/1000;
+      return value.toFixed(3)
+    }
+    return value;
+  }
+}
+
+module.exports = {
+  toFix: filters.toFix,
+  toStr: filters.toStr,
+  toNum: filters.toNum,//暴露接口调用
+  kgTodun: filters.kgTodun,
+}

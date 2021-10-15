@@ -1,0 +1,54 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="zcck-container">
+  <view class="cells-item">
+    <mp-form id="form" wx:for="{{list}}" wx:key="this">
+      <view style="margin-bottom: 20px;">
+        <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/basic_info.png"></image>基本信息</view>
+        <view class="cells-container">
+          <mp-cells ext-class="cells-item">
+            <mp-cell title="资产名称:" ext-class="">
+                <input data-field="name1" data-index="{{index}}"
+                value="{{item.name}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="制造商:" ext-class="">
+                <input data-field="name2" data-index="{{index}}"
+                value="{{item.zzs}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="类别:" ext-class="">
+                <input data-field="name3" data-index="{{index}}"
+                value="{{item.lb}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="编号:" ext-class="">
+                <input data-field="name4" data-index="{{index}}"
+                value="{{item.bh}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="状态:" ext-class="">
+                <input data-field="name5" data-index="{{index}}"
+                value="{{item.status}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="采购时间:" ext-class="">
+                <input data-field="name6" data-index="{{index}}"
+                value="{{item.cg_date}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="位置:" ext-class="">
+                <input data-field="name7" data-index="{{index}}"
+                value="{{item.wz}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="入库时间:" ext-class="">
+                <input data-field="name8" data-index="{{index}}"
+                value="{{item.rk_date}}" class="weui-input"disabled/>
+            </mp-cell>
+            <mp-cell title="管理人:" ext-class="">
+                <input data-field="name9" data-index="{{index}}"
+                value="{{item.gl_person}}" class="weui-input"disabled/>
+            </mp-cell>
+          </mp-cells>
+        </view>
+        <view class="basic-title mt-20"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/photo.png"></image>照片</view>
+        <view class="photo-container" >
+          <view class="photo-item"  wx:for="{{item.img_list}}" wx:key="this" wx:for-index="index" wx:for-item="item1"><image mode="aspectFit" src="{{img_url}}{{item1.img_url}}"></image></view>
+        </view>
+      </view>
+    </mp-form>
+  </view>
+</view>

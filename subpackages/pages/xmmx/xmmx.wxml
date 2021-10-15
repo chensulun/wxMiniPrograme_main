@@ -1,0 +1,100 @@
+<!--pages/rwdmx/rwdmx.wxml-->
+<view class="rwdmx-container">
+  <view class="basic-container">
+    <view class="basic-title">
+      <image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix"
+        src="../../../img/basic_info.png"></image> 基本信息
+    </view>
+    <view class="basic-content" wx:for="{{arr}}" wx:key="{{index}}" wx:for-item="item">
+      <!-- <view class="clear">
+        <view class="info-name">客户名称:</view>
+        <view class="info-content">{{}}</view>
+      </view> -->
+      <view class="clear">
+        <view class="info-name">任务编号:</view>
+        <view class="info-content">{{item.taskCode}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">项目:</view>
+        <view class="info-content">{{item.projectName}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">生产类型:</view>
+        <view class="info-content">{{item.taskProductionType}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">计划量:</view>
+        <view class="info-content">{{item.taskPlannedQuantity}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">供货时间:</view>
+        <view class="info-content">{{item.taskSupplyTime}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">地址:</view>
+        <view class="info-content">{{item.taskAddress}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">联系人:</view>
+        <view class="info-content">{{item.taskContacts}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">联系电话:</view>
+        <view class="info-content">{{item.taskPhone}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">创建时间:</view>
+        <view class="info-content">{{item.createTime}}</view>
+      </view>
+      <!-- <view class="clear">
+        <view class="info-name">工地纬度:</view>
+        <view class="info-content">{{gdwd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">工地经度:</view>
+        <view class="info-content">{{gdjd}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">总签订单:</view>
+        <view class="info-content">{{zqdl}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">总量控制:</view>
+        <view class="info-content">{{zlkz}}</view>
+      </view>
+      <view class="clear">
+        <view class="info-name">备注:</view>
+        <view class="info-content">{{remark}}</view>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="basic-container" style="margin-top: 20px;">
+    <view class="basic-title">
+      <image style="width: 20px;vertical-align: -3px;margin-right: 6px;" mode="widthFix"
+        src="../../../img/project_info.png"></image>审批
+    </view>
+
+    <view class="basic-content">
+      <form catchsubmit="sh">
+        <view wx:for="{{formData}}" wx:key="{{formData}}" wx:for-item="item">
+          <view>{{item.controlLable}}</view>
+          <view wx:if="{{'radio'==item.controlType}}">
+            <!-- checked="{{itemm==checked}}" -->
+            <radio wx:for="{{item.controlDefault}}" wx:key="{{index}}" wx:for-item="itemm" 
+              value='{{itemm}}' data-value="{{itemm}}" bindtap='checkedTap' checked="{{itemm==checked}}">{{itemm}}</radio>
+          </view>
+          <view wx:if="{{'textarea'==item.controlType}}">
+            <input style="border: 1px solid black;" class="weui-input" bindinput="inputValue" />
+          </view>
+        </view>
+
+        <view style="margin-top: 24px;text-align: center;">
+          <button size="mini" class="btn-red mr-10" bindtap="sh">审核</button>
+          <button size="mini" class="btn-gray-light" bindtap='toBack'>返回</button>
+        </view>
+      </form>
+    </view>
+
+  </view>
+</view>

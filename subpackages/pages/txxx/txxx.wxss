@@ -1,0 +1,15 @@
+/* subpackages/pages/txxx/txxx.wxss */
+
+.cells-item {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.box {
+    margin: 0 20px;
+}
+
+.my-input{
+    margin-left: 50px;
+}

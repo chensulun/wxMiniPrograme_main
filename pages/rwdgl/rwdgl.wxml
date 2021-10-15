@@ -1,0 +1,46 @@
+<!--pages/rwdgl/rwdgl.wxml-->
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+<view class="page-rwdgl">
+  <view class="rwdgl-top">
+    <!-- 新增任务单 -->
+    <navigator url="/pages/xzrwd/xzrwd" class="rwdgl-add">
+      <view class="rwd-add-icon">
+        <image src="/img/xzrwd.png"></image>
+      </view>
+      <view class="rwd-title">新增任务单</view>
+      <view class="rwd-subtitle">随时,随地,快捷高效</view>
+    </navigator>
+    <!-- 任务单查询 -->
+    <navigator url="/pages/rwdcx/rwdcx" class="rwdgl-search">
+      <view class="rwd-search-icon">
+        <image src="/img/rwdcx.png"></image>
+      </view>
+      <view class="rwd-title">任务单查询</view>
+      <view class="rwd-subtitle">随时,随地,快捷高效</view>
+    </navigator>
+  </view>
+  <view class="rwdgl-content">
+    <view class="content-title">任务单供应量排行榜</view>
+    <view style="height:calc(100vh - 200px);">
+       <view class="content-item"   wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
+      <view class="content-item-top clear">
+        <text class="pull-left">{{item.task_no}}</text>
+      </view>
+      <view class="content-item-middle clear">
+      <text class="pull-left">{{item.engineer_name}}</text>
+        <text class="pull-right" style="font-size: 16px;color: #156329;">{{filters.kgTodun(item.deliver_amount)}}</text></view>
+      <view class="content-item-bottom clear">
+        <text class="pull-left" style="color: #3B3B3B;">砼类型: {{item.concrete_name}}</text>
+        <text class="pull-right">计划量：{{item.plan_amount==null?"":item.plan_amount}}</text>
+      </view>
+       <view class="content-item-bottom clear">
+        <text class="pull-left" style="color: #3B3B3B;">工地供需时间: {{item.site_supply}}            </text>
+      </view>
+       <view class="content-item-bottom clear">
+        <text class="pull-left" style="color: #3B3B3B;">下一级: {{item.next_audit_name}}            </text>
+      </view>
+    </view>
+  </view>
+    </view>
+   
+</view>

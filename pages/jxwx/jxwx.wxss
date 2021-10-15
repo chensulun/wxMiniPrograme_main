@@ -1,0 +1,147 @@
+/* pages/sbwx/sbwx.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.position{
+  margin: 0;
+  padding: 0;
+  height: 35px;
+}
+.header_dw{
+  height: 35px;
+  width: 35px;
+  vertical-align:middle;
+}
+.position_text{
+  display:inline-block;
+  height:35px;
+  vertical-align:middle;
+  font-size:16px;
+  font-weight: bold;
+  margin-right:3%;
+  line-height: 35px;
+  color: rgb(66, 78, 98);
+}
+.header_you{
+  height: 28px;
+  width: 35px;
+  vertical-align:middle;
+}
+.sys_icon_header{
+  height: 31px;
+  width: 31px;
+  float: right;
+  margin:2px 4% 2px 0;
+}
+.weight_font{
+  font-weight: bold;
+}
+.contain1{
+  width:90%;
+  margin: 10px auto 0 auto;
+  box-shadow:0px 10px 20px 0px rgba(15,21,57,0.2);
+  border-radius:12px;
+}
+.jux_title{
+  width: 5px;
+  height: 22px;
+  background: #3eca63;
+}
+.weui-badge_dot{
+  background: #3eca63;
+}
+.cell_title{
+  display: inline-block;
+}
+.weui-textarea{
+  background: rgb(246, 246, 246);
+  border-radius:8px;
+}
+.checkbox_text{
+  font-size: 14px;
+}
+.cell_weixr{
+  display: inline-block;
+  width: 60%;
+}
+.yyin{
+  background: rgb(233, 249, 237);
+  width: 90%;
+  margin: 0 auto 16px auto;
+  color: #3eca63;
+}
+.tjyl{
+  margin:26px 16px;
+}
+.yuyinplay{
+  text-align: center;
+  width: 90%;
+  margin: 6px auto 0 auto;
+}
+.ly__itemz{
+
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  border-radius: 12px;
+  background: rgb(117,118,117);
+  padding: 8px;
+  color: white;
+  font-size: 12px;
+  position:fixed;
+  z-index: 999;
+  top: 35%;
+  right: 35%;
+}
+.ly_img{
+  background: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 5px 0;
+}
+.noneline::before{
+  border-top:none !important;
+}
+.lsjv{
+  margin-bottom: 16px;
+}
+.lsjv view{
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.lsjv image{
+  width:20px;
+  height: 20px ;
+  vertical-align:middle;
+}
+.lybq{
+  padding-bottom:0; 
+}
+.weui-uploader__file{
+  position: relative;
+}
+.yuyinlist{
+   position: relative;
+}
+audio{
+  display: block;
+}
+.cancel,.cancelship{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.cancelyuyin{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+
+

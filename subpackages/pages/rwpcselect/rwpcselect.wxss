@@ -1,0 +1,158 @@
+/* pages/rwpcselect/rwpcselect.wxss */
+.page-rwdgl image {
+  width: 100%;
+  height: 100%;
+}
+.page-rwdgl {
+  box-sizing: border-box;
+}
+.rwdgl-top {
+  height: 110px;
+  box-shadow:0px 2px 1px 0px rgba(177,176,176,0.16);
+  border-top: 1px solid #EDEDED;
+}
+.rwdgl-add {
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 10px;
+}
+.rwd-add-icon {
+  width: 24%;
+  height: 66px;
+  display: inline-block;
+  vertical-align: -10px;
+}
+.rwd-add-text {
+  display: inline-block;
+}
+.rwd-title {
+  text-align: center;
+  font-size: 20px;
+  color: #191919;
+}
+.rwd-subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #919090;
+}
+ /* 任务单供应量排行榜 */
+.rwdgl-content {
+  border-top: 16px solid #ededed;
+}
+.content-title {
+  line-height: 30px;
+  border-bottom: 1px solid #EDEDED;
+  padding: 0 14px;
+  font-size:15px;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(25,25,25,1);
+}
+.content-item {
+  border-bottom: 1px solid #EDEDED;
+  padding: 12px 20px 12px 14px;
+  color: #323232;
+}
+.content-item-top {
+  font-size: 13px;
+}
+.content-item-middle {
+  font-size: 14px;
+}
+.content-item-bottom {
+  font-size: 12px;
+  color: #242424;
+}
+
+.rwdcx-header {
+  height: 55px;
+  border-bottom: 1px solid #EDEDED;
+}
+.header-cboxitem {
+  width: 20%;
+  height: 100%;
+  line-height: 55px;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+}
+.allSelect_box{
+ line-height:90rpx;
+ border-bottom:1rpx solid #F5F5F5;
+}
+.checkbox{
+ transform: scale(0.7,0.7);
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+ color:#fff;
+ background: #6669e3;
+ border-color:#6669e3;
+}
+.allSelect{
+ margin-left:15rpx;
+ vertical-align:middle;
+}
+.member_box .checkbox{
+ margin-top: 15rpx;
+}
+.member_box{
+ padding-bottom:30rpx;
+ display: flex;
+ border-bottom:2rpx solid #EBEBEB;
+ padding:20rpx 0 20rpx 0;
+}
+.header-item {
+  width: 40%;
+  height: 100%;
+  line-height: 55px;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+}
+.select-icon {
+  display: inline-block;
+  width: 13px;
+  height: 6px;
+}
+.select-icon image {
+  width: 100%;
+  height: 100%;
+}
+.list-item {
+  border-bottom: 1px solid #EDEDED;
+  padding: 14px 20px 30px 56px;
+  position: relative;
+}
+.item-index {
+  font-size: 13px;
+  min-width: 18px;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  padding: 2px 6px;
+  background-color: #DBD8D8;
+}
+.item-top {
+  font-size:13px;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(50,50,50,1);
+}
+.item-middle {
+  font-size:14px;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(50,50,50,1);
+}
+.item-bottom {
+  font-size:10px;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(201,21,21,1);
+}
+.line41{
+  line-height: 41rpx;
+}

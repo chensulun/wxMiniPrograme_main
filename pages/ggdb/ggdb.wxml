@@ -1,0 +1,87 @@
+<!--pages/ggdb/ggdb.wxml-->
+<view class="weui-tab">
+  <!-- <view class="weui-navbar">
+        <view bindtap="navchange" data-nav="nav1" class="weui-navbar__item  {{nav_css1}}">
+            公告通知
+        </view>
+        <view bindtap="navchange" data-nav="nav2" class="weui-navbar__item {{nav_css2}}">
+            待办事项
+        </view>
+    </view> -->
+  <view class="weui-tab__panel">
+    <view>
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd" wx:for="{{wxtz}}" wx:key="index" data-equipmentId="{{item.equipmentId}}" data-wxby="sbwx">
+
+          <navigator url="/pages/gdxq/gdxq?equipmentId={{item.equipmentId}}" class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 设备维修工单</h4>
+              <p class="weui-media-box__desc"> 你有设备需要维修。</p>
+            </view>
+          </navigator>
+
+        </view>
+
+        <view class="weui-panel__bd" wx:for="{{bytz}}" wx:key="index">
+
+          <view bindtap="syscode" href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" data-positionRepair="{{item.pointMonitor}}" data-equipmentId="{{item.maintenanceId}}" data-wxby="sbby">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 保养维护工单</h4>
+              <p class="weui-media-box__desc"> 你有设备需要保养维护。</p>
+            </view>
+          </view>
+        </view>
+        <view class="weui-panel__bd" wx:for="{{gonggao}}" wx:key="index">
+          <navigator class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 系统公告</h4>
+              <p class="weui-media-box__desc"> {{item.biaoti}}</p>
+            </view>
+          </navigator>
+        </view>
+        <view class="weui-panel__bd" wx:for="{{gonggao}}" wx:key="index">
+          <navigator class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 系统公告</h4>
+              <p class="weui-media-box__desc"> {{item.biaoti}}</p>
+            </view>
+          </navigator>
+        </view>
+        <view class="weui-panel__bd" wx:for="{{array}}" wx:key="index">
+          <navigator class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 签核通知</h4>
+              <p class="weui-media-box__desc"> {{item.bt}} {{item.nr}}</p>
+            </view>
+          </navigator>
+        </view>
+        <view class="weui-panel__bd" wx:for="{{xjtzlist}}" wx:key="index">
+          <navigator class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="/img/ggtz2.png"> </image>
+            </view>
+            <view class="weui-media-box__bd">
+              <h4 class="weui-media-box__title"> 安全巡检通知</h4>
+              <p class="weui-media-box__desc"> 你有一个巡检任务 计划开始时间为：{{item.nr}}</p>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

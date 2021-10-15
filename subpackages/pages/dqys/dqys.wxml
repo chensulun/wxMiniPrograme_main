@@ -1,0 +1,91 @@
+<!--subpackages/pages/dqys/dqys.wxml-->
+<view class="page">
+    <image src="../../../icon/user_bg.png" class="bgimg"></image>
+    <view class="box">
+        <view class="f1">
+            <view class="f1-1">
+                <view>
+                    <image src="{{userInfo.avatarUrl}}"
+                        style="width: 80px;height: 80px;vertical-align: middle;margin-right: 10px;border-radius: 50%;">
+                    </image>
+                    <view style="display: inline-block;vertical-align: middle;">
+                        <text style="display: block;font-weight: bold;font-size: 24px;">{{userInfo.nickName}}</text>
+                        <text style="display: block;color: gray;">{{userInfo.car}}</text>
+                    </view>
+                </view>
+                <view class="f1-1-2">
+                    <image src="../../../img/zhandian1.png"
+                        style="width: 20px;height: 22px;vertical-align: middle;margin-left: 20px;margin-right: 10px;">
+                    </image>
+                    <view style="display: inline-block;vertical-align: middle;color: #904829;">
+                        <text style="display: block;font-weight: bold;line-height: 22px;">099</text>
+                        <text style="display: block;line-height: 22px;">巷道站</text>
+                    </view>
+                </view>
+            </view>
+            <view class="line-1px"></view>
+            <view class="f1-2">
+                <view>
+                    <text style="display: block;font-weight: bold;">378</text>
+                    <text style="display: block;color: gray;">今日运量</text>
+                </view>
+                <view class="line-1px-y"></view>
+                <view>
+                    <text style="display: block;font-weight: bold;">50</text>
+                    <text style="display: block;color: gray;">运输车次</text>
+                </view>
+                <view class="line-1px-y"></view>
+                <view>
+                    <text style="display: block;font-weight: bold;">5</text>
+                    <text style="display: block;color: gray;">运送工地</text>
+                </view>
+            </view>
+        </view>
+        <view class="f2">
+            <!-- f2-1 -->
+            <view style="display: flex;justify-content: space-between;margin: 30px 20px;">
+                <text style="font-weight: bold;">XXX项目</text>
+                <view style="background-color: #47d574; height: 30px; border-radius: 15px;">
+                    <image src="../../../img/yunshu2.png"
+                        style="width:20px;height: 15px;vertical-align: middle;margin-left: 10px;margin-right: 6px;">
+                    </image>
+                    <text style="color:white;vertical-align: middle;margin-right: 10px;">运输中</text>
+                </view>
+            </view>
+            <!-- f2-2 -->
+            <view
+                style="background-color: rgba(238, 238, 238, 0.432);display: flex;justify-content: space-around;padding: 20px; width: 80%;margin: 0 auto;">
+                <view>
+                    <text style="display: block;font-weight: bold;color: #ffa200;font-size: 20px;">石灰石21</text>
+                    <text style="display: block;color: gray;">材料类型</text>
+                </view>
+                <view>
+                    <text style="display: block;font-weight: bold;color: #ff0000;font-size: 20px;">135</text>
+                    <text style="display: block;color: gray;">载重(吨)</text>
+                </view>
+            </view>
+            <!-- f2-3 -->
+            <view style="margin: 0 3=20px;">
+                <view
+                    style="display: flex;justify-content: space-between;align-items: center;text-align: left;margin: 20px 30px;">
+                    <view>
+                        <text style="display: block;font-weight: bold;">{{userInfo.name}}</text>
+                        <text style="display: block;color: gray;">{{userInfo.phone}}</text>
+                    </view>
+                    <image src="../../../img/dianhua.png" style="width: 26px;height: 26px;">
+                    </image>
+                </view>
+                <view class="line-1px"></view>
+                <view
+                    style="display: flex;justify-content: space-between;align-items: center;text-align: left;margin: 20px 30px;">
+                    <view>
+                        <text style="display: block;font-weight: bold;">位置</text>
+                        <text style="display: block;color: gray;">{{userInfo.address[0]}}</text>
+                    </view>
+                    <image src="../../../img/dingwei.png" style="width: 23px;height: 27px;">
+                    </image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

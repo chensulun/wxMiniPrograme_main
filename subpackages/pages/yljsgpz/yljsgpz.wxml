@@ -1,0 +1,121 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <view>
+        <mp-cells ext-class="cells-item mb-10">
+          <mp-cell title="配置信息" ext-class="cell-container">
+            <view class="cell-icon-add" bindtap="addItem">+</view>
+          </mp-cell>
+          <mp-cell title="项目名称" ext-class="cell-container pr-40">
+						<picker bindchange="typePickerChange" data-field="projectIndex" value="{{projectIndex}}" range-key="name" range="{{projectlist}}">
+							<view class="picker text-right">
+								{{projectlist[projectIndex].name}}
+							</view>
+							<view class="cell-icon">
+								<!-- <image src="/img/more.png"></image> -->
+								<image style="width: 100%;height:100%;" src="/icon/more.png" mode="aspectFit"></image>
+							</view>
+						</picker>
+					</mp-cell>
+        </mp-cells>
+        <view wx:for="{{applierList}}" wx:key="index">
+          <view class="tpj-name">
+            压路机{{index + 1}}
+            <button size="mini" wx:if="{{index>0}}" class="btn-del pull-right" data-index="{{index}}"
+              bindtap="delItem">
+              <mp-icon icon="delete" color="#E21B1B" size="{{14}}"></mp-icon>
+              删除
+            </button>
+          </view>
+          <mp-cells ext-class="cells-item">
+						<mp-cell title="压路机{{index+1}}" ext-class="pr-40 cell-container">
+							<input data-field="sb_code" bindinput="formInputChange" data-index="{{index}}" value="{{item.sb_code}}" class="weui-input text-right" placeholder="请输入" />
+							<view class="cell-icon" bindtap="scanCode" data-index="{{index}}" data-field="sb_code">
+								<image style="width: 100%;height:100%;" src="/icon/scan.png" mode="aspectFit"></image>
+							</view>
+						</mp-cell>
+						<mp-cell title="碾压宽度" ext-class="pr-40 cell-container">
+							<input data-field="sgkd" bindinput="formInputChange" data-index="{{index}}" value="{{item.sgkd}}" class="weui-input text-right" placeholder="设备宽度，2m输入2" />
+						</mp-cell>
+						<!-- <mp-cell title="成像仪" ext-class="pr-40 cell-container">
+							<input data-field="cxy_code" bindinput="formInputChange" data-index="{{index}}" value="{{item.cxy_code}}" class="weui-input text-right" placeholder="请输入" />
+							<view class="cell-icon" bindtap="scanCode" data-index="{{index}}" data-field="cxy_code">
+								<image style="width: 100%;height:100%;" src="/icon/scan.png" mode="aspectFit"></image>
+							</view>
+						</mp-cell>
+						<mp-cell title="定位装置" ext-class="pr-40 cell-container">
+							<input data-field="dwzz_code" bindinput="formInputChange" data-index="{{index}}" value="{{item.dwzz_code}}" class="weui-input text-right" placeholder="请输入" />
+							<view class="cell-icon" bindtap="scanCode" data-index="{{index}}" data-field="dwzz_code">
+								<image style="width: 100%;height:100%;" src="/icon/scan.png" mode="aspectFit"></image>
+							</view>
+						</mp-cell>
+						<mp-cell title="安装位置" ext-class="pr-40 cell-container">
+							<picker bindchange="pickerChange" data-index="{{index}}" value="{{item.azwz_index}}" range-key="name" range="{{azwzlist}}" data-field="azwz_index">
+								<view class="picker text-right">
+									{{azwzlist[item.azwz_index].name}}
+								</view>
+								<view class="cell-icon">
+									<image style="width: 100%;height:100%;" src="/icon/more.png" mode="aspectFit"></image>
+								</view>
+							</picker>
+						</mp-cell>
+						<mp-cell title="安装距离" ext-class="pr-40 cell-container">
+							<picker bindchange="pickerChange" data-index="{{index}}" value="{{item.azjl_index}}" range-key="name" range="{{azjl_list}}" data-field="azjl_index">
+								<view class="picker text-right">
+									{{azjl_list[item.azjl_index].name}}
+								</view>
+								<view class="cell-icon">
+									<image style="width: 100%;height:100%;" src="/icon/more.png" mode="aspectFit"></image>
+								</view>
+							</picker>
+						</mp-cell> -->
+						<mp-cell title="平板" ext-class="pr-40 cell-container">
+							<input data-field="pb_code" bindinput="formInputChange" data-index="{{index}}" value="{{item.pb_code}}" class="weui-input text-right" placeholder="请输入" />
+							<view class="cell-icon" bindtap="scanCode" data-index="{{index}}" data-field="pb_code">
+								<image style="width: 100%;height:100%;" src="/icon/scan.png" mode="aspectFit"></image>
+							</view>
+						</mp-cell>
+					</mp-cells>
+        </view>
+      </view>
+      <view class="mt-20 text-center">
+          <button size="mini" class="btn-green mr-10" bindtap="bindsave">绑定</button>
+          <button size="mini" class="btn-gray" bindtap="bindsave1">重置</button>
+          <!-- <button size="mini" class="btn-gray-light">取消</button> -->
+      </view>
+    </mp-form>
+  </view>
+</view>
+<!-- 绑定成功弹窗 -->
+<view class="modal-success {{successShow ? 'show' : ''}}">
+  <view class="modal-content">
+    <view class="tips-content">
+      <view class="tips-icon">
+        <mp-icon icon="done" color="#fff" size="{{40}}"></mp-icon>
+      </view>
+      <view class="tips-text">绑定成功</view>
+    </view>
+    <view class="modal-btns clear">
+      <button type="button" class="btn-cancle pull-left" bindtap="successModalHide">取消</button>
+      <button type="button" class="btn-confirm pull-left">测一测</button>
+    </view>
+  </view>
+</view>
+<!-- 错误弹窗 -->
+<view class="modal-success {{errorShow ? 'show' : ''}}">
+  <view class="modal-content">
+    <view class="tips-info">
+      <view class="tips-top">
+        <view class="error-icon">!</view>
+        <view class="error-text">连接异常</view>
+      </view>
+      <view class="error-name">压路机1</view>
+      <view class="error-txt">成像无法连通，请及时更新。</view>
+    </view>
+    <view class="modal-btns clear">
+      <button type="button" class="btn-cancle pull-left" bindtap="errorModalHide">忽略</button>
+      <button type="button" class="btn-confirm pull-left">重绑</button>
+    </view>
+  </view>
+</view>

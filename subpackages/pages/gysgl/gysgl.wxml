@@ -1,0 +1,48 @@
+<!--pages/rwdgl/rwdgl.wxml-->
+<view class="page-rwdgl">
+  <view class="rwdgl-top">
+    <!-- 新增供应商 -->
+    <navigator url="/pages/xzgys/xzgys" class="rwdgl-add">
+      <view class="rwd-add-icon">
+        <image src="/img/xzrwd.png"></image>
+      </view>
+      <view class="rwd-add-text">
+        <view class="rwd-title">新增供应商</view>
+        <view class="rwd-subtitle">随时,随地,快捷高效</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="rwdgl-content">
+    <view class="rwdcx-header">
+      <!-- <view class="header-item">
+        <picker bindchange="pickerChange" value="{{index}}" range="{{list}}">
+            <view>{{list[index]}} <view class="select-icon"><image src="/img/select_down.png" 
+            mode="aspectFit"></image></view></view>
+        </picker>
+      </view> -->
+      <view class="header-item">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">{{bg_time}} <view class="select-icon"><image src="/img/select_down.png" 
+            mode="aspectFit"></image></view></view>
+        </picker>
+      </view>
+      <view class="header-item">
+        <picker mode="date" value="{{date1}}" bindchange="bindDateChange1">
+          <view class="picker">{{ed_time}} <view class="select-icon"><image src="/img/select_down.png" 
+            mode="aspectFit"></image></view></view>
+        </picker>
+      </view>
+    </view>
+    <view class="list-container">
+      <view class="list-item" wx:for="{{list_data}}" wx:key="{{list_data}}" wx:for-index="index" wx:for-item="item">
+        <view class="item-index">{{index + 1}}</view>
+        <view class="item-top">{{item.u_Code}}</view>
+        <view class="item-middle clear">
+          <view class="pull-left" style="width: calc(100% - 100px);">{{item.u_Name}}</view>
+          <view class="pull-right" style="width: 100px;text-align: right;font-size: 12px;">签订量: <text style="font-size: 16px;">{{item.allcount}}</text></view>
+        </view>
+        <view class="item-bottom">签订日期: {{item.CreationTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>

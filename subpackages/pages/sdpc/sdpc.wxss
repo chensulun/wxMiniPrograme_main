@@ -1,0 +1,69 @@
+/* pages/xzrwd/xzrwd.wxss */
+page {
+  height: 100%;
+  background-color: #EDEDED;
+}
+.xzrw-container {
+  padding: 8px 12px;
+}
+.xzrw-title {
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.title-item {
+  width: 33.33%;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+  color: #6F6A6A;
+  float: left;
+}
+.title-item.active {
+  background-color: #26C44F;
+  color: #fff;
+}
+.cells-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.basic-title {
+  font-size: 15px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(28,28,22,1);
+  position: relative;
+}
+
+.weui-cell {
+  font-size: 14px;
+}
+.btn-del {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #989595;
+  font-size: 12px;
+}
+.btn-del:after {
+  border: none;
+}
+.btn-add {
+  position: absolute;
+  top: -5px;
+  right: 2px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #989595;
+  font-size: 12px;
+}
+.btn-add:after {
+  border: none;
+}
+.weui-icon {
+  vertical-align: -1px !important;
+}

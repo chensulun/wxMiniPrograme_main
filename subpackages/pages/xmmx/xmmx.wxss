@@ -1,0 +1,66 @@
+/* pages/rwdmx/rwdmx.wxss */
+page {
+  height: 100%;
+  background-color: #EDEDED;
+}
+.rwdmx-container {
+  padding: 16px 10px;
+}
+.info-name {
+  float: left;
+  width: 70px;
+}
+.info-content {
+  float: right;
+  width: calc(100% - 70px);
+}
+.basic-title {
+  color: #1C1C16;
+  font-size: 14px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.basic-content {
+  padding: 18px 22px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #3C3C3C;
+  margin-bottom: 10px;
+}
+.table-container {
+  margin-top: 15px;
+}
+.th, .tr, .td {
+  box-sizing: border-box;
+  height: 30px;
+  line-height: 30px;
+}
+.th {
+  background-color: #EDF1FC;
+}
+.tr {
+  border: 1px solid #EDEDED;
+  border-top: none; 
+}
+.th:after, .tr:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.td {
+  text-align: center;
+  float: left;
+  color: #696767;
+  font-size: 13px;
+}
+.th .td:first-child,
+.tr .td:first-child {
+  width: 50%;
+}
+.th .td:nth-child(2),
+.tr .td:nth-child(2) {
+  width: 50%;
+}

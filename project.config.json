@@ -1,0 +1,112 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": false,
+        "es6": false,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "showES6CompileOption": false
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.19.6",
+    "appid": "wx2242bdf7b68a52dd",
+    "projectname": "%E6%95%B0%E6%99%BA%E7%B3%BB%E7%BB%9F",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "环境监测",
+                    "pathName": "pages/hjjc/hjjc",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/xzrwd/xzrwd",
+                    "pathName": "pages/xzrwd/xzrwd",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/index/index",
+                    "pathName": "pages/tpjsgpz/tpjsgpz",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "摊铺机-施工设置",
+                    "pathName": "pages/tpjsgpz/tpjsgpz",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "电子交付",
+                    "pathName": "pages/dzjf/dzjf",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/rwpc/rwpc",
+                    "pathName": "pages/rwpc/rwpc",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/rwdcxnew/rwdcxnew",
+                    "pathName": "pages/rwdcxnew/rwdcxnew",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

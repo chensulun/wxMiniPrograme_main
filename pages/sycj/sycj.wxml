@@ -1,0 +1,37 @@
+<!--pages/sycj/sycj.wxml-->
+<view class="sycj">
+  <view class="sycj-header">
+    <navigator url="/pages/sylr/sylr?category=沥青" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/lq.png"></image>沥青</view>
+    </navigator>
+    <navigator url="/pages/sylr/sylr?category=粗集料" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/cjl.png"></image>粗集料</view>
+     </navigator>
+     <navigator url="/pages/sylr/sylr?category=混合料" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/hhl.png"></image>混合料</view>
+    </navigator>
+    <navigator url="/pages/sylr/sylr?category=乳化沥青" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/rhlq.png"></image>乳化沥青</view>
+    </navigator>
+    <navigator url="/pages/sylr/sylr?category=细集料" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/xjl.png"></image>细集料</view>
+    </navigator>
+    <navigator url="/pages/sylr/sylr?category=矿粉" class="header-item">
+      <view><image style="width: 24px;height: 25px;vertical-align: middle;margin-right: 6px;" mode="widthFix" src="../../icon/kf.png"></image>矿粉</view>
+    </navigator>
+  </view>
+  <view class="sycj-bottom">
+    <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;"
+    mode="widthFix" src="../../img/basic_info.png"></image>进行中的试验项目</view>
+  </view>
+  <view class="content">
+    <view class="content-item"  wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
+      <view class="content-title">{{item.project}}</view>
+      <view class="content-subtitle">试验编号：{{item.syNumber}}</view>
+      <view class="btns-container">
+        <button size="mini" class="btn-normal text-blue1 mr-10" data-item="{{item}}" bindtap="edit">继续</button>
+        <button size="mini" class="btn-normal text-red" data-syNumber="{{item.syNumber}}" bindtap="del">删除</button>
+      </view>
+    </view>
+  </view>
+</view>

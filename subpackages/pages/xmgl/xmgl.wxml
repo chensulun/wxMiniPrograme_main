@@ -1,0 +1,54 @@
+<!--pages/rwdgl/rwdgl.wxml-->
+<view class="page-rwdgl">
+  <view class="rwdgl-top">
+    <!-- 新增任务单 -->
+    <navigator url="/subpackages/pages/xzxm/xzxm" class="rwdgl-add">
+      <view class="rwd-add-icon">
+        <image src="/img/xzrwd.png"></image>
+      </view>
+      <view class="rwd-title">新增项目</view>
+      <view class="rwd-subtitle">随时,随地,快捷高效</view>
+    </navigator>
+    <!-- 任务单查询 -->
+    <navigator url="/subpackages/pages/xmcx/xmcx" class="rwdgl-add">
+      <view class="rwd-search-icon">
+        <image src="/img/rwdcx.png"></image>
+      </view>
+      <view class="rwd-title">项目查询</view>
+      <view class="rwd-subtitle">随时,随地,快捷高效</view>
+    </navigator>
+    <!-- 客户查询 -->
+    <navigator url="/subpackages/pages/khcx/khcx" class="rwdgl-search">
+      <view class="rwd-search-icon">
+        <image src="/img/rwdcx.png"></image>
+      </view>
+      <view class="rwd-title">客户新增</view>
+      <view class="rwd-subtitle">随时,随地,快捷高效</view>
+    </navigator>
+  </view>
+  <view class="rwdgl-content">
+    <view class="content-title">项目供应量排行榜</view>
+
+    <view style="height:calc(100vh - 200px);">
+      <view class="content-item" wx:for="{{oldlist}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <view class="content-item-top clear">
+          <text class="pull-left">{{item.projectCode}}</text>
+        </view>
+        <view class="content-item-middle clear">
+          <text class="pull-left">{{item.projectName}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="display: inline-block;">砼类型：<text
+              style="color: #3B3B3B;display: inline-block;">{{item.projectSignData}}</text></text>
+          <!-- <text class="pull-right" style="font-size: 16px;color: #156329;" wx:for="{{item.projectSignData}}"
+            wx:key="index" wx:for-item="item">{{item.projectTotal}}
+          </text> -->
+          <text class="pull-right" style="font-size: 16px;color: #156329;">{{item.projectTotal}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-right">签订量: {{item.projectManufacturingCost}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

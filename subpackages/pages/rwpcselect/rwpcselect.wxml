@@ -1,0 +1,49 @@
+<!--pages/rwpcselect/rwpcselect.wxml-->
+<view class="page-rwdgl">
+  <view class="rwdgl-content">
+    <view class="rwdcx-header">
+      <view class="header-cboxitem" bindtap='selectAll'>
+        <checkbox class="checkbox" checked="{{selectilall}}"/>
+        <text class="allSelect">全选</text>
+      </view>
+    </view>
+    <view class="list-container">
+        <view class="list-item" wx:for="{{list_data}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+          <view data-index="{{index}}" data-name="{{item.id}}" bindtap='select'>
+            <checkbox class="checkbox" checked="{{item.checked}}"/>
+            <view class="item-middle clear line41">
+                <view class="pull-left" style="width: calc(80%);">{{item.projectName}}</view>
+                <view class="pull-right" style="width: 20%;font-size: 12px;">未排程</view>
+              </view>
+              <view class="item-middle clear line41"> 
+                <view>
+                  <text class="pull-left" style="color: #adb3b4;width: 145rpx;">生产类型:</text>
+                  <text class="pull-left" style="width: 200rpx;"> {{item.taskProductionType}}</text>
+                </view>
+                <view>
+                  <text class="pull-left" style="color: #adb3b4;">计 划 量 ：</text>
+                  <text class="pull-left"> {{item.taskPlannedQuantity}}</text>
+                </view>
+              </view>
+              <view class="item-middle clear line41"> 
+                <view>
+                  <text class="pull-left" style="color: #adb3b4;width: 145rpx;">联 系 人 :</text>
+                  <text class="pull-left" style="width: 200rpx;"> {{item.taskContacts}}</text>
+                </view>
+                <view>
+                  <text class="pull-left" style="color: #adb3b4;">联系电话：</text>
+                  <text class="pull-left"> {{item.taskPhone}}</text>
+                </view>
+              </view>
+              <view class="item-bottom line41">
+                <text class="pull-left" style="color: #adb3b4;width: 145rpx;">工地供需时间： </text>
+                <text class="pull-left"  style="width: 200rpx;">{{item.taskSupplyTime}}  </text>
+              </view>
+          </view>
+        </view>
+        <view class="mt-20 text-center">
+            <button size="mini" class="btn-gray-light mr-10" bindtap="selectplan">确定</button>
+        </view>
+    </view>
+  </view>
+</view>

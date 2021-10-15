@@ -1,0 +1,71 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view>
+    <view>
+        <view class="xzrw-title">
+            <view class="title-item {{titleVal==='basic'?'active':''}}" bindtap="switchTitle" data-type="basic">待检
+            </view>
+            <view class="title-item {{titleVal==='project'?'active':''}}" bindtap="switchTitle" data-type="project">已检
+            </view>
+        </view>
+        <view class="xzrw-container" style="margin: 0 auto;">
+            <view hidden="{{titleVal!=='basic'}}">
+                <view wx:if="{{list.length==0}}">暂无</view>
+                <view class="cells-item">
+                    <view wx:for="{{list}}" wx:key="*this" wx:for-item="item">
+                        <mp-cells>
+                            <mp-cell>
+                                <view style="line-height: 30px;align-items: center;">
+                                    <image src="../../../img/carNumber.png"
+                                        style="width: 23px;height: 17px;vertical-align: middle;margin-right: 5px;">
+                                    </image>
+                                    <text
+                                        style="font-weight: bold;vertical-align: middle;">{{item.weighLicensePlate}}</text>
+                                </view>
+                                <view class="content-item-bottom clear" style="line-height: 30px;align-items: center;">
+                                    <text class="pull-left" style="display: inline-block;">材料名称：<text
+                                            style="color: #3B3B3B;display: inline-block;">{{item.weighMaterialType}}</text></text>
+                                </view>
+                                <view class="content-item-bottom clear" style="line-height: 30px;align-items: center;">
+                                    <text class="pull-left" style="display: inline-block;">进入时间：<text
+                                            style="color: #3B3B3B;display: inline-block;">{{item.weighInTime}}</text></text>
+                                </view>
+                            </mp-cell>
+                        </mp-cells>
+                        <view class=" my-cellitem">
+                            <button class="weui-btn my-btn" style="border: 1px solid black;background-color: white;"
+                                type="default" bindtap="toBh" data-type="project" hover-class="none">驳回</button>
+                            <button class="weui-btn my-btn" type="primary" bindtap="toJy" data-carInfo="{{item}}"
+                                hover-class="none">检验</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view hidden="{{titleVal!=='project'}}">
+                <view wx:if="{{list.length==0}}">暂无</view>
+                <view class="cells-item">
+                    <view wx:for="{{list}}" wx:key="*this" wx:for-item="item">
+                        <mp-cells>
+                            <mp-cell>
+                                <view style="line-height: 30px;align-items: center;">
+                                    <image src="../../../img/carNumber.png"
+                                        style="width: 23px;height: 17px;vertical-align: middle;margin-right: 5px;">
+                                    </image>
+                                    <text
+                                        style="font-weight: bold;vertical-align: middle;">{{item.weighLicensePlate}}</text>
+                                </view>
+                                <view class="content-item-bottom clear" style="line-height: 30px;align-items: center;">
+                                    <text class="pull-left" style="display: inline-block;">材料名称：<text
+                                            style="color: #3B3B3B;display: inline-block;">{{item.weighMaterialType}}</text></text>
+                                </view>
+                                <view class="content-item-bottom clear" style="line-height: 30px;align-items: center;">
+                                    <text class="pull-left" style="display: inline-block;">进入时间：<text
+                                            style="color: #3B3B3B;display: inline-block;">{{item.weighInTime}}</text></text>
+                                </view>
+                            </mp-cell>
+                        </mp-cells>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

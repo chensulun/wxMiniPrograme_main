@@ -1,0 +1,27 @@
+<!--pages/bgsh/bgsh.wxml-->
+<view class="bgsh">
+  <view class="header"><view class="bian">编</view> BQP(L)17071401</view>
+  <view class="content">
+    <view class="content-item">
+      <view class="item-title">试验项目:</view>
+      <view class="item-content">压实度试验</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">试验日期:</view>
+      <view class="item-content">2020-11-11</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">样品编号</view>
+      <view class="item-content">LJS-SL-2020-0133</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">工程名称:</view>
+      <view class="item-content">张三</view>
+    </view>
+  </view>
+</view>
+<view class="mt-20 text-center">
+<button size="mini" class="btn-green mr-10">查看</button>
+    <button size="mini" class="btn-red mr-10">审核</button>
+    <button size="mini" class="btn-blue">退回</button>
+</view>

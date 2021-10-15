@@ -1,0 +1,53 @@
+<!--pages/sjtj/sjtj.wxml-->
+<view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <view class="sjtj_up">
+          <image class="sjtj_bzimg" src="/img/sjtj1.png"></image>
+          <image class="sjtj_nextimg" src="/img/sjtj5.png"></image>
+        </view>
+        <view class="sjtj_bottom">
+          <view class="sjtj_bottom_h1">生产月报</view>
+          <view class="sjtj_bottom_h2">统计报表</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <view class="sjtj_up">
+          <image class="sjtj_bzimg" src="/img/sjtj2.png"></image>
+          <image class="sjtj_nextimg" src="/img/sjtj5.png"></image>
+        </view>
+        <view class="sjtj_bottom">
+          <view class="sjtj_bottom_h1">月末盘点</view>
+          <view class="sjtj_bottom_h2">统计报表</view>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <view class="sjtj_up">
+          <image class="sjtj_bzimg" src="/img/sjtj3.png"></image>
+          <image class="sjtj_nextimg" src="/img/sjtj5.png"></image>
+        </view>
+        <view class="sjtj_bottom">
+          <view class="sjtj_bottom_h1">生产月报</view>
+          <view class="sjtj_bottom_h2">统计报表</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-flex__item">
+      <view class="placeholder">
+        <view class="sjtj_up">
+          <image class="sjtj_bzimg" src="/img/sjtj4.png"></image>
+          <image class="sjtj_nextimg" src="/img/sjtj5.png"></image>
+        </view>
+        <view class="sjtj_bottom">
+          <view class="sjtj_bottom_h1">月末盘点</view>
+          <view class="sjtj_bottom_h2">统计报表</view>
+        </view>
+      </view>
+    </view>
+</view>

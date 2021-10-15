@@ -1,0 +1,75 @@
+/* pages/sylr/sylr.wxss */
+page {
+  background-color: #F0F0F0;
+}
+.zcck-container {
+  padding: 20px 10px;
+}
+.cells-container {
+  border-radius: 11px;
+  overflow: hidden;
+}
+.cells-item input {
+  text-align: right;
+  color: #999999;
+}
+.cells-item .picker {
+  text-align: right;
+  color: #999999;
+}
+.basic-item {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  color: #8D8D8D;
+  font-size: 13px;
+}
+
+.table-td {
+  display: inline-block;
+  width: 50%;
+  padding: 5px 6px;
+  box-sizing: border-box;
+  
+}
+.table-td input {
+  text-align: left;
+  border: 1px solid #E8E7F0;
+  height: 30px;
+  padding: 5px 12px;
+  box-sizing: border-box;
+}
+.textarea textarea {
+  height: 60px;
+  border: 1px solid #E8E7F0;
+  padding: 10px;
+}
+.tb-th {
+  background-color: #EAEEF9;
+  padding: 10px 4px;
+}
+.tb-td {
+  display: inline-block;
+  width: 25%;
+  padding: 0px 2px;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size:11px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(56,56,56,1);
+  
+}
+.tb-tbody .tb-tr {
+  margin-top: 18px;
+}
+.tb-tbody .tb-td {
+  padding: 0 6px;
+}
+.tb-td input {
+  text-align: left;
+  border: 1px solid #E8E7F0;
+  height: 30px;
+  padding: 4px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+/* pages/bgsh/bgsh.wxss */
+page {
+  background-color: #eee;
+  padding: 14px 10px;
+  box-sizing: border-box;
+}
+.bgsh {
+  background-color: #fff;
+  border-radius: 11px;
+  box-shadow:0px 2px 7px 0px rgba(0,0,0,0.04);
+  padding: 12px 15px 20px;
+}
+.header {
+  height: 44px;
+  line-height: 44px;
+  font-size:15px;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  border-bottom: 1px dashed #DEDEDE;
+}
+.bian {
+  width: 21px;
+  height: 21px;
+  background-color: #E0ECFF;
+  font-size:11px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(48,132,255,1);
+  line-height:21px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: 2px;
+}
+.content {
+  padding: 3px 6px;
+}
+.content-item {
+  padding: 6px 0 6px 80px;
+  position: relative;
+}
+.item-title {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  font-size:13px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(129,128,129,1);
+}
+.item-content {
+  font-size:13px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}

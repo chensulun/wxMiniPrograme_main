@@ -1,0 +1,24 @@
+<!--subpackages/pages/txxx/txxx.wxml-->
+<view>
+    <view class="box">
+        <form bindsubmit="formSubmit">
+            <mp-cells ext-class="cells-item">
+                <text style="font-weight: bold;">填写基本信息</text>
+                <mp-cell title="姓名" ext-class="">
+                    <input bindinput="formInputChange" value="{{userInfo.name}}" data-field="userInfo.name" name="name"
+                        class="weui-input my-input" placeholder="请输入" />
+                </mp-cell>
+                <mp-cell title="电话" ext-class="">
+                    <input bindinput="formInputChange" value="{{userInfo.phone}}" data-field="userInfo.phone"
+                        name="phone" class="weui-input my-input" placeholder="请输入" />
+                </mp-cell>
+                <mp-cell title="车牌号" ext-class="">
+                    <input bindinput="formInputChange" value="{{userInfo.car}}" data-field="userInfo.car" name="car"
+                        class="weui-input my-input" placeholder="请输入" />
+                </mp-cell>
+                <button bindtap="getPosition" hover-class="none" style="background-color: #47d574;color: white;">获取位置信息</button>
+            </mp-cells>
+            <button formType="submit" style="margin-top: 20px;" hover-class="none">确定</button>
+        </form>
+    </view>
+</view>

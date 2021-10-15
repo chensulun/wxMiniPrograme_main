@@ -1,0 +1,39 @@
+<!--pages/bgsh/bgsh.wxml-->
+<view class="bgsh">
+  <view class="header"><view class="bian">编</view> BQP(L)17071401</view>
+  <view class="content">
+    <view class="content-item">
+      <view class="item-title">报告名称：</view>
+      <view class="item-content">沥青混合料矿料级配组成试验报告</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">报告目的:</view>
+      <view class="item-content">日常检验</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">委托单位：</view>
+      <view class="item-content">广州市市政集团有限公司</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">工程名称:</view>
+      <view class="item-content">重要道路提升工程勘察设计施工总承包</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">试验结果:</view>
+      <view class="item-content">合格</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">试验日期:</view>
+      <view class="item-content">2020-11-11</view>
+    </view>
+    <view class="content-item">
+      <view class="item-title">检验人员:</view>
+      <view class="item-content">李四</view>
+    </view>
+  </view>
+</view>
+<view class="mt-20 text-center">
+<button size="mini" class="btn-green mr-10">查看</button>
+    <button size="mini" class="btn-red mr-10">审核</button>
+    <button size="mini" class="btn-blue">退回</button>
+</view>

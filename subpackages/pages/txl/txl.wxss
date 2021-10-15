@@ -1,0 +1,80 @@
+/* pages/txl/txl.wxss */
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result .weui-cell__bd{
+  padding: 2px 0 2px 20px;
+  color: #666;
+}
+.searchbar-result:before{
+    display: none;
+}
+.lianxr{
+  position: relative;
+  width: 90%;
+  height: 30px;
+  margin: 16px auto 16px auto;
+}
+.lxr_sj{
+  transform:rotate(-90deg);
+  width: 12px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+.lxr_zd{
+  font-size:16px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(51,51,51,1);
+display: inline-block;
+height: 100%;
+line-height: 30px;
+}
+.lxr_rs{
+  font-size:12px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(153,153,153,1);
+position: absolute;
+right: 0;
+display: inline-block;
+height: 100%;
+line-height: 30px;
+}
+.lxrml{
+  height: 37.5px;
+  width: 85%;
+  margin-left:10% ;
+  margin-bottom: 16px
+}
+.lxrml_tx{
+  width: 37.5px;
+  height: 37.5px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+.lxrml_xx{
+  display: inline-block;
+  vertical-align: middle;
+}
+.lxrml_name,.lxrml_site{
+  height: 18.75px;line-height: 18.75px;
+}
+.lxrml_name{
+  font-size:14px;
+}
+.lxrml_site{
+  font-size:12px;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(153,153,153,1);
+}
+.lxdh_img{
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin-top: 6.75px;
+}

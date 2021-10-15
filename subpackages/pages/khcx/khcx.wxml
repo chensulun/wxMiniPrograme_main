@@ -1,0 +1,27 @@
+<!--pages/khcx/khcx.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <form id="form" bindsubmit="submitForm">
+      <view>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="客户名称" ext-class="">
+              <input name="custom_name" type="text" class="weui-input" placeholder="请输入客户名称"/>
+          </mp-cell>
+          <mp-cell title="联系人" ext-class="">
+              <input name="contact_person" type="text" class="weui-input" placeholder="请输入联系人"/>
+          </mp-cell>
+          <mp-cell title="联系电话" ext-class="">
+              <input name="contact_phone" type="text" class="weui-input" placeholder="请输入联系电话"/>
+          </mp-cell>
+        </mp-cells>
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type='submit'>确定</button>
+          <!-- <button class="weui-btn" type="primary" form-type='submit'>确定</button> -->
+        </view>
+      </view>
+      
+    </form>
+  </view>
+</view>
+
+

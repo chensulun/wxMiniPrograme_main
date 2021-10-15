@@ -1,0 +1,25 @@
+<!--pages/spjk/spjk.wxml-->
+<!-- <view class="position">
+  <image class="header_dw" src="/icon/dw_b.png"></image>
+  <text class="position_text">{{address || '地址'}}</text>  
+  <image class="header_you" src="/icon/you.png"></image>
+  <image bindtap="syscode" class="sys_icon_header" src="/icon/sys_b.png" ></image>
+</view> -->
+
+<view>
+  <!-- <view class="weui-flex">
+    <view class="weui-flex__item">
+        <live-player src="flv://183.230.164.56:10810/edd58303-78ee-4f83-8279-1910322b1097" mode="live" autoplay bindstatechange="statechange" binderror="error" />
+    </view>
+  </view> -->
+  <view class="section p-10">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker text-right">
+      {{array[index]}}
+    </view>
+  </picker>
+</view>
+  <view class="video-item" wx:for="{{videoList}}" wx:key="index">
+    <live-player src="{{item.monitorUrl}}" bindstatechange="statechange" binderror="error" autoplay mode="live" />
+  </view>
+</view>

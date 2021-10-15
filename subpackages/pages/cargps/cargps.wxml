@@ -1,0 +1,94 @@
+<!--pages/cargps/cargps.wxml-->
+<view class="cargps-container">
+  <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" bindmarkertap="markertap" bindlabeltap="markertap" scale="{{scale}}" show-location></map>
+  <!-- 展开搜索 -->
+  <view class="map-btn" style="bottom: 334px;" bindtap="switchSearchShow">
+    <view class="map-btn-inner">
+      <mp-icon type="field" ext-class="map-btn-icon" icon="back" color="#fff" size="{{9}}"></mp-icon>
+    </view>
+  </view>
+  <!-- 收起搜索 -->
+  <view class="map-btn" style="bottom: 276px;">
+    <view class="map-btn-inner">
+      <mp-icon type="field" ext-class="map-btn-icon" icon="arrow" color="#fff" size="{{12}}"></mp-icon>
+    </view>
+  </view>
+  <!-- 放大地图按钮 -->
+  <view class="map-btn" style="bottom: 218px;" bindtap="scaleAdd">
+    <view class="map-btn-inner">
+      <mp-icon type="field" ext-class="map-btn-icon" icon="add" color="#fff" size="{{16}}"></mp-icon>
+    </view>
+  </view>
+  <!-- 缩小地图按钮 -->
+  <view class="map-btn" bindtap="scaleReduce">
+    <view class="map-btn-inner" style="color: #fff;line-height: 24px;font-size: 12px;">
+      —
+    </view>
+  </view>
+  <!-- 定位到当前位置 -->
+  <view class="map-btn1" bindtap="returnPositon">
+    <view class="map-position">
+      <view class="point"></view>
+    </view>
+  </view>
+  <!-- 搜索类型-展开 -->
+  <!-- <view class="map-btn1" style="bottom: 60px;color: #26C44F;" data-type="{{true}}" bindtap="switchTitleShow">
+    →
+  </view> -->
+  <!-- 搜索类型弹窗 -->
+  <!-- <view class="search-title {{titleShow?'search-title-show':''}}">
+    <view class="search-title-container">
+      <view class="search-title-item {{titleVal==='1'? 'active' : ''}}" data-type="1" bindtap="switchTitle">
+        项目名称
+      </view>
+      <view class="search-title-item {{titleVal==='2'? 'active' : ''}}" data-type="2" bindtap="switchTitle">
+        车牌号
+      </view>
+      <view class="search-title-item {{titleVal==='3'? 'active' : ''}}" data-type="3" bindtap="switchTitle">
+        目的点
+      </view>
+    </view>
+    <view class="search-title-back" data-type="{{false}}" bindtap="switchTitleShow">←</view>
+  </view> -->
+  <!-- 底部车辆信息弹窗 -->
+  <view class="carinfo-modal {{carinfoShow ? 'carinfo-modal-show' : ''}}">
+    <view class="modal-header" bindtap="closeCarInfo">
+      <view class="pull-left" style="margin-left: 15px;font-size: 14px;">车牌号: {{carNo}}</view>
+      ↓
+      <view class="pull-right" style="margin-right: 15px;font-size: 14px;">电量: {{power || '0'}}</view>
+    </view>
+    <view class="modal-content-item" wx:if="{{xm}}">
+      <mp-icon icon="photo-wall" color="#26C44F" size="{{18}}"></mp-icon>
+      <text style="margin-left: 10px;">{{xm}}</text>
+    </view>
+    <view class="modal-content-item" wx:if="{{compressiveStrength}}">
+      <mp-icon icon="text" color="#26C44F" size="{{18}}"></mp-icon>
+      <text style="margin-left: 10px;">{{compressiveStrength}}</text>
+    </view>
+    <view class="modal-content-item">
+      <mp-icon icon="location" color="#26C44F" size="{{18}}"></mp-icon>
+      <text style="margin-left: 10px;">{{transport === 1 ? '运输中' : '已停止'}}</text>
+    </view>
+  </view>
+  <!-- 右侧搜索弹窗-车牌号 -->
+  <view class="search-modal {{searchModalShow ? 'search-modal-show' : ''}}">
+    <view class="search-modal-mask" bindtap="switchSearchHide"></view>
+    <view class="search-modal-content {{searchModalShow ? 'search-content-show' : ''}}">
+      <view class="search-header">{{titleVal==='1'?'项目名称/车牌':(titleVal==='2'?'车牌号':'目的点')}}</view>
+      <view class="search-ipt-title">搜索</view>
+      <view class="search-ipt-container">
+        <input bindinput="searchCar" placeholder="请输入{{titleVal==='1'?'项目名称/车牌':(titleVal==='2'?'车牌号':'目的点')}}" type="search"></input>
+      </view>
+      <view class="search-result">
+        <view class="result-item" wx:for="{{project}}" wx:key="projectId" data-id="{{item.projectId}}">
+          <view data-id="{{item.projectId}}" data-index="{{index}}" bindtap="expandProject">
+            {{item.projectName}}<mp-icon class="result-item-more" icon="arrow" color="#CCCCCC" size="{{12}}"></mp-icon>
+          </view>
+          <view class="car-list" wx:if="{{item.isShow}}">
+            <view class="car-item" wx:for="{{item.carList}}" wx:for-index="carIndex" wx:for-item="carInfo" data-projectid="{{item.projectId}}" data-car="{{carInfo}}" wx:key="*this" bindtap="getCarTrail">{{carInfo.carNo}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

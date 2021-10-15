@@ -1,0 +1,58 @@
+<!--pages/dbsxnew/dbsxnew.wxml-->
+<wxs src="../../../wxs/subutil.wxs" module="tools" />
+<view class="weui-tab">
+  <view class="weui-navbar">
+    <view bindtap="navchange" data-nav="nav1" class="weui-navbar__item {{nav_css1}}">
+      我的签审
+    </view>
+    <view bindtap="navchange" data-nav="nav2" class="weui-navbar__item {{nav_css2}}">
+      我的任务
+    </view>
+  </view>
+  <view class="weui-tab__panel">
+    <view wx:if="{{!nav_dbsx}}">
+      <!-- <view> -->
+      <view class="qs-container" wx:for="{{array}}" wx:key="{{array}}" wx:for-index="index" wx:for-item="item"
+        bindtap='toGetDetail' data-shid='{{item.shId}}' data-businessKey='{{item.businessKey}}' data-id="{{item.id}}"
+        data-taskcode='{{item.task_code}}' data-definitionKey='{{item.definitionKey}}'
+        data-instanceName='{{item.instanceName}}'>
+        <view class="qs-title">标题:{{item.instanceName}}</view>
+        <view class="clear qs-content">
+          <view class="pull-left" style="width: 95%;padding-right: 20px;box-sizing: border-box;">{{item.nr}}</view>
+        </view>
+        <!-- <view class="clear qs-content">
+          <view class="pull-left" style="width: 95%;padding-right: 20px;box-sizing: border-box;">
+            {{item.bt=="配比审核"?"":"生产类型："+item.slmc}}</view>
+        </view> -->
+        <view class="clear qs-content">
+          <view wx:if="{{item.bt==pbsh}}">
+            <!-- <view> -->
+            <view class="pull-left" style="width: 50%;">时间：{{item.createdDate}}</view>
+          </view>
+          <view wx:if="{{item.bt!=pbsh}}">
+            <!-- <view> -->
+            <view class="pull-left" style="width: 50%;padding-right: 20px;box-sizing: border-box;">计划量：{{item.sl}}
+            </view>
+            <view class="pull-right" style="width: 50%;">时间：{{item.createdDate}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{nav_dbsx}}">
+      <!-- <view> -->
+      <view class="qs-container" wx:for="{{array2}}" wx:key="{{array}}" wx:for-index="index" wx:for-item="item"
+        bindtap='toTask' data-maintainid='{{item.assets_id}}' data-id='{{item.id}}'>
+        <view class="qs-title">标题:保养工单</view>
+        <view class="clear qs-content">
+          <view class="pull-left">
+            {{item.maintain_type}}-{{item.assets_typename}}/{{item.assets_name}}/{{item.assets_clanme}}</view>
+        </view>
+        <view class="clear qs-content">
+          <view class="pull-left" style="width: 65%;">上一级: {{item.maintain_user}}</view>
+          <view class="pull-right" style="width: 35%;">时间:{{tools.sub(item.create_time)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

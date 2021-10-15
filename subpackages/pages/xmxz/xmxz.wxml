@@ -1,0 +1,131 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="xzrw-title">
+    <view class="title-item {{titleVal==='basic'?'active':''}}" bindtap="switchTitle" data-type="basic">基本信息</view>
+    <view class="title-item {{titleVal==='project'?'active':''}}" bindtap="switchTitle" data-type="project">项目信息</view>
+  </view>
+  <view class="cells-item xzxm">
+    <form bindsubmit="formSubmit">
+      <view hidden="{{titleVal!=='basic'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="客户名称" ext-class="">
+              <picker bindchange="custumpickerChange" value="{{listVal}}" range-key="custom_name"
+              range="{{customList}}" data-id="{{customList[custumindex].custom_id}}">
+                <view class="picker">
+                  {{customList[custumindex].custom_name || '请选择'}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="工程名称" ext-class="">
+              <input data-field="project_name" name="project_name" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="工地纬度" ext-class="">
+              <input bindinput="formInputChange" value="{{lng}}" data-field="lng" name="lng" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="工地经度" ext-class="">
+              <input bindinput="formInputChange" value="{{lat}}" data-field="lat" name="lat" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="总签订单" ext-class="">
+              <input data-field="zqdl" class="weui-input" name="zqdl" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="总控制量" ext-class="">
+              <input data-field="zlkz" class="weui-input" name="zlkz" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" name="remark" placeholder="请输入备注" style="height: 80px;" />
+            </view>
+          </view>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <view class="map-container">
+            <view class="map-title">地图</view>
+            <view class="map-btns">
+              <input placeholder="请输入搜索地名" class="map-search" bindinput="getsuggest" value="{{backfill}}" />
+              <button size="mini" class="" bindtap="readMapData">读取纬度</button>
+              <!-- <button size="mini" bindtap="refreshMap">刷新地图</button> -->
+
+              <view class="result-container {{showview?'hidden':'view-center'}}">
+                  <!--绑定回填事件-->
+                <view class="result-item" bindtap="backfill"  wx:for="{{suggestion}}" wx:key="index">
+                  <!--根据需求渲染相应数据-->
+                  <!--渲染地址title-->
+                  <view class='item-title'  id="{{index}}">{{item.title}}</view>
+                  <!--渲染详细地址-->
+                  <view class='item-details'>{{item.addr}}</view>
+                </view>
+              </view>
+            </view>
+            <map id="map" markers="{{markers}}" longitude="{{longitude}}" bindtap="mapTap" latitude="{{latitude}}" scale="14"></map>
+            <view class="map-tips">在地图上点击选点，然后点击，<text class="text-red">读取经纬度</text> </view>
+          </view>
+        </mp-cells>
+      </view>
+      <view hidden="{{titleVal!=='project'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="项目性质" ext-class="">
+              <picker bindchange="projectTypepickerChange" value="{{listVal}}" range-key="name"
+              range="{{projectTypeList}}" data-id="{{projectTypeList[projectTypeIndex].id}}">
+                <view class="picker">
+                  {{projectTypeList[projectTypeIndex].name}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="审核状态" ext-class="">
+            <radio-group class="radio-group"  bindchange="radioChange">
+              <radio class="radio" name="project_state" value="0" disabled="disabled" style="margin-right:20px;">未审核</radio>
+              <radio class="radio" name="project_state" value="1" checked="true">已审核</radio>
+            </radio-group>
+          </mp-cell>
+          <mp-cell title="合同总量" ext-class="">
+              <input bindinput="formInputChange" data-field="htzl" name="htzl" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+
+        <mp-cells ext-class="cells-item">
+          <view class="table-cell">
+            <view class="table-container">
+              <view class="th">
+                <view class="td">砼类型</view>
+                <view class="td">签订量</view>
+                <view class="td"></view>
+              </view>
+              <view class="tr" wx:for="{{tableList}}" wx:key="*this">
+                <view class="td">{{item.qlx}}</view>
+                <view class="td">{{item.qdl}}</view>
+                <view class="td" data-index="{{index}}" bindtap="delItem">
+                  <mp-icon icon="close" color="#E74F4F" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+              <view class="tr">
+                <view class="td">
+                  <input bindinput="formInputChange1" value="{{val1}}" data-field="val1" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td">
+                  <input bindinput="formInputChange2" value="{{val2}}" data-field="val2" class="weui-input"
+                  placeholder="请输入"/>
+                </view>
+                <view class="td" bindtap="addItem">
+                  <mp-icon icon="done" color="#51aa38" size="{{20}}"></mp-icon>
+                </view>
+              </view>
+            </view>
+          </view>
+        </mp-cells>
+      </view>
+      <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" formType="submit">保存</button>
+      </view>
+    </form>
+  </view>
+</view>

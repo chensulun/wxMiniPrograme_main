@@ -1,0 +1,179 @@
+<!--pages/qbgn/qbgn.wxml-->
+<view class="clear navplace">
+
+  <!-- <text>设备模块</text> -->
+
+    <navigator url="/subpackages/pages/sbwxnew/sbwxnew" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>设备维修</view>
+    </navigator>
+    <!-- <navigator wx:if="{{rightList[0].ischeck}}" url="/pages/wxby/wxby" class="weui-flex__item flex__itemz">
+      <view><image class="flex__item_img" src="/img/wxcx.png"></image></view>
+      <view>维保查询</view>
+    </navigator>-->
+    <navigator url="/subpackages/pages/sbbylist/sbbylist" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/lswx.png"></image>
+      </view>
+      <view>设备保养</view>
+    </navigator>
+    <view bindtap="wxqz" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxqz.png"></image>
+      </view>
+      <view>维修求助</view>
+    </view>
+    <!-- <navigator wx:if="{{rightList[1].ischeck}}" url="/pages/sbwx/sbwx" class="weui-flex__item flex__itemz">
+      <view><image class="flex__item_img" src="/img/lswx.png"></image></view>
+      <view>临时维修</view>
+    </navigator> -->
+
+
+  <!-- <text>质量模块</text> -->
+
+    <navigator url="/subpackages/pages/zlkz/zlkz" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/zlkz.png"></image>
+      </view>
+      <view>质量控制</view>
+    </navigator>
+    <navigator url="/subpackages/pages/ybrk/ybrk" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/icon/ruku@2x.png"></image>
+      </view>
+      <view>样品入库</view>
+    </navigator>
+    <navigator url="/subpackages/pages/sylr/sylr" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/icon/luru@2x.png"></image>
+      </view>
+      <view>试验录入</view>
+    </navigator>
+    <navigator url="/subpackages/pages/tpjsgpz/tpjsgpz" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/icon/luru@2x.png"></image>
+      </view>
+      <view>摊铺机</view>
+    </navigator>
+    <navigator url="/subpackages/pages/yljsgpz/yljsgpz" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_xmgl.png"></image>
+      </view>
+      <view>压路机</view>
+    </navigator>
+
+
+  <!-- <text>生产执行模块</text> -->
+
+    <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_xmgl.png"></image>
+      </view>
+      <view>项目管理</view>
+    </navigator>
+    <navigator url="/subpackages/pages/rwdglnew/rwdglnew" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_rwdgl.png"></image>
+      </view>
+      <view>任务管理</view>
+    </navigator>
+    <navigator url="/subpackages/pages/rwpc/rwpc" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>生产计划</view>
+    </navigator>
+    <navigator url="/subpackages/pages/pbsc1/pbsc1" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_pbsc.png"></image>
+      </view>
+      <view>配比上传</view>
+    </navigator>
+
+
+  <!-- <text>运输模块</text> -->
+
+    <navigator url="/subpackages/pages/cargps/cargps" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/clgps.png"></image>
+      </view>
+      <view>车辆GPS</view>
+    </navigator>
+
+
+  <!-- <text>物料模块</text> -->
+
+    <navigator url="/subpackages/pages/gysgl/gysgl" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/all_gysgl.png"></image>
+      </view>
+      <view>供应商管理</view>
+    </navigator>
+    <navigator url="/subpackages/pages/bdcx/bdcx" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>磅单查询</view>
+    </navigator>
+    <navigator url="/subpackages/pages/ylbj/ylbj" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>原料报检</view>
+    </navigator>
+    <navigator url="/subpackages/pages/sdpc/sdpc" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/scrz.png"></image>
+      </view>
+      <view>手动盘存</view>
+    </navigator>
+ 
+
+  <!-- <text>安全模块</text> -->
+
+    <navigator url="/subpackages/pages/spjk/spjk" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/spjk.png"></image>
+      </view>
+      <view>视频监控</view>
+    </navigator>
+ 
+
+  <!-- <text>其他模块</text> -->
+
+    <navigator url="/subpackages/pages/txl/txl" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/txl.png"></image>
+      </view>
+      <view>通讯录</view>
+    </navigator>
+    <navigator url="/subpackages/pages/dzjf/dzjf" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/icon/ruku@2x.png"></image>
+      </view>
+      <view>电子交付</view>
+    </navigator>
+    <navigator url="/subpackages/pages/hjjc/hjjc" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/icon/yibiao@2x.png"></image>
+      </view>
+      <view>环境监测</view>
+    </navigator>
+    <navigator url="/subpackages/pages/cjgl/cjgl" class="weui-flex__item flex__itemz">
+      <view>
+        <image class="flex__item_img" src="/img/wxcx.png"></image>
+      </view>
+      <view>抽检管理</view>
+    </navigator>
+
+
+  <!-- <view class="weui-flex__item flex__itemz">
+    <view>
+      <image class="flex__item_img" src="/img/gbcx.png"></image>
+    </view>
+    <view>过磅查询</view>
+  </view> -->
+
+</view>

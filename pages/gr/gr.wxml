@@ -1,0 +1,66 @@
+<!--pages/gr/gr.wxml-->
+<view wx:if="{{grzx}}" class="login_banner">
+  <view style="position: relative;">
+    <image class="loginimg" src="/img/loginbanner.png"></image>
+    <view class="logo-img1">
+      <image src="/img/logo.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  <!-- <view class="login_tip">登录</view> -->
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit-timeout="2" class="login_form">
+
+    <view class="input_hang">
+      <image class="inputimg" style="width: 15px;height: 21px;margin-right: 6px;" src="/img/login_user.png"></image>
+      <input name="username" class="weui-input" placeholder="请输入用户名"
+        placeholder-style="font-size:16px;font-family:PingFangSC-Regular,PingFangSC;color:rgba(153,153,153,1);" />
+    </view>
+    <view class="input_hang ">
+      <image class="inputimg" style="width: 15px;height: 21px;margin-right: 6px;" src="/img/login_pass.png"></image>
+      <input name='password' class="weui-input" password="true" placeholder="请输入密码"
+        placeholder-style="font-size:16px;font-family:PingFangSC-Regular,PingFangSC;color:rgba(153,153,153,1);" />
+    </view>
+    <view class="input_hang " style="position: relative;">
+      <image class="inputimg" style="width: 17px;height: 21px;" src="/img/yzm.png"></image>
+      <input class="weui-input" style="width: 100px;" name='yzm' placeholder="请输入验证码"
+        placeholder-style="font-size:16px;font-family:PingFangSC-Regular,PingFangSC;color:rgba(153,153,153,1);" />
+      <image style="width: 100px;height: 50px;vertical-align: middle;position: absolute;right: 0;"
+        src="data:image/png;base64,{{yzmImg}}" bindtap="getYzm"></image>
+    </view>
+    <button class="button_dl" formType="submit">登录</button>
+    <button class="button_reset" formType="reset">重置</button>
+
+  </form>
+</view>
+
+<view wx:if="{{!grzx}}" class="weui-cells weui-cells_after-title grzxcd">
+  <view class="userinfo-container">
+    <image src="/icon/user_bg.png" class="userinfo-bg"></image>
+    <view class="avatar center">
+      <image class="touxiang" src="{{touxiang}}"></image>
+    </view>
+    <view class="username"><text class="touxiangwz">{{nickname}}</text></view>
+  </view>
+  <navigator url="/pages/ggdb/ggdb?dbsx=false" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="/icon/user_tongzhi.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;">
+      </image>
+    </view>
+    <view class="weui-cell__bd">我的通知</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="/pages/ggdb/ggdb?dbsx=true" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="/icon/user_daiban.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;">
+      </image>
+    </view>
+    <view class="weui-cell__bd">我的代办</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator bindtap="exsit" url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="/icon/user_tuichu.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;">
+      </image>
+    </view>
+    <view class="weui-cell__bd">退出</view>
+  </navigator>
+</view>

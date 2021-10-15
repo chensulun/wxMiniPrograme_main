@@ -1,0 +1,222 @@
+/* pages/xzrwd/xzrwd.wxss */
+page {
+  height: 100%;
+  background-color: #EDEDED;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.pr-40 {
+  padding-right: 50px !important;
+}
+.text-right {
+  text-align: right;
+}
+.cell-container {
+  position: relative;
+}
+.btn-gray {
+  background-color: #ADADAD;
+  color: #fff;
+  border-radius: 14.5px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.page-btns {
+  margin-top: 96px;
+}
+.page-btns button {
+  min-width: 86px;
+  text-align: center;
+}
+.cell-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  text-align: center;
+}
+.cell-icon-add {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #29C552;
+  color: #29C552;
+  line-height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 18px;
+  top: 15px;
+  right: 16px;
+  text-align: center;
+}
+.tpj-name {
+  font-size: 11px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #191919;
+  line-height: 16px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 8px;
+}
+.xzrw-container {
+  padding: 9px 10px;
+}
+.xzrw-title {
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.title-item {
+  width: 33.33%;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+  color: #6F6A6A;
+  float: left;
+}
+.title-item.active {
+  background-color: #26C44F;
+  color: #fff;
+}
+.cells-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.basic-title {
+  font-size: 15px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(28,28,22,1);
+  position: relative;
+}
+
+.weui-cell {
+  font-size: 14px;
+}
+.btn-del {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #989595;
+  font-size: 12px;
+}
+.btn-del:after {
+  border: none;
+}
+.btn-add {
+  position: absolute;
+  top: -5px;
+  right: 2px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #989595;
+  font-size: 12px;
+}
+.btn-add:after {
+  border: none;
+}
+.weui-icon {
+  vertical-align: -1px !important;
+}
+
+
+/* 绑定成功弹窗 */
+.modal-reson {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.31);
+  z-index: 999;
+  display: none;
+}
+.modal-reson.show {
+  display: inline-block;
+}
+.modal-content {
+  width: 310px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 16px 16px 26px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+.modal-title {
+  font-size: 17px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 21px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+.refuse-reson {
+  margin-bottom: 15px;
+}
+.reson-item {
+  float: left;
+  padding: 0 10px;
+  line-height: 20px;
+  font-size: 11px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  border-radius: 10px;
+  color: #666;
+}
+.reson-item.active {
+  background-color: #EBF8EE;
+  color: #29C552;
+}
+.modal-btns button {
+  display: inline-block;
+  width: 86px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+}
+.modal-btns button:after {
+  border: none;
+  border-radius: 0;
+}
+.modal-btns {
+  text-align: center;
+  margin-top: 26px;
+}
+.modal-btns .btn-cancle {
+  color: #666;
+  border: 1px solid #ccc !important;
+  margin-right: 30px;
+}
+.modal-btns .btn-confirm {
+  background-color: #29C552;
+  color: #fff;
+}
+.reson-textarea {
+  height: 70px;
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  border: 1px solid #E8E7F0;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #C7C7C7;
+  line-height: 18px;
+}

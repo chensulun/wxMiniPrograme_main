@@ -1,0 +1,54 @@
+<!--pages/zccknew/zccknew.wxml-->
+<view class="zccknew-container">
+  <view class="cells-item">
+    <mp-form id="form">
+      <view style="margin-bottom: 20px;">
+        <view class="basic-title">
+          <image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix"
+            src="../../../img/basic_info.png"></image>基本信息
+        </view>
+        <view class="cells-container">
+          <mp-cells ext-class="cells-item"  wx:for="{{list}}" wx:for-item="item">
+            <mp-cell title="资产名称:" ext-class="">
+              <input data-field="name1" data-index="{{index}}" value="{{item.equipmentName}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="制造商:" ext-class="">
+              <input data-field="name2" data-index="{{index}}" value="{{item.equipmentManufacturer}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="类别:" ext-class="">
+              <input data-field="name3" data-index="{{index}}" value="{{item.equipmentType==0?'智能设备类':'生产设备类'}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="编号:" ext-class="">
+              <input data-field="name4" data-index="{{index}}" value="{{item.equipmentCode}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="状态:" ext-class="">
+              <input data-field="name5" data-index="{{index}}"
+                value="{{item.equipmentStatus==0?'使用中':(item.equipmentStatus==1?'报废':'封存')}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="采购时间:" ext-class="">
+              <input data-field="name6" data-index="{{index}}" value="{{item.equipmentPurchaseTime}}" class="weui-input" disabled />
+            </mp-cell>
+            <mp-cell title="位置:" ext-class="">
+              <input data-field="name7" data-index="{{index}}" value="{{item.equipmentPosition}}" class="weui-input"
+                disabled />
+            </mp-cell>
+            <mp-cell title="入库时间:" ext-class="">
+              <input data-field="name8" data-index="{{index}}" value="{{item.equipmentWarehousingTime}}" class="weui-input" disabled />
+            </mp-cell>
+            <mp-cell title="管理人:" ext-class="">
+              <input data-field="name9" data-index="{{index}}" value="{{item.equipmentResponsible}}" class="weui-input" disabled />
+            </mp-cell>
+            <!-- <mp-cell title="附件:" ext-class="">
+              <button data-url="{{item.file_url}}" class="btn-look" bindtap="sc">查看</button>
+            </mp-cell> -->
+          </mp-cells>
+        </view>
+      </view>
+    </mp-form>
+  </view>
+</view>

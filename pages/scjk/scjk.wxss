@@ -1,0 +1,154 @@
+/* pages/scjk/scjk.wxss */
+page {
+  background-color: #EDEDED
+}
+
+
+.scjk-banner {
+  height: 146px;
+  background-color: red;
+  position: relative;
+}
+
+scjk-banner .banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 375px;
+  height: 148px;
+}
+
+.search-container {
+  width: 70%;
+  height: 28px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 14px;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-container input {
+  width: 100%;
+  height: 100%;
+  padding-left: 38px;
+  font-size: 14px;
+  color: #AEAEAD;
+  line-height: 28px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 4px;
+  left: 12px;
+}
+
+.data-container {
+  padding: 0 10px;
+}
+
+.data-top {
+  padding: 10px 0 14px;
+}
+
+.data-top>view {
+  display: inline-block;
+  width: calc((100% - 18px) / 2);
+  text-align: center;
+  padding: 13px 0 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.sczl {
+  background: linear-gradient(69deg, rgba(22, 162, 249, 1), rgba(50, 187, 255, 1));
+  margin-right: 18px;
+}
+
+.hszl {
+  background: linear-gradient(69deg, rgba(122, 77, 255, 1), rgba(146, 109, 255, 1));
+}
+
+.pl-4 {
+  padding-left: 4px;
+}
+
+.data-bottom {
+  border-radius: 8px;
+  background-color: #fff;
+  height: 68px;
+  padding: 14px 2px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 13px;
+  line-height: 13px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(40, 40, 40, 1);
+}
+
+.data-bottom-item {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+
+.data-bottom-item .line {
+  height: 30px;
+  width: 1px;
+  background-color: #EDEDED;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.data-value {
+  margin-top: 13px;
+  line-height: 14px;
+  font-weight: bold;
+  color: rgba(42, 140, 84, 1);
+}
+
+.table-container {
+  margin-top: 6px;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 14px 6px;
+}
+
+.table-th {
+  background-color: #EDF1FC;
+  border-radius: 4px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 13px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(46, 46, 46, 1);
+  padding: 0 8px;
+}
+
+.table-td {
+  line-height: 30px;
+  font-size: 13px;
+  width: calc(60% / 4);
+  text-align: center;
+  display: inline-block;
+}
+
+.table-td-lg {
+  width: 20%;
+}
+
+.table-tr {
+  border-bottom: 1px solid #EDF1FC;
+  padding: 0 8px;
+}
+
+.table-tr .table-td {
+  font-weight: 800;
+}

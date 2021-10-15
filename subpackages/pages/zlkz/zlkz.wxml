@@ -1,0 +1,45 @@
+<!--pages/zlkz/zlkz.wxml-->
+<view class="bj_fg0"></view>
+<view class="flex">
+    <view class="flex__item head_xl1">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+        </view>
+      </picker>
+    </view>
+  
+    <view class="flex__item head_xl2">
+      <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
+        <view class="picker">
+          {{dateStart}}<image src="/icon/sjx.png" class="select_sj"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="flex__item head_xl2">
+      <picker mode="date"  value="{{dateEnd}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_end">
+        <view class="picker">
+          {{dateEnd}}<image src="/icon/sjx.png" class="select_sj"></image>
+        </view>
+      </picker>
+    </view>
+      <view class="flex__item head_xl3">
+      <picker bindchange="bindPickerChange_lx" value="{{lx_index}}" range="{{lx_array}}">
+        <view class="picker">
+          {{lx_array[lx_index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="clearfloat"></view>
+</view>
+ <view class="bj_fg1"></view>
+ <view class="tubiao">
+    <view class="container">
+      <ec-canvas id="peibi" canvas-id="peibi" ec="{{ ec_peibi }}"></ec-canvas>
+      <ec-canvas id="weidu" canvas-id="weidu" ec="{{ ec_weidu }}"></ec-canvas>
+      <ec-canvas id="youshi" canvas-id="youshi" ec="{{ ec_youshi }}"></ec-canvas>
+    </view>
+ </view>
+
+ 
+

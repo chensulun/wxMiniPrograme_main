@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "新增抽检",
+  "backgroundColor": "#EDEDED",
+  "usingComponents": {
+    "mp-form": "../../weui-miniprogram/form/form",
+    "mp-cell": "../../weui-miniprogram/cell/cell",
+    "mp-cells": "../../weui-miniprogram/cells/cells"
+  }
+}

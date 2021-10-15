@@ -1,0 +1,150 @@
+<!--pages/rwpc/rwpc.wxml-->
+<view class="page-rwdgl">
+  <view class="rwdgl-top">
+    <!-- 新增供应商 -->
+    <view class="rwdgl-add">
+      <view class="rwd-add-icon">
+        <view class="rwd-add-text">
+          <view class="rwd-title">{{rwcount}}</view>
+          <view class="rwd-subtitle">总任务数</view>
+        </view>
+      </view>
+      <view class="rwd-add-icon">
+        <view class="rwd-add-text">
+          <view class="rwd-title" style="color:#526EF6">{{rwwccount}}</view>
+          <view class="rwd-subtitle">已完成任务数</view>
+        </view>
+      </view>
+      <view class="rwd-add-icon">
+        <view class="rwd-add-text">
+          <view class="rwd-title">{{rwnumber}}</view>
+          <view class="rwd-subtitle">任务总量</view>
+        </view>
+      </view>
+      <view class="rwd-add-icon">
+        <view class="rwd-add-text">
+          <view class="rwd-title" style="color:#26C44F">{{rwwcnumber}}</view>
+          <view class="rwd-subtitle">已完成量</view>
+        </view>
+      </view>
+      <view class="item-middle clear">
+
+        <!-- <view class="pull-left" style="width: 30%;">
+            <picker bindchange="zhandianpickerChange" value="{{zhandianindex}}" data-id="{{zhandianlist[zhandianindex].station_id}}"  range="{{zhandianlist}}" range-key="{{'station'}}">
+            <view>{{zhandianlist[zhandianindex].station}} <view class="select-icon">
+            <image src="/img/select_down.png" 
+            mode="aspectFit"></image> 
+            </view></view>
+            </picker>
+          </view>
+          <view class="pull-left" style="width: 30%;">
+            <picker bindchange="zhandianjlChange" value="{{zhandianjlindex}}" data-id="{{selectArray[zhandianjlindex].id}}"  range="{{selectArray}}" range-key="{{'text'}}">
+            <view>{{selectArray[zhandianjlindex].text}} <view class="select-icon">
+            <image src="/img/select_down.png" 
+            mode="aspectFit"></image> 
+            </view></view>
+            </picker>
+          </view> -->
+        <!-- <navigator url="/subpackages/pages/rwdadd/rwdadd"><view class="pull-right" style="width: 40%;font-size: 15px;color:#26C44F;">新建任务</view></navigator> -->
+      </view>
+    </view>
+  </view>
+  <view class="rwdgl-content">
+    <view class="rwdcx-header">
+      <!-- <view class="header-cboxitem" bindtap='selectAll'>
+        <checkbox class="checkbox" checked="{{selectilall}}" />
+        <text class="allSelect">全选</text>
+      </view> -->
+      <view class="header-item">
+        <view bindtap="navchange" data-nav="nav1" class="weui-navbar__item {{nav_css1}}">
+          已排程
+        </view>
+      </view>
+      <view class="header-item">
+        <view bindtap="navchange" data-nav="nav2" class="weui-navbar__item {{nav_css2}}">
+          未排程
+        </view>
+      </view>
+    </view>
+    <view class="list-container">
+      <view wx:if="{{nav_dbsx}}">
+        <view class="sel_task" bindtap="selectplan" style="margin-bottom: 10px;">+</view>
+        <view class="list-item" wx:for="{{list_data}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+          <view class="info" data-index="{{index}}" data-name="{{item.id}}" bindtap='select'>
+            <!-- <checkbox class="checkbox" checked="{{item.checked}}" /> -->
+            <view class="item-middle clear">
+              <view class="pull-left" style="width: calc(80%);">{{item.projectName}}</view>
+              <view class="pull-right status">未排程</view>
+            </view>
+            <view class="item-middle clear">
+              <view>
+                <text class="pull-left" style="color: #adb3b4;">生产类型:</text>
+                <text class="pull-left"> {{item.taskProductionType}}</text>
+              </view>
+              <view class="right46">
+                <text class="pull-left" style="color: #adb3b4;">计划量：</text>
+                <text class="pull-left left13"> {{item.taskPlannedQuantity}}</text>
+              </view>
+            </view>
+            <view class="item-bottom time">
+              <text style="color: #adb3b4;">工地供需时间: </text>
+              <view style="color: #3B3B3B;" data-index="{{index}}">{{item.taskSupplyTime}} </view>
+            </view>
+          </view>
+          <view class="bottom_opt">
+            <button size="mini" class="del mr-10" bindtap="aaa" data-index="{{index}}">修改</button>
+            <button size="mini" class="del mr-10" bindtap="binddelete" data-index="{{index}}">移除</button>
+            <!-- <button size="mini" class="add mr-10" bindtap="clickpc" data-index="{{index}}">排程</button> -->
+          </view>
+        </view>
+
+        <view style="text-align:center;position:relative;/*position:initial*/top:45rpx;float: right;">
+          <button size="mini" class="all_task" bindtap="allpc">提交</button>
+        </view>
+      </view>
+      <view wx:if="{{!nav_dbsx}}">
+        <view class="list-item" style="overflow: hidden;padding:20rpx" wx:for="{{list_ypcdata}}" wx:key="key"
+          wx:item="item">
+          <!-- <view class="info" wx:for="{{item.tlist}}" wx:key="{{item.tlist}}" wx:for-index="index" wx:for-item="tlitem"> -->
+          <view class="item-middle clear">
+            <view class="pull-left" style="width: calc(80%);">{{item.projectName}}</view>
+            <view class="pull-right status">已排程</view>
+          </view>
+          <view class="item-middle clear">
+            <view>
+              <text class="pull-left" style="color: #adb3b4;">生产类型:</text>
+              <text class="pull-left"> {{item.taskProductionType}}</text>
+            </view>
+            <view>
+              <text class="pull-right"> {{item.taskPosition}}</text>
+              <text class="pull-right" style="color: #adb3b4;">施工部位：</text>
+            </view>
+          </view>
+          <view class="item-bottom time">
+            <text style="color: #3B3B3B;">工地供需时间: </text>
+            <text style="color: #3B3B3B;">{{item.taskSupplyTime}} </text>
+          </view>
+          <!-- </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="select-time-container {{timeModalShow ? 'select-time-show' : ''}}">
+  <view class="select-time-content">
+    <view class="begin-time">
+      时间
+      <picker data-field="date" style="display: inline-block;" mode="multiSelector" value="{{qd_start_time}}"
+        bindcolumnchange="changeDateTimeColumn" range="{{bdate}}">
+        <view class="weui-input select-time">
+          {{bdate[0][qd_start_time[0]]}}-{{bdate[1][qd_start_time[1]]}}-{{bdate[2][qd_start_time[2]]}}
+          {{bdate[3][qd_start_time[3]]}}:{{bdate[4][qd_start_time[4]]}}:{{bdate[5][qd_start_time[5]]}}</view>
+      </picker>
+    </view>
+    <view class="btns-container">
+      <button size="mini" style="margin-right: 20px;" bindtap="cancel">取消</button>
+      <button size="mini" type="primary" bindtap="comfirm">确定</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,158 @@
+/* pages/gr/gr.wxss */
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.inputimg {
+  width: 20px;
+  height: 26px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.login_banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.loginimg {
+  width: 100vw;
+  height: 31vh;
+}
+
+.login_tip {
+  width: 84px;
+  height: 59px;
+  font-size: 24px;
+  font-family: Helvetica;
+  color: #000000FF;
+  line-height: 50px;
+  margin-left: 20px;
+}
+
+.login_form {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.weui-input {
+  height: 26px;
+  display: inline-block;
+  line-height: 26px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.button_dl {
+  width: 100%;
+  margin: 22px auto 0 auto;
+  border-radius: 26px;
+  background: rgb(43, 197, 83);
+  color: #fff;
+}
+
+.button_reset {
+  width: 100%;
+  margin: 22px auto 0 auto;
+  border-radius: 26px;
+  background: rgb(212, 243, 220);
+  color: #64c364;
+}
+
+.touxiangwz {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.userinfo-container {
+  height: 220px;
+  background-color: #5fc05f;
+  padding-top: 72px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EBEBEB;
+  position: relative;
+}
+
+.userinfo-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin: 0 auto 17px;
+  z-index: 10;
+  position: relative;
+}
+
+.avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.username {
+  font-size: 20px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 18px;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input_hang {
+  border-bottom: 1px solid #D9E2E9;
+}
+
+.input_hang input {
+  height: 52px;
+}
+
+.logo-img {
+  width: 158px;
+  height: 21px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-img1 {
+  width: 86px;
+  height: 78px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -150px;
+}
+
+.logo-img1 image {
+  width: 300px;
+}

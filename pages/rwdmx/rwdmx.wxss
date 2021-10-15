@@ -1,0 +1,29 @@
+/* pages/rwdmx/rwdmx.wxss */
+page {
+  height: 100%;
+  background-color: #EDEDED;
+}
+.rwdmx-container {
+  padding: 16px 10px;
+}
+.info-name {
+  float: left;
+  width: 70px;
+}
+.info-content {
+  float: right;
+  width: calc(100% - 70px);
+}
+.basic-title {
+  color: #1C1C16;
+  font-size: 14px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.basic-content {
+  padding: 18px 22px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #3C3C3C;
+}

@@ -1,0 +1,118 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/syjy/syjy",
+        "pages/bgsh/bgsh",
+        "pages/bgpz/bgpz",
+        "pages/sycj/sycj",
+        "pages/ybxq/ybxq",
+        "pages/pbsc/pbsc",
+        "pages/sjtj1/sjtj1",
+        "pages/gr/gr",
+        "pages/zcck/zcck",
+        "pages/scjk/scjk",
+        "pages/aqxj/aqxj",
+        "pages/aqxj2/aqxj2",
+        "pages/aqxj1/aqxj1",
+        "pages/sbwx/sbwx",
+        "pages/xzgys/xzgys",
+        "pages/dbsx/dbsx",
+        "pages/pbmx/pbmx",
+        "pages/rwdmx/rwdmx",
+        "pages/rwdgl/rwdgl",
+        "pages/xzrwd/xzrwd",
+        "pages/rwdcx/rwdcx",
+        "pages/sbby/sbby",
+        "pages/wxby/wxby",
+        "pages/ggdb/ggdb",
+        "pages/sjtj/sjtj",
+        "pages/gdxq/gdxq",
+        "pages/jxwx/jxwx",
+        "pages/clgps/clgps",
+        "pages/sbbynew/sbbynew",
+        "pages/cjxz/cjxz",
+        "pages/cjcx/cjcx"
+    ],
+    "subpackages": [{
+        "root": "subpackages",
+        "name": "subpackages",
+        "pages": [
+            "pages/xmgl/xmgl",
+            "pages/xzxm/xzxm",
+            "pages/xmcx/xmcx",
+            "pages/khcx/khcx",
+            "pages/ylbj/ylbj",
+            "pages/jysc/jysc",
+            "pages/jtsq/jtsq",
+            "pages/txxx/txxx",
+            "pages/dqys/dqys",
+            "pages/zdpd/zdpd",
+            "pages/sbwxnew/sbwxnew",
+            "pages/rwdglnew/rwdglnew",
+            "pages/sbbylist/sbbylist",
+            "pages/zlkz/zlkz",
+            "pages/sdpc/sdpc",
+            "pages/qbgn/qbgn",
+            "pages/spjk/spjk",
+            "pages/txl/txl",
+            "pages/cargps/cargps",
+            "pages/gysgl/gysgl",
+            "pages/pbsc1/pbsc1",
+            "pages/ybrk/ybrk",
+            "pages/sylr/sylr",
+            "pages/xmxz/xmxz",
+            "pages/hjjc/hjjc",
+            "pages/dzjf/dzjf",
+            "pages/tpjsgpz/tpjsgpz",
+            "pages/yljsgpz/yljsgpz",
+            "pages/rwpc/rwpc",
+            "pages/cjgl/cjgl",
+            "pages/bdcx/bdcx",
+            "pages/rwdadd/rwdadd",
+            "pages/rwdcxnew/rwdcxnew",
+            "pages/rwpcselect/rwpcselect",
+            "pages/dbsxnew/dbsxnew",
+            "pages/xmmx/xmmx",
+            "pages/zccknew/zccknew"
+        ],
+        "independent": false
+    }],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "小程序将获取你的位置信息"
+        }
+    },
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "",
+        "backgroundColor": "#eeeeee",
+        "backgroundTextStyle": "light"
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "img/index.png",
+                "selectedIconPath": "img/index-fill.png"
+            },
+            {
+                "pagePath": "pages/sjtj1/sjtj1",
+                "text": "数据统计",
+                "iconPath": "img/data.png",
+                "selectedIconPath": "img/data-fill.png"
+            },
+            {
+                "pagePath": "pages/gr/gr",
+                "text": "个人中心",
+                "iconPath": "img/user.png",
+                "selectedIconPath": "img/user-fill.png"
+            }
+        ]
+    },
+    "usingComponents": {
+        "mp-badge": "../../../weui-miniprogram/badge/badge",
+        "ec-canvas": "../../../ec-canvas/ec-canvas"
+    }
+}

@@ -1,0 +1,87 @@
+<!--pages/wxby/wxby.wxml-->
+<view class="weui-tab">
+    <view class="weui-navbar">
+        <view bindtap="navchange" data-nav="nav1" class="weui-navbar__item  {{nav1}}">
+            保养巡检
+        </view>
+        <view bindtap="navchange" data-nav="nav2" class="weui-navbar__item {{nav2}}">
+            设备维修
+        </view>
+    </view>
+    <view class="flex">
+      <view class="flex__item head_xl1">
+        <picker bindchange="bindSiteChange" value="{{site_index}}" range="{{site_array}}">
+          <view class="picker">
+            {{site_array[site_index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="flex__item head_xl1">
+        <picker bindchange="bindJcChange" value="{{jc_index}}" range="{{jc_array}}">
+          <view class="picker">
+            {{jc_array[jc_index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+          </view>
+        </picker>
+      </view>
+       <view class="flex__item head_xl1">
+        <picker bindchange="bindZtChange" value="{{zt_index}}" range="{{zt_array}}">
+          <view class="picker">
+            {{zt_array[zt_index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="flex__item head_xl2">
+        <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
+          <view class="picker">
+            {{dateStart}}<image src="/icon/sjx.png" class="select_sj"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="clearfloat"></view>
+    </view>
+    <view class="weui-tab__panel">
+        <view style="display:{{nav_panl1}}">
+            
+            <view class="weui-cells weui-cells_form ">
+              <view wx:for="{{listByjd}}" class="weui-cells noneline">
+                  <navigator url="{{item.stateMaintenance=='待保养'&&item.dbyscljd>=0.8?'/pages/sbby/sbby?maintenanceId='+item.maintenanceId:''}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__bd">
+                          <p>{{item.categoryMaintenance}}</p>
+                      </view>
+                      <view class="weui-cell__ft  weui-cell__ft_in-access">{{item.stateMaintenance}}{{item.stateMaintenance=="保养中"?'/'+item.startBy+'天':item.stateMaintenance=='待保养'?'/'+(item.dbyscljd*100)+'%':''}}</view>
+                  </navigator>
+                  <progress border-radius="18" activeColor="{{(item.stateMaintenance=='待保养'&&item.dbyscljd>=0.8)||(item.stateMaintenance=='保养中'&&item.startBy>=5)?'rgb(254,68,0)':item.stateMaintenance=='已完成'?'rgb(191,191,191)':'rgb(77,205,113)'}}" class="progress_sfh" percent="{{item.dbyscljd*100}}" show-info="true" stroke-width="18" />
+
+                  <view  class="weui-cell weui-cell_access noneline">
+                  </view>
+              </view>
+            </view>
+
+        </view>
+
+        <view style="display:{{nav_panl2}}" >
+            <!-- <view class="weui-cells weui-cells_form" class="nav">
+              <view class="weui-cells">
+                  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__bd">
+                          <p>拌缸记录</p>
+                      </view>
+                      <view class="weui-cell__ft  weui-cell__ft_in-access">进行中</view>
+                  </navigator>
+                  <progress class="progress_sfh" percent="78" show-info="true" stroke-width="18" />
+                  <navigator url="" class="weui-cell weui-cell_access noneline" hover-class="weui-cell_active">
+                      <view class="weui-cell__bd">
+                          <p>烘干烔</p>
+                      </view>
+                      <view class="weui-cell__ft  weui-cell__ft_in-access">工单</view>
+                  </navigator>
+                  <progress class="progress_sfh" percent="36" show-info="true" stroke-width="18"/>
+
+                  <view  class="weui-cell weui-cell_access noneline">
+                  </view>
+              </view>
+            </view> -->
+          
+        </view>
+    </view>
+</view>

@@ -1,0 +1,41 @@
+<!--pages/cjgl/cjgl.wxml-->
+<view class="page-rwdgl">
+  <view class="rwdgl-top">
+    <navigator url="/pages/cjxz/cjxz" class="rwdgl-add">
+      <view class="rwd-add-icon">
+        <image src="/img/xzrwd.png"></image>
+      </view>
+      <view class="rwd-title">新增抽检</view>
+    </navigator>
+    <navigator url="/pages/cjcx/cjcx" class="rwdgl-search">
+      <view class="rwd-search-icon">
+        <image src="/img/rwdcx.png"></image>
+      </view>
+      <view class="rwd-title">抽检查询</view>
+    </navigator>
+  </view>
+  <view class="rwdgl-content">
+    <view style="height:calc(100vh - 200px);">
+      <view class="content-item" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
+        <view class="content-item-top clear">
+          <text class="pull-left">{{item.sdNumber}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">报告名称: {{item.reportName}}</text>
+           <text class="pull-right">报告目的:{{item.reportGoal}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">委托单位: {{item.wtUnit}}</text>
+           <text class="pull-right">工程名称:{{item.projectName}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">试验日期: {{item.syTime}}</text>
+          <text class="pull-right">实验结果: {{item.syResult}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">检验人员: {{item.jyName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

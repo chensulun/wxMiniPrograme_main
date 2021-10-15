@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "新增供应商",
+  "backgroundColor": "#EDEDED",
+  "usingComponents": {
+    "mp-form": "../../weui-miniprogram/form/form",
+    "mp-cell": "../../weui-miniprogram/cell/cell",
+    "mp-cells": "../../weui-miniprogram/cells/cells",
+    "mp-icon": "../../weui-miniprogram/icon/icon"
+  }
+}

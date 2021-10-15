@@ -1,0 +1,96 @@
+<!--pages/rwdcxnew/rwdcxnew.wxml-->
+<wxs module="filters" src="../../../utils/filter.wxs"></wxs>
+<view class="rwdcx-container">
+    <view class="rwdcx-header">
+        <view class="header-item">
+            <input data-field="sgbw" name="sgbw" style="margin-top: 0px;height:100%;line-height:40px;text-align:center;"
+                placeholder="请输入项目名称" bindinput="change1" />
+        </view>
+        <view class="header-item" bindtap="openTimeModal">
+            <view>时间
+                <view class="select-icon">
+                    <image src="/img/select_down.png" mode="aspectFit"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="rwdcx-content">
+        <view class="list-box">
+            <view class="repeart-item" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index"
+                wx:for-item="item">
+                <view class="content-item-bottom clear">
+                    <view class="project-name">
+                        <text>{{item.projectName}}</text>
+                    </view>
+                    <view class="tag">
+                        <block wx:if="{{item.taskStatus=='0'}}">
+                            <text class="pull-left">未排程</text>
+                        </block>
+                        <block wx:elif="{{item.taskStatus=='1'}}">
+                            <text class="pull-left">已排程</text>
+                        </block>
+                        <block wx:elif="{{item.taskStatus=='2'}}">
+                            <text class="pull-left">正供</text>
+                        </block>
+                        <block wx:else>
+                            <text class="pull-left">已完成</text>
+                        </block>
+                    </view>
+                </view>
+                <view class="col-top">
+                    <view class="item">
+                        <text class="name">生产类型:</text>
+                        <text class="text"> {{item.taskProductionType}}</text>
+                    </view>
+                    <view class="item">
+                        <text class="name">施工部位：</text>
+                        <text class="text"> {{item.taskPosition}}</text>
+                    </view>
+                </view>
+                <view class="col-middle">
+                    <view class="item">
+                        <text class="text"> {{item.taskPlannedQuantity}}</text>
+                        <text class="name">计划量(吨): </text>
+                    </view>
+                    <view class="item">
+                        <text class="text"> {{item.sum}}</text>
+                        <text class="name">已发量(吨): </text>
+                    </view>
+                    <view class="item">
+                        <text class="text"> {{item.count}}</text>
+                        <text class="name">已发车(车): </text>
+                    </view>
+                </view>
+                <view class="col-bottom">
+                    <text class="name">工地供需时间: </text>
+                    <text class="text">{{item.taskSupplyTime}} </text>
+                </view>
+
+               
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="select-time-container {{timeModalShow ? 'select-time-show' : ''}}">
+    <view class="select-time-content">
+        <view class="begin-time">
+            开始时间
+            <picker data-field="date" style="display: inline-block;" mode="date" value="{{bdate}}"
+                bindchange="DateStartChange">
+                <view class="weui-input select-time">{{bdate}}</view>
+            </picker>
+        </view>
+        <view class="end-time">
+            结束时间
+            <picker data-field="date" style="display: inline-block;" mode="date" value="{{edate}}"
+                bindchange="DateEndChange">
+                <view class="weui-input select-time">{{edate}}</view>
+            </picker>
+        </view>
+        <view class="btns-container">
+            <button size="mini" style="margin-right: 20px;" bindtap="cancel">取消</button>
+            <button size="mini" type="primary" bindtap="comfirm">确定</button>
+        </view>
+    </view>
+</view>

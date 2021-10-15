@@ -1,0 +1,98 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <view>
+        <mp-cells ext-class="cells-item mb-10">
+           <mp-cell title="车牌号:" ext-class="pr-40" style="padding-right: 70px !important;" >
+            <input bindinput='inputChange'  class="weui-input" style="padding-right:20px" data-field="carNum" placeholder="请输入" value='{{model.carNum}}' />
+            <view bindtap="searchImg" class="cell-icon" style="right:45px">
+              <image   style="width: 100%;height:100%;" src="/icon/search.png"></image>
+            </view>
+            <view class="cell-icon" bindtap="chooseImage">
+              <image style="width: 100%;height:100%;" src="/icon/camera.png" mode="aspectFit" ></image>
+            </view>
+          </mp-cell>
+          <mp-cell title="项目名称:" ext-class="">
+            <input  class="weui-input" disabled="true" data-field="project_name" placeholder="" value='{{project_name}}' />
+          </mp-cell>
+					<mp-cell title="摊铺机:" ext-class="cell-container pr-40">
+						<picker bindchange="typePickerChange" data-field="ptIndex" value="{{ptIndex}}" range-key="name" range="{{ptlist}}">
+							<view class="picker text-right">
+								{{ptlist[ptIndex].name}}
+							</view>
+							<view class="cell-icon">
+								<!-- <image src="/img/more.png"></image> -->
+								<image style="width: 100%;height:100%;" src="/icon/more.png" mode="aspectFit"></image>
+							</view>
+						</picker>
+					</mp-cell>
+        </mp-cells>
+        <view>
+          <mp-cells ext-class="cells-item">
+            <mp-cell title="净重" ext-class="pr-40 cell-container">
+                <input data-field="net_weight" disabled="true" value="{{net_weight}}" class="weui-input text-right" placeholder=""/>
+                <view class="cell-icon">
+                  吨
+                </view>
+            </mp-cell>
+            <mp-cell title="生成时间" ext-class="cell-container">
+                <!-- <picker mode="date" value="{{time}}" data-field="time" bindchange="bindDateChange">
+                  <view class="picker text-right">{{time}}</view>
+                </picker> -->
+                 <input data-field="initial_date" disabled="true" value="{{initial_date}}" class="weui-input text-right" placeholder=""/>
+            </mp-cell>
+            <mp-cell title="行驶里程" ext-class="pr-40 cell-container">
+                <input data-field="driven_distance" disabled="true" value="{{driven_distance}}" class="weui-input text-right" placeholder=""/>
+                <view class="cell-icon">
+                  km
+                </view>
+            </mp-cell>
+            <mp-cell title="出厂温度" ext-class="pr-40 cell-container">
+                <input data-field="factory_temperature" disabled="true" value="{{factory_temperature}}" class="weui-input text-right" placeholder=""/>
+                <view class="cell-icon">
+                  度
+                </view>
+            </mp-cell>
+            <mp-cell title="总锅数" ext-class="pr-40 cell-container">
+                <input data-field="number_pots" disabled="true"  value="{{number_pots}}" class="weui-input text-right" placeholder=""/>
+                <view class="cell-icon">
+                  锅
+                </view>
+            </mp-cell>
+            <mp-cell title="异常锅数" ext-class="pr-40 cell-container">
+                <input data-field="abnormal_number_pots" disabled="true"  value="{{abnormal_number_pots}}" class="weui-input text-right" placeholder=""/>
+                <view class="cell-icon">
+                  锅
+                </view>
+            </mp-cell>
+          </mp-cells>
+        </view>
+      </view>
+      <view class="mt-20 text-center page-btns">
+          <button size="mini" bindtap="qianshou" class="btn-green pull-left ml-10">签收</button>
+          <button size="mini" bindtap="jushou" class="btn-red" >拒收</button>
+          <button size="mini" class="btn-blue pull-right mr-10" >下一车</button>
+          <!-- <button size="mini" class="btn-gray-light">取消</button> -->
+      </view>
+    </mp-form>
+  </view>
+</view>
+<!-- 绑定成功弹窗 -->
+<view class="modal-reson {{modalShow ? 'show' : ''}}">
+  <view class="modal-content">
+    <view class="modal-title">拒收原因</view>
+    <view class="refuse-reson clear">
+      <view bindtap="resonChange" data-reson="1" class="reson-item mr-10 {{reson==='1'?'active':''}}">质量</view>
+      <view bindtap="resonChange" data-reson="2" class="reson-item mr-10 {{reson==='2'?'active':''}}">超时</view>
+      <view bindtap="resonChange" data-reson="3" class="reson-item mr-10 {{reson==='3'?'active':''}}">其他</view>
+    </view>
+    <view>
+      <textarea class="reson-textarea" data-field="reson" bindinput="inputChange"  placeholder="请输入退回原因..." />
+    </view>
+    <view class="modal-btns clear">
+      <button type="button" class="btn-cancle" bindtap="modalHide">取消</button>
+      <button type="button" bindtap="jushousubmit" class="btn-confirm">提交</button>
+    </view>
+  </view>
+</view>

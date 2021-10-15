@@ -1,0 +1,104 @@
+<!--pages/rwdglnew/rwdglnew.wxml-->
+<wxs module="filters" src="../../../utils/filter.wxs"></wxs>
+<view class="page-rwdgl">
+    <view class="rwdgl-top">
+        <!-- 新增任务单 -->
+        <navigator url="/subpackages/pages/rwdadd/rwdadd" class="rwdgl-add">
+            <view class="rwd-add-icon">
+                <image src="/img/xzrwd.png"></image>
+            </view>
+            <view class="rwd-title">新增任务</view>
+        </navigator>
+        <!-- 任务单查询 -->
+        <navigator url="/subpackages/pages/rwdcxnew/rwdcxnew" class="rwdgl-search">
+            <view class="rwd-search-icon">
+                <image src="/img/rwdcx.png"></image>
+            </view>
+            <view class="rwd-title">任务查询</view>
+        </navigator>
+    </view>
+    <view class="content-title head_title">任务列表</view>
+    <view class="rwdgl-content txt-s">
+        <view wx:for="{{oldlist}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item">
+            <view class="border-re">
+                <view class="content-item-bottom clear">
+                    <view>
+                        <text class="pull-left project-name">{{item.projectName}}</text>
+                    </view>
+                </view>
+
+                <view class="rem7 show_view">
+                    <view class="content-item-bottom clear pad-top top39">
+                        <view>
+                            <text class="pull-left sclx lab-name font-30">生产类型：</text>
+                            <text class="pull-left font-30 " style="width:180px"> {{item.taskProductionType}}</text>
+                        </view>
+                        <view bindtap="actioncnt" data-taskid="{{item.taskStatus}}">
+                            <block wx:if="{{item.taskStatus==0}}">
+                                <text class="pull-left status wpc">未排程</text>
+                            </block>
+                            <block wx:elif="{{item.taskStatus==1}}">
+                                <text class="pull-left status ypc">已排程</text>
+                            </block>
+                            <block wx:elif="{{item.taskStatus==2}}">
+                                <text class="pull-left status ypc">正供</text>
+                            </block>
+                            <block wx:else>
+                                <text class="pull-left status ypc">已完成</text>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="content-item-bottom clear">
+                        <view style="position: relative;top: -30rpx;">
+                            <view class="mag19">
+                                <view class="pull-left">
+                                    <image src="/img/计划量.png" style="width:1rem;height:1rem"></image>
+                                </view>
+                                <text class="pull-left txt-size-left jhl-txt">{{item.taskPlannedQuantity}}</text>
+                            </view>
+
+                            <view class="yfl-view">
+                                <view class="pull-left">
+                                    <image src="/img/已发量.png" style="width:1rem;height:1rem"></image>
+                                </view>
+                                <text class="pull-left txt-size-left1 jhl-txt font-co5570f6">
+                                    {{(item.taskStatus=='2'||item.taskStatus=='3')?item.sum:0}}</text>
+                            </view>
+                            <view class="yfl-view1">
+                                <view class="pull-left">
+                                    <image src="/img/已发车.png" style="width:1rem;height:1rem"></image>
+                                </view>
+                                <text class="pull-left txt-size-left1 jhl-txt font-co151515">
+                                    {{(tlitem.status=='2'||tlitem.status=='3')?item.count:0}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="danwei">
+                        <text class="pull-left font-30 lab-name">计划量(吨)</text>
+                        <image src="/img/lint.png"
+                            style="width: 2px;height: 88rpx;position: absolute;top: -43rpx;left: 221rpx;">
+                        </image>
+                        <text class="pull-left font-30 lab-name absolute le235">已发量(吨)</text>
+                        <image src="/img/lint.png"
+                            style="width: 2px;height: 88rpx;position: absolute;top: -43rpx;left: 490rpx;">
+                        </image>
+                        <text class="pull-left font-30 lab-name absolute le520">已发车(车)</text>
+                    </view>
+                    <view class="pull-left ghsj">
+                        <text class="pull-left lab-name">供货时间：</text>
+                        <!-- <text class="pull-left">{{tlitem.outTime==null?tlitem.createTime:tlitem.outTime}} -->
+                        <text class="pull-left">{{item.taskSupplyTime}}
+                        </text>
+                        <text class="pull-left lab-name pleft font-30">用途：</text>
+                        <text class="pull-left "> {{item.taskPosition}}</text>
+                    </view>
+                    <view>
+                        <image src="/img/lint-1.png" style="width:100%;height:4rpx;position: relative;top:20rpx">
+                        </image>
+                    </view>
+                </view>
+            </view>
+            <view style="height:15rpx"></view>
+        </view>
+    </view>
+</view>

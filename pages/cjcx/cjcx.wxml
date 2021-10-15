@@ -1,0 +1,75 @@
+<!--pages/cjcx/cjcx.wxml-->
+<view class="rwdcx-container">
+  <view class="rwdcx-header">
+    <!-- <view class="header-item">
+      <picker bindchange="pickerChange" value="{{index}}" range="{{list}}">
+        <view>{{list[index]}}
+          <view class="select-icon">
+            <image src="/img/select_down.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="header-item">
+      <picker bindchange="pickerChange1" value="{{index1}}" range="{{list1}}">
+        <view>{{list1[index1]}}
+          <view class="select-icon">
+            <image src="/img/select_down.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </picker>
+    </view> -->
+    <view class="header-item" bindtap="openTimeModal">
+      <view>时间
+        <view class="select-icon">
+          <image src="/img/select_down.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="rwdcx-content">
+    <view style="height:calc(100vh - 50px);">
+      <view class="content-item" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
+        
+        <view class="content-item-top clear">
+          <text class="pull-left">{{item.sdNumber}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">报告名称: {{item.reportName}}</text>
+           <text class="pull-right">报告目的:{{item.reportGoal}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">委托单位: {{item.wtUnit}}</text>
+           <text class="pull-right">工程名称:{{item.projectName}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">试验日期: {{item.syTime}}</text>
+          <text class="pull-right">实验结果: {{item.syResult}}</text>
+        </view>
+        <view class="content-item-bottom clear">
+          <text class="pull-left" style="color: #3B3B3B;">检验人员: {{item.jyName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="select-time-container {{timeModalShow ? 'select-time-show' : ''}}">
+    <view class="select-time-content">
+      <view class="begin-time">
+        开始时间
+        <picker data-field="date" style="display: inline-block;" mode="date" value="{{dateS}}" bindchange="DateChangeS">
+          <view class="weui-input select-time">{{dateS}}</view>
+        </picker>
+      </view>
+      <view class="end-time">
+        结束时间
+        <picker data-field="date" style="display: inline-block;" mode="date" value="{{dateE}}" bindchange="DateChangeE">
+          <view class="weui-input select-time">{{dateE}}</view>
+        </picker>
+      </view>
+      <view class="btns-container">
+        <button size="mini" style="margin-right: 20px;" bindtap="cancel">取消</button>
+        <button size="mini" type="primary" bindtap="comfirm">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

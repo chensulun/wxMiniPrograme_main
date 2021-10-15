@@ -1,0 +1,77 @@
+/* pages/zlkz/zlkz.wxss */
+.select_box .select .select_img_rotate{
+  transform:rotate(180deg); 
+}
+
+.select_sj{
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.flex{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+.flex__item{
+  float: left;
+}
+.head_xl1{
+  width:20%;
+}
+.head_xl3{
+  width:26%;
+}
+.head_xl2{
+  width:27%;
+}
+.picker{
+  font-size: 15px;
+  font-weight:  bold;
+  color: #333333;
+  text-align: center;
+}
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.bj_fg0{
+  height: 2px;
+  background: #EDEDED
+}
+.bj_fg1{
+  height: 3px;
+  background: #EDEDED
+}
+
+#peibi{
+  position: absolute;
+  top: 0;
+  bottom: 33%;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background:white;
+}
+
+#weidu {
+  position: absolute;
+  top: 33%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background:white;
+}
+#youshi {
+  position: absolute;
+  top: 66%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background:white;
+}
+.tubiao{
+  position: relative;
+  background: #EDEDED;
+  height: 950px;
+}

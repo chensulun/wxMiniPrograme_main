@@ -1,0 +1,54 @@
+/* pages/ggdb/ggdb.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: rgb(237, 237, 237);
+}
+.weui-navbar__item{
+  font-weight:  bold;
+}
+.weui-bar__item_on{
+  font-weight:  bold;
+  color: rgb(44, 197, 83);
+  background-color:rgb(255, 255, 255) !important;
+  border-bottom: 3px solid rgb(44, 197, 83);
+}
+.weui-media-box__thumb{
+  width: 40pt !important;
+  height: 40pt !important;
+}
+.weui-media-box{
+  border-top: 6px solid rgb(237, 237, 237);
+}
+.weui-panel__bd{
+  border-top: 6px solid rgb(237, 237, 237);
+}
+.dbrq{
+  float: right;
+}
+.db_button{
+  float: right;
+}
+.weui-tab__panel {
+  padding: 10px;
+}
+.qs-container {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  padding: 16px;
+}
+.qs-title {
+  font-size:15px;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(28,28,22,1);
+}
+.qs-content {
+  font-size:13px;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(95,95,95,1);
+}

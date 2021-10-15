@@ -1,0 +1,82 @@
+<!--pages/hjjc/hjjc.wxml-->
+<view class="hjjc-container">
+  <view class="hjjc-header clear">
+    <view class="header-item">
+      <picker mode="date" bindchange="bindDateChange">
+        <view class="picker">{{bg_time}} <view class="select-icon"><image src="/img/select_down.png" 
+          mode="aspectFit"></image></view></view>
+      </picker>
+    </view>
+    <view class="header-item">
+      <picker mode="date" bindchange="bindDateChange1">
+        <view class="picker">{{ed_time}} <view class="select-icon"><image src="/img/select_down.png" 
+          mode="aspectFit"></image></view></view>
+      </picker>
+    </view>
+  </view>
+  <view class="data-container">
+    <view class="data-content">
+      <view class="data-row">
+        <view class="data-row-item mr-10" bindtap="switchType" data-type="noise"data-name="噪声">
+          <view class="item-img mr-16"><image src="/img/zs.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">噪声</view>
+          <view class="item-val text-blue">{{data.noise}}</view>
+        </view>
+        <view class="data-row-item" bindtap="switchType" data-type="humidity"data-name="湿度">
+          <view class="item-img mr-16"><image src="/img/sd.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">湿度</view>
+          <view class="item-val text-blue">{{data.humidity}}</view>
+        </view>
+      </view>
+      <view class="data-row">
+        <view class="data-row-item mr-10" bindtap="switchType" data-type="temperature" data-name="温度">
+          <view class="item-img mr-16"><image src="/img/wd.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">温度</view>
+          <view class="item-val text-red">{{data.temperature}}℃</view>
+        </view>
+        <view class="data-row-item" bindtap="switchType" data-type="pressure" data-name="气压">
+          <view class="item-img mr-16"><image src="/img/qy.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">气压</view>
+          <view class="item-val text-orange">{{data.pressure}}P</view>
+        </view>
+      </view>
+      <view class="data-row">
+        <view class="data-row-item mr-10" bindtap="switchType" data-type="windSpd"data-name="风速">
+          <view class="item-img mr-16"><image src="/img/fs.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">风速</view>
+          <view class="item-val text-blue">{{data.windSpd}}</view>
+        </view>
+        <view class="data-row-item" bindtap="switchType" data-type="windDin"data-name="风向">
+          <view class="item-img mr-16"><image src="/img/fx.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16">风向</view>
+          <view class="item-val text-blue">{{data.windDin}}</view>
+        </view>
+      </view>
+      <view class="data-row" bindtap="switchType" data-type="tsp"data-name="总悬浮颗粒物TSP">
+        <view class="data-row-item" style="width: 100%;">
+          <view class="item-img mr-16"><image src="/img/klw.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16" style="width: calc(100% - 98px);">总悬浮颗粒物TSP</view>
+          <view class="item-val text-green">{{data.tsp}}</view>
+        </view>
+      </view>
+      <view class="data-row" bindtap="switchType" data-type="pm25"data-name="细微颗粒物PM2.5">
+        <view class="data-row-item" style="width: 100%;">
+          <view class="item-img mr-16"><image src="/img/PM2.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16" style="width: calc(100% - 98px);">细微颗粒物PM2.5</view>
+          <view class="item-val text-green">{{data.pm25}}</view>
+        </view>
+      </view>
+      <view class="data-row" bindtap="switchType" data-type="pm10"data-name="可吸入颗粒物PM10">
+        <view class="data-row-item" style="width: 100%;">
+          <view class="item-img mr-16"><image src="/img/pm.png" mode="aspectFit"></image></view>
+          <view class="item-text mr-16" style="width: calc(100% - 98px);">可吸入颗粒物PM10</view>
+          <view class="item-val text-green">{{data.pm10}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="echarts-container">
+    <view class="echarts-title">监测数据</view>
+    <view id="echarts"><ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas></view>
+  </view>
+</view>

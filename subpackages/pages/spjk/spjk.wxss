@@ -1,0 +1,58 @@
+/* pages/spjk/spjk.wxss */
+
+.position{
+  margin: 0;
+  padding: 0;
+  height: 5.4%;
+}
+.header_dw{
+  height: 25px;
+  width: 30px;
+  vertical-align:middle;
+}
+.position_text{
+  display:inline-block;
+  height:35px;
+  vertical-align:middle;
+  font-size:16px;
+  font-weight: bold;
+  margin-right:3%;
+  line-height: 35px;
+}
+.header_you{
+  height: 28px;
+  width: 35px;
+  vertical-align:middle;
+}
+.sys_icon_header{
+  height: 31px;
+  width: 31px;
+  float: right;
+  margin:2px 4% 2px 0;
+}
+.weui-flex__item{width: 50%}
+live-player{
+  width: 90% ;
+  margin: 0 auto;
+}
+.video-item {
+  /* height: 200px; */
+  background-color: #000;
+  margin-bottom: 10px;
+  position: relative;
+  /* padding-top: 70px; */
+  box-sizing: border-box;
+}
+.video-btn {
+  margin: 0px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.text-right {
+  text-align: right;
+}
+.p-10 {
+  padding: 10px;
+}

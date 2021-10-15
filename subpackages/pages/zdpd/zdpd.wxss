@@ -1,0 +1,26 @@
+/* subpackages/pages/zdpd/zdpd.wxss */
+.table-scrolling {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.table {
+    margin-top: 10px;
+}
+
+.my-head {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 10px #eee solid;
+}
+
+.tr {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #eee;
+    font-size: 20px;
+}
+
+.td {
+    text-align: center;
+}

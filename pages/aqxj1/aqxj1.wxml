@@ -1,0 +1,87 @@
+<!--viewages/sbwx/sbwx.wxml-->
+<view class="position">
+  <image class="header_dw" src="/icon/dw_g.png"></image>
+  <text class="position_text">{{address}}</text>  
+  <image class="header_you" src="/icon/you.png"></image>
+  <!-- <image class="sys_icon_header" src="/icon/sys_g.png" ></image> -->
+</view>
+
+<form bindsubmit="formSubmit" bindreset="formReset" class="clear">
+
+  <view class="weui-cells contain1">
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <view class="jux_title"></view>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  安全巡检</text>
+        </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  类别:</text>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.leibie_name}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  位置:</text>
+      </view>
+      <view class="weui-cell__bd">
+          <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.wz}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <text class="weui-badge weui-badge_dot"></text>
+        <text class="weui-label cell_title weight_font" space="ensp">  巡检类型:</text>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.xj_type_name}}</view>
+      </view>
+    </view>
+
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  巡检项目</text>
+        </view>
+    </view>
+
+    <view class="weui-cell noneline">
+        <view class="weui-cell__bd">
+            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检项目" rows="3" value="{{safemodel.xm}}"></textarea>
+        </view>
+    </view>
+
+    <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <text class="weui-badge weui-badge_dot"></text>
+        </view>
+        <view class="weui-cell__bd weight_font">
+            <text space="ensp">  巡检标准</text>
+        </view>
+    </view>
+
+    <view class="weui-cell noneline">
+        <view class="weui-cell__bd">
+            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检标准" rows="3" value="{{safemodel.bz}}"></textarea>
+        </view>
+    </view>
+    <view class="text-center pb-20">
+      <button class="btn-green mr-10" size="mini" bindtap="overfun">完成</button>
+      <button class="btn-gray-light" size="mini" bindtap="yichangfun">异常汇报</button>
+    </view>
+  </view>
+</form>
+
+  

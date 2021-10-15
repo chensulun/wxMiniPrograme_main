@@ -1,0 +1,106 @@
+<!--pages/cjxz/cjxz.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <form id="form" bindsubmit="submitForm">
+      <view hidden="{{titleVal!=='basic'}}">
+        <mp-cells ext-class="cells-item">
+         <mp-cell title="工程编号" ext-class="">
+              <picker bindchange="xmnopickerChange"  value="{{listVal}}" range-key="project_no_name"
+              range="{{xmnoList}}" data-projectid="{{xmnoList[index].project_id}}" data-customname="{{xmnoList[index].custom_name}}" data-sgdw="{{xmnoList[index].sgdw}}" data-projectno="{{xmnoList[index].project_no}}"  data-projectname="{{xmnoList[index].project_name}}">
+                <view class="picker">
+                  {{xmnoList[index].project_no_name}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="报告编号" ext-class="">
+            <input data-field="bgbh" name="bgbh" type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="报告名称" ext-class="">
+            <picker bindchange="bgmcChange"  value="{{bgmc}}" range-key="id"
+              range="{{bgmc}}" data-value="{{bgmc[cindex].id}}" >
+                <view class="picker">
+                  {{bgmc[cindex].id}}
+                </view>
+              </picker>
+          </mp-cell>
+          <mp-cell title="报告目的" ext-class="">
+            <picker bindchange="bgmdChange"  value="{{bgmd}}" range-key="id"
+              range="{{bgmd}}" data-value="{{bgmd[dindex].id}}" >
+                <view class="picker">
+                  {{bgmd[dindex].id}}
+                </view>
+              </picker>
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="样品及实验编号" ext-class="">
+            <input data-field="sybh" name="sybh" type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="样品状态" ext-class="">
+              <input data-field="ypzt" name="ypzt" type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="材料名称" ext-class="">
+              <input data-field="clmc" name="clmc"  type="text"class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="委托编号" ext-class="">
+              <input data-field="wtbh" name="wtbh"  type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="委托单位" ext-class="">
+              <input data-field="wtdw" name="wtdw"  type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="检测依据" ext-class="">
+              <input data-field="cjyj" name="cjyj"  type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+          <mp-cell title="检测结果" ext-class="">
+              <input data-field="cjjg" name="cjjg"  type="text" class="weui-input" placeholder="请输入"/>
+          </mp-cell>
+           <mp-cell title="实验日期" ext-class="">
+              <picker data-field="site_supply" name="site_supply" mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+                  <view class="weui-input">{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:{{dateTimeArray[5][dateTime[5]]}}</view>
+              </picker>
+          </mp-cell>
+           <mp-cell title="报告日期" ext-class="">
+              <picker data-field="site_supply" name="site_supply" mode="multiSelector" value="{{dateTimes}}" bindchange="changeDateTimes" bindcolumnchange="changeDateTimeColumns" range="{{dateTimeArrays}}">
+                  <view class="weui-input">{{dateTimeArrays[0][dateTimes[0]]}}-{{dateTimeArrays[1][dateTimes[1]]}}-{{dateTimeArrays[2][dateTimes[2]]}} {{dateTimeArrays[3][dateTimes[3]]}}:{{dateTimeArrays[4][dateTimes[4]]}}:{{dateTimeArrays[5][dateTimes[5]]}}</view>
+              </picker>
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">附件上传</view>
+                  <view class="weui-uploader__info">{{files.length}}/10</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <block wx:for="{{files}}" wx:key="*this">
+                      <view class="weui-uploader__file" id="{{item}}">
+                        <image bindtap="previewImage" class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                        <icon type="cancel" class="cancel" size="23" data-imgurl="{{item}}" bindtap="cancelImg"></icon>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </mp-cells>
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type='submit'>确定</button>
+          <!-- <button class="weui-btn" type="primary" form-type='submit'>确定</button> -->
+        </view>
+      </view>
+      
+    </form>
+  </view>
+</view>

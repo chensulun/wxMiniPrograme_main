@@ -1,0 +1,69 @@
+<!--subpackages/pages/jysc/jysc.wxml-->
+<view>
+    <view class="xzrw-container">
+        <view class="cells-item">
+            <mp-cells>
+                <mp-cell title="车号/船号" ext-class="">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighLicensePlate}}" disabled="true" />
+                </mp-cell>
+                <mp-cell title="供应商">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighMaterialCompany}}" disabled="true" />
+                </mp-cell>
+            </mp-cells>
+        </view>
+
+        <text style="font-weight: bold;margin-left: 10px;">检测情况</text>
+        <view class="cells-item">
+            <mp-cells>
+                <mp-cell title="检测结果" ext-class="">
+                    <view class="my-btns-flex">
+                        <button class="my-btn  {{state=='1'?'select':''}}" hover-class="none" bindtap="select_jg"
+                            data-id="1">合格</button>
+                        <button class="my-btn  {{state=='2'?'select':''}}" hover-class="none" bindtap="select_jg"
+                            data-id="2">不合格</button>
+                    </view>
+                </mp-cell>
+                <mp-cell title="材料质量" ext-class="">
+                    <view class="my-btns-flex">
+                        <button class="my-btn {{state2=='一般'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="一般">一般</button>
+                        <button class="my-btn {{state2=='良好'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="良好">良好</button>
+                        <button class="my-btn {{state2=='优等'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="优等">优等</button>
+                    </view>
+                </mp-cell>
+                <mp-cell title="扣重（吨/千克）" ext-class="">
+                    <input data-field="zlkz" class="weui-input pull-right" name="zlkz" placeholder="请输入" bindblur="inputValue"/>
+                </mp-cell>
+            </mp-cells>
+        </view>
+
+        <view class="cells-item">
+            <mp-cells>
+                <!--以下为图片选择-->
+                <view class="img_box">
+                    <view class="imgs" wx:for="{{tempFilePaths}}" wx:key="index">
+                        <image src='{{item}}' bindlongpress="DeleteImg" bindtap="PreviewImg" data-index="{{index}}"
+                            mode='widthFix' />
+                    </view>
+                    <view class="imgs">
+                        <view class="images" bindtap="ChooseImg"
+                            style="display: flex;flex-direction: column;text-align: center;">
+                            <mp-icon type="field" icon="add" color="black" size="{{25}}"></mp-icon>
+                            <text class="word-class">上传图像</text>
+                            <text class="word-class">（长按删除）</text>
+                        </view>
+                    </view>
+                </view>
+            </mp-cells>
+        </view>
+
+        <view class="my-btns">
+            <button class="my-minibtn" type="default" hover-class="none" bindtap="toBack">返回</button>
+            <button class="my-minibtn" type="primary" hover-class="none" bindtap="submit">确认</button>
+        </view>
+    </view>
+</view>

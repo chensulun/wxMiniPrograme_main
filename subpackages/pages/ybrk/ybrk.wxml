@@ -1,0 +1,27 @@
+<!--pages/xzrwd/xzrwd.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <view>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="样品编号:" ext-class=""> 
+              <input   value="{{manage.toCode}}" class="weui-input" disabled/>
+          </mp-cell>
+          <mp-cell title="样品名称:" ext-class="">
+           <input value="{{manage.sampleName}}" class="weui-input" disabled/>
+          </mp-cell>
+          <mp-cell title="委托单位:" ext-class="">
+              <input value="{{manage.wtUnit}}" class="weui-input" disabled/>
+          </mp-cell>
+          <mp-cell title="项目名称:" ext-class="">
+             <input value="{{manage.projectName}}" class="weui-input" disabled/>
+          </mp-cell>
+        </mp-cells>
+      </view>
+      <view class="mt-20 text-center">
+          <button size="mini" class="btn-red mr-10" bindtap="bindsave">保存</button>
+          <button size="mini" class="btn-gray-light mr-10" bindtap="bindsave1">添加</button>
+      </view>
+    </mp-form>
+  </view>
+</view>

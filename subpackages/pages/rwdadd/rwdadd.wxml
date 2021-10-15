@@ -1,0 +1,78 @@
+<!--pages/rwdadd/rwdadd.wxml-->
+<view class="xzrw-container">
+  <view class="cells-item">
+    <form id="form" bindsubmit="submitForm">
+      <view hidden="{{titleVal!=='basic'}}">
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="项目" ext-class="">
+            <picker bindchange="xmnopickerChange" value="{{xmnoList}}" range-key="projectName" range="{{xmnoList}}"
+              data-projectid="{{xmnoList[index].projectId}}" data-customname="{{xmnoList[index].customerName}}"
+              data-sgdw="{{xmnoList[index].sgdw}}" data-projectno="{{xmnoList[index].project_no}}"
+              data-projectname="{{xmnoList[index].projectName}}">
+              <view class="picker">
+                <!-- {{xmnoList[index].projectName}} -->
+                {{xmnoList[index].projectName?xmnoList[index].projectName:'请选择'}}
+              </view>
+            </picker>
+          </mp-cell>
+          <mp-cell title="生产类型" ext-class="">
+            <picker bindchange="qlxpickerChange" value="{{qlxLis}}" range="{{qlxList}}" data-id="{{qlxList[qlxindex]}}">
+              <view class="picker">
+                {{qlxList[qlxindex]?qlxList[qlxindex]:'请选择'}}
+              </view>
+            </picker>
+          </mp-cell>
+
+          <mp-cell title="施工部位" ext-class="">
+            <input data-field="sgbw" name="sgbw" value="{{nullval}}" class="weui-input" placeholder="请输入" />
+          </mp-cell>
+          <mp-cell title="运输方式" ext-class="">
+            <input data-field="transport_way" name="transport_way" value="{{nullval}}" class="weui-input"
+              placeholder="请输入" />
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="计划量" ext-class="">
+            <input data-field="jhl" name="jhl" value="{{nullval}}" type="number" class="weui-input" placeholder="请输入" />
+          </mp-cell>
+          <mp-cell title="追加量" ext-class="">
+            <input data-field="zjl" name="zjl" value="{{nullval}}" type="number" class="weui-input" placeholder="请输入" />
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="出货时间" ext-class="">
+            <picker data-field="site_supply" name="site_supply" mode="multiSelector" value="{{dateTime}}"
+              bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+              <view class="weui-input">
+                {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}}
+                {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:{{dateTimeArray[5][dateTime[5]]}}
+              </view>
+            </picker>
+          </mp-cell>
+          <mp-cell title="发车间隔" ext-class="">
+            <input data-field="fcjgsj" name="fcjgsj" value="{{nullval}}" type="number" class="weui-input"
+              placeholder="请输入" />
+          </mp-cell>
+        </mp-cells>
+        <mp-cells ext-class="cells-item">
+          <mp-cell title="地址" ext-class="">
+            <input data-field="sgaddress" name="sgaddress" value="{{nullval}}" type="text" class="weui-input"
+              placeholder="请输入" />
+          </mp-cell>
+          <mp-cell title="联系人" ext-class="">
+            <input data-field="lxr" name="lxr" value="{{nullval}}" type="text" class="weui-input" placeholder="请输入" />
+          </mp-cell>
+          <mp-cell title="联系电话" ext-class="">
+            <input data-field="phone" name="phone" value="{{nullval}}" type="number" type="text" class="weui-input"
+              placeholder="请输入" />
+          </mp-cell>
+        </mp-cells>
+        <view class="weui-btn-area">
+          <button class="weui-btn" type="primary" form-type='submit'>确定</button>
+          <!-- <button class="weui-btn" type="primary" form-type='submit'>确定</button> -->
+        </view>
+      </view>
+
+    </form>
+  </view>
+</view>
