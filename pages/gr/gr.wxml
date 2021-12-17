@@ -1,14 +1,13 @@
 <!--pages/gr/gr.wxml-->
 <view wx:if="{{grzx}}" class="login_banner">
+
   <view style="position: relative;">
     <image class="loginimg" src="/img/loginbanner.png"></image>
     <view class="logo-img1">
       <image src="/img/logo.png" mode="aspectFit"></image>
     </view>
   </view>
-  <!-- <view class="login_tip">登录</view> -->
   <form bindsubmit="formSubmit" bindreset="formReset" report-submit-timeout="2" class="login_form">
-
     <view class="input_hang">
       <image class="inputimg" style="width: 15px;height: 21px;margin-right: 6px;" src="/img/login_user.png"></image>
       <input name="username" class="weui-input" placeholder="请输入用户名"
@@ -28,13 +27,17 @@
     </view>
     <button class="button_dl" formType="submit">登录</button>
     <button class="button_reset" formType="reset">重置</button>
-
   </form>
+
 </view>
+<!-- 弹窗 -->
+
+<!-- 弹窗2 -->
+
 
 <view wx:if="{{!grzx}}" class="weui-cells weui-cells_after-title grzxcd">
   <view class="userinfo-container">
-    <image src="/icon/user_bg.png" class="userinfo-bg"></image>
+    <!-- <image src="/icon/user_bg.png" class="userinfo-bg"></image> -->
     <view class="avatar center">
       <image class="touxiang" src="{{touxiang}}"></image>
     </view>

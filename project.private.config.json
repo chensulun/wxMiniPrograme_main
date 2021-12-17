@@ -13,14 +13,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "subpackages/pages/jtsq/jtsq",
-                    "pathName": "subpackages/pages/jtsq/jtsq",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "subpackages/pages/zdpd/zdpd",
-                    "pathName": "subpackages/pages/zdpd/zdpd",
+                    "name": "subpackages/pages/jysc/jysc",
+                    "pathName": "subpackages/pages/jysc/jysc",
                     "query": "",
                     "scene": null
                 }

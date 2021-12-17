@@ -11,6 +11,7 @@
   </view>
   <view class="weui-tab__panel">
     <view wx:if="{{!nav_dbsx}}">
+    <text wx:if="array.length==0">暂无</text>
       <!-- <view> -->
       <view class="qs-container" wx:for="{{array}}" wx:key="{{array}}" wx:for-index="index" wx:for-item="item"
         bindtap='toGetDetail' data-shid='{{item.shId}}' data-businessKey='{{item.businessKey}}' data-id="{{item.id}}"
@@ -39,6 +40,7 @@
       </view>
     </view>
     <view wx:if="{{nav_dbsx}}">
+      <text wx:if="array2.length==0">暂无</text>
       <!-- <view> -->
       <view class="qs-container" wx:for="{{array2}}" wx:key="{{array}}" wx:for-index="index" wx:for-item="item"
         bindtap='toTask' data-maintainid='{{item.assets_id}}' data-id='{{item.id}}'>

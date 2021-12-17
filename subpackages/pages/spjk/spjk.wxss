@@ -43,6 +43,15 @@ live-player{
   /* padding-top: 70px; */
   box-sizing: border-box;
 }
+.video{
+  display: flex;
+  justify-content: center;
+}
+.my-video {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .video-btn {
   margin: 0px auto;
   width: 60px;

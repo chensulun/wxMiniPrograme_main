@@ -4,27 +4,30 @@
     <mp-form id="form" rules="{{rules}}" models="{{formData}}">
       <view>
         <mp-cells ext-class="cells-item">
-          <mp-cell title="站点" ext-class="">
+          <!-- <mp-cell title="站点" ext-class="">
           <picker bindchange="zhandianpickerChange" value="{{zhandianindex}}" data-id="{{zhandianlist[zhandianindex].station_id}}"  range="{{zhandianlist}}" range-key="{{'station'}}">
             <view>{{zhandianlist[zhandianindex].station}} <view class="select-icon">
             </view></view>
         </picker>
-          </mp-cell>
-          <mp-cell title="材料类别" ext-class="">
-           <picker bindchange="cailiaoTypeChange" value="{{cailiaoTypeindex}}" data-id="{{cailiaoTypeList[cailiaoTypeindex].id}}"  range="{{cailiaoTypeList}}" range-key="{{'name'}}">
-            <view>{{cailiaoTypeList[cailiaoTypeindex].name}} <view class="select-icon">
-            </view></view>
-        </picker>
-          </mp-cell>
+          </mp-cell> -->
+          <!-- <mp-cell title="材料类别" ext-class="">
+            <picker bindchange="cailiaoTypeChange" value="{{cailiaoTypeindex}}"
+              data-id="{{cailiaoTypeList[cailiaoTypeindex].id}}" range="{{cailiaoTypeList}}" range-key="{{'name'}}">
+              <view>{{cailiaoTypeList[cailiaoTypeindex].name}} <view class="select-icon">
+                </view>
+              </view>
+            </picker>
+          </mp-cell> -->
           <mp-cell title="材料名称" ext-class="">
-             <picker bindchange="normListChange" value="{{normindex}}" data-id="{{normList[normindex].id}}"  range="{{normList}}" range-key="{{'name'}}">
-            <view>{{normList[normindex].name}} <view class="select-icon">
-            </view></view>
-        </picker>
+            <picker bindchange="normListChange" value="{{normindex}}" data-id="{{normList[normindex].materialId}}"
+              range="{{normList}}" range-key="{{'materialName'}}">
+              <view>{{normList[normindex].materialName}} <view class="select-icon">
+                </view>
+              </view>
+            </picker>
           </mp-cell>
           <mp-cell title="库存数量" ext-class="">
-              <input type="digit"  bindinput="formInputChange"
-              value="{{kucun}}"  class="weui-input" placeholder="请输入"/>
+            <input type="digit" bindinput="formInputChange" value="{{kucun}}" class="weui-input" placeholder="请输入" />
           </mp-cell>
           <mp-cell title="时间" ext-class="">
             <picker data-field="date" mode="date" fields="month" value="{{date}}" bindchange="bindDateChange">
@@ -34,9 +37,9 @@
         </mp-cells>
       </view>
       <view class="mt-20 text-center">
-          <button size="mini" class="btn-red mr-10" bindtap="bindsave">确认</button>
-          <button size="mini" class="btn-gray-light mr-10" bindtap="bindsave1">添加</button>
-          <!-- <button size="mini" class="btn-gray-light">取消</button> -->
+        <button size="mini" class="btn-red mr-10"  type="primary" bindtap="bindsave">确认</button>
+        <button size="mini" class="btn-gray-light mr-10"  bindtap="bindsave1">取消</button>
+        <!-- <button size="mini" class="btn-gray-light">取消</button> -->
       </view>
     </mp-form>
   </view>

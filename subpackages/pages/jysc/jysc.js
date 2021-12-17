@@ -4,11 +4,13 @@ var app = getApp();
 Page({
   data: {
     carInfo: '',
-    state: '0', //按钮状态
-    state2: '', //按钮状态
-    inputValue: '', //输入框的值
+    state:1, //按钮状态
+    state2: 'A', //按钮状态
+    inputValue: '0', //输入框的值
     tempFilePaths: [], //img标签的src属性显示图片
     drData: [], //图片路径
+    formData: ['吨', '比例'], //下拉列表
+    index:1, //下拉下标
   },
   /**
    * 生命周期函数--监听页面显示
@@ -65,6 +67,7 @@ Page({
         })
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePath = res.tempFilePaths;
+        console.log(res);
         tempFilePath.forEach(e => {
           console.log(e);
           that.data.tempFilePaths.push(e)
@@ -100,7 +103,7 @@ Page({
                 })
                 wx.showToast({
                   title: "上传成功",
-                  icon: "none",
+                  icon: "success",
                   duration: 1500
                 })
                 // that.data.imgs.push(JSON.parse(res.data).data)
@@ -113,13 +116,21 @@ Page({
               console.log(err);
               wx.showToast({
                 title: "上传失败",
-                icon: "none",
+                icon: "error",
                 duration: 2000
               })
             },
           })
         }
-      }
+      },
+      fail: function (err) {
+        console.log(err);
+        wx.showToast({
+          title: "错误",
+          icon: "error",
+          duration: 2000
+        })
+      },
     })
   },
   //预览图片
@@ -162,7 +173,11 @@ Page({
     var data = that.data.carInfo;
     data.drStatus = that.data.state;
     data.drRemark = that.data.state2;
-    data.drDeduction = that.data.inputValue;
+    if(that.data.index==0){
+      data.drDeduction = that.data.inputValue;
+    }else if(that.data.index==1){
+      data.drDeductionProportion = that.data.inputValue;
+    }
     data.drData = JSON.stringify(that.data.drData);
     console.log(data);
     req({
@@ -175,10 +190,36 @@ Page({
       dataType: 'json',
     }).then(res => {
       console.log(res);
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: "操作成功",
+          icon: "success",
+          duration: 2000,
+          success() {
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000)
+          }
+        })
+      } else {
+        wx.showToast({
+          title: "操作失败",
+          icon: "error",
+          duration: 2000
+        })
+      }
     }).catch(err => {
       console.log(err);
     })
 
-  }
+  },
+  pickerChange(e) {
+    let index = e.detail.value
+    this.setData({
+      index: index
+    })
+  },
 
 })

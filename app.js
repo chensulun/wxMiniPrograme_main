@@ -2,18 +2,14 @@
 var website;
 const accountInfo = wx.getAccountInfoSync();
 // accountInfo.miniProgram.appId='wx82d48f7deb6565f1';
-if (accountInfo.miniProgram.appId == 'wx2242bdf7b68a52dd') { //沧州
   website = 'test.zgdrkj.cn';
-}
 App({
   onLaunch: function () {
     // 判断appid
     const accountInfo = wx.getAccountInfoSync()
-    if (accountInfo.miniProgram.appId === 'wx2242bdf7b68a52dd') {
       wx.setNavigationBarTitle({
         title: '数智系统'
       })
-    }
 
     wx.authorize({
       scope: "scope.userInfo"
@@ -106,8 +102,7 @@ App({
     socktHost: 'wss://' + website + '/',
     czsocktHost: 'wss://' + website + ':8443/',
     gzserverUrl: 'https://' + website + '/',
-    serverUrl: accountInfo.miniProgram.appId === 'wx605b2b76ff42b6b5' ? 'https://' + website + '/' : 'https://' + website + ':8443/',
-
+    serverUrl:  'https://' + website + '/' ,
     //图片显示地址（pc前端地址）
     img_url: 'https://' + website + ':8089/',
     userInfo: {
@@ -123,7 +118,8 @@ App({
     yonghu: [], //用户列表
     token: '',
     carInfo:{},//原料报检车信息
-    wxUserInfo:{}//微信用户信息
+    wxUserInfo:{},//微信用户信息
+    subscriptionsSetting:''//授权信息
   },
   appPost: function (action, param, callback) {
     param.userId = JSON.parse(wx.getStorageSync('userInfo')).userid;

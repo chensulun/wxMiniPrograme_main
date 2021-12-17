@@ -275,19 +275,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var accountInfo = wx.getAccountInfoSync();
-    if (accountInfo.miniProgram.appId == 'wxdd5e6005ffd8be69') {
-      that.setData({
-        projectstate: 1,
-        city: 'shanghai'
-      })
-    } else if (accountInfo.miniProgram.appId == 'wx2242bdf7b68a52dd') {
       that.setData({
         projectstate: 0,
-        city: 'cangzhou',
+        city: 'changshu',
         isshowbh: true
       })
-    }
   },
 
   /**

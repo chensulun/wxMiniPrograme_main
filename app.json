@@ -15,7 +15,6 @@
         "pages/aqxj2/aqxj2",
         "pages/aqxj1/aqxj1",
         "pages/sbwx/sbwx",
-        "pages/xzgys/xzgys",
         "pages/dbsx/dbsx",
         "pages/pbmx/pbmx",
         "pages/rwdmx/rwdmx",
@@ -73,7 +72,8 @@
             "pages/rwpcselect/rwpcselect",
             "pages/dbsxnew/dbsxnew",
             "pages/xmmx/xmmx",
-            "pages/zccknew/zccknew"
+            "pages/zccknew/zccknew",
+            "pages/xzgys/xzgys"
         ],
         "independent": false
     }],

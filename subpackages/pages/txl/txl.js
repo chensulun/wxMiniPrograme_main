@@ -35,7 +35,7 @@ Page({
   bindData:function(r){
     var that=this;
     wx.request({
-      url:  app.globalData.url+'/shebei/getuserlist',
+      // url:  app.globalData.url+'/shebei/getuserlist',
       data:{userName:that.data.inputVal},
       success:function(res){
         //console.log(res);

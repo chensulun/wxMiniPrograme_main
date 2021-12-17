@@ -19,41 +19,42 @@
         </view>
       </picker>
     </view> -->
-    <view class="header-item" bindtap="openTimeModal">
-      <view>时间
-        <view class="select-icon">
-          <image src="/img/select_down.png" mode="aspectFit"></image>
-        </view>
-      </view>
-    </view>
     <view class="header-item">
-      <picker bindchange="pickerChange1" value="{{index1}}" range="{{list1}}">
-        <view>{{list1[index1]}}
-          <view class="select-icon">
-            <image src="/img/select_down.png" mode="aspectFit"></image>
+      <view bindtap="openTimeModal">请选择时间
+        <!-- <view class="select-icon">
+          <image src="/img/select_down.png" mode="aspectFit"></image>
+        </view> -->
+      </view>
+
+      <view>
+        <picker bindchange="pickerChange1" value="{{index1}}" range="{{list1}}">
+          <view>类型：{{list1[index1]}}
+            <view class="select-icon">
+              <image src="/img/select_down.png" mode="aspectFit"></image>
+            </view>
           </view>
-        </view>
-      </picker>
+        </picker>
+      </view>
     </view>
   </view>
   <view class="rwdcx-content">
     <view style="height:calc(100vh - 50px);">
       <view class="content-item" wx:for="{{oldlist}}" wx:key="{{oldlist}}" wx:for-index="index" wx:for-item="item">
-        
+
         <view class="content-item-top clear">
           <text class="pull-left">{{item.gbdh}}</text>
-           <text class="pull-right">{{item.bdzt}}</text>
+          <text class="pull-right">{{item.bdzt}}</text>
         </view>
         <view class="content-item-bottom clear">
           <text class="pull-left" style="color: #3B3B3B;">称重时间: {{item.ccsj}}</text>
-           <text class="pull-right">净重:{{item.jz}}</text>
+          <text class="pull-right">净重:{{item.jz}}</text>
         </view>
         <view class="content-item-bottom clear">
           <text class="pull-left" style="color: #3B3B3B;">物料类型: {{item.wllx}}</text>
-           <text class="pull-right">车牌号:{{item.cph}}</text>
+          <text class="pull-right">车牌号:{{item.cph}}</text>
         </view>
         <view class="content-item-bottom clear">
-          <text class="pull-left" style="color: #3B3B3B;">工程名称: {{item.gcmc}}</text>
+          <text class="pull-left" style="color: #3B3B3B;">工程名称: {{item.gcmc||'暂无'}}</text>
         </view>
         <view class="content-item-bottom clear">
           <text class="pull-left" style="color: #3B3B3B;">物料单位: {{item.wldw}}</text>

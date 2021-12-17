@@ -7,9 +7,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        currentIndex: 1,
         oldlist: [],
         reslist: [],
+        currentIndex: 1,
         totalCount: 0,
         pageSize: 10,
     },
@@ -31,7 +31,7 @@ Page({
         that.setData({
             oldlist: [],
         });
-        that.getdata(1);
+        that.getdata();
     },
 
     /**
@@ -50,16 +50,13 @@ Page({
     onReachBottom: function () {
         console.log("上拉");
         var that = this;
-        var currentIndex = that.data.currentIndex;
-        var totalCount = that.data.totalCount;
-        var pagesize = that.data.pageSize;
-        console.log(currentIndex * pagesize + "-----" + totalCount);
-        if ((currentIndex - 1) * pagesize >= totalCount) {} else {
-            that.getdata(currentIndex);
+        that.data.currentIndex++;
+        if (that.data.oldlist.length >= that.data.totalCount) {
+            return;
+        } else {
+            that.getdata();
         }
-        // wx.pageScrollTo({
-        //   scrollTop: 0,
-        // })
+        console.log(that.data.currentIndex);
     },
     clickAll: function (e) {
         let idx = e.currentTarget.dataset.idx;
@@ -72,6 +69,7 @@ Page({
     },
     getdata: function (currentIndex) {
         var that = this;
+        var currentIndex = that.data.currentIndex;
         // 显示加载图标
         wx.showLoading({
             title: "玩命加载中",
@@ -93,15 +91,20 @@ Page({
         var token = wx.getStorageSync("token");
         var msId = wx.getStorageSync("station_id");
         req({
-            url: app.globalData.globalUrl + '/manage/task/list?msId=' + msId,
+            url: app.globalData.globalUrl + '/manage/task/list?msId=' + msId + '&pageNum=' + currentIndex + '&pageSize=' + pagesize,
             method: 'GET',
             header: {
                 'Authorization': "Bearer " + token
             },
         }).then(res => {
-            // console.log(res);
+            if (that.data.oldlist.length !== 0) {
+                that.data.oldlist = that.data.oldlist.concat(res.data.rows)
+            } else {
+                that.data.oldlist = res.data.rows
+            }
             that.setData({
-                oldlist: res.data.rows,
+                oldlist: that.data.oldlist,
+                totalCount: res.data.total,
             });
             console.log(that.data.oldlist);
             wx.hideLoading();

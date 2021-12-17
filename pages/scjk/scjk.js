@@ -141,12 +141,8 @@ Page({
       }
       // console.log(data);
       var fir = 0;
-      if (that.data.zd == "xinfeng" || that.data.zd == "xjz") {
-        fir = lastItemPB.one_S - d.one_S
-      }
-      if (that.data.zd == "renqiu3000" || that.data.zd == "renqiu5000") {
-        fir = lastItemPB.one_S_B - d.one_S_B
-      }
+
+
       //报警
       if (fir > onemax && onemax > 0) {
         d.one = 'color:blue ;';
@@ -165,12 +161,8 @@ Page({
         //d.six_S = '<view style="color:blue ;"> ' + d.six_S + ' </view>';
       }
 
-      if (that.data.zd == "xinfeng" || that.data.zd == "xjz") {
-        fir = lastItemPB.seven_S - d.seven_S
-      }
-      if (that.data.zd == "renqiu3000" || that.data.zd == "renqiu5000") {
-        fir = lastItemPB.seven_S_B - d.seven_S_B
-      }
+
+
       if (fir > six1max && six1max > 0) {
         d.six1s = 'color:blue ;';
         //d.six_S = '<view style="color:red ;"> ' + d.six_S + ' </view>';
@@ -179,12 +171,8 @@ Page({
         //d.six_S = '<view style="color:blue ;"> ' + d.six_S + ' </view>';
       }
       f
-      if (that.data.zd == "xinfeng" || that.data.zd == "xjz") {
-        fir = lastItemPB.six_1_S - d.six_1_S
-      }
-      if (that.data.zd == "renqiu3000" || that.data.zd == "renqiu5000") {
-        fir = lastItemPB.six_1_S_B - d.six_1_S_B
-      }
+
+
       if (fir > sevenmax && sevenmax > 0) {
         d.six_1_Ss = 'color:blue ;';
         //d.seven_S = '<view style="color:red ;"> ' + d.seven_S + ' </view>';
@@ -597,14 +585,7 @@ Page({
   getprodectdata: function () {
     var that = this;
     var zdname = wx.getStorageSync("station");
-    // var zd = app.getServerUrl(zdname);
-    var zd = "renqiu3000";
-    // var zd = "110";
-    var productUrl = app.globalData.socktHost + zd + '/product';
-    const accountInfo = wx.getAccountInfoSync();
-    if (accountInfo.miniProgram.appId === 'wx2242bdf7b68a52dd') {
-      productUrl = app.globalData.czsocktHost + zd + '/product';
-    }
+    var productUrl = 'wss://test.zgdrkj.cn:8443/cs' + '/product';
     console.log(productUrl);
     app.WebSocketFn(productUrl, function (data) {
       if (data == '{}' || data == '[]') {
@@ -615,7 +596,7 @@ Page({
       var produceType = "--";
       var guliaoTemp = "";
       var chuliaoTemp = "";
-      var zsTemp = "";
+      var weiqiTemp = "";
       var totalNum = "0";
 
       // 生产类型
@@ -644,46 +625,29 @@ Page({
       // 尾气温度
 
       if (data.weiqiTemp == undefined) {
-        zsTemp = "--";
+        weiqiTemp = "--";
       } else {
-        zsTemp = data.weiqiTemp + '℃';
+        weiqiTemp = data.weiqiTemp + '℃';
       }
       // 总产量
       if (data.productTotal) {
         that.setData({
-          totalNum: data.curTotal
+          totalNum: data.productTotal,
+          curTotal: data.curTotal
         });
-        console.log(data.curTotal + "生产总量");
+        console.log(data.productTotal + "生产总量");
         totalNum = data.productTotal + '吨';
       }
       that.setData({
         guliaoTemp: guliaoTemp,
         chuliaoTemp: chuliaoTemp,
-        zsTemp: zsTemp,
+        weiqiTemp: weiqiTemp,
         //totalNum: totalNum
       });
       console.log(data.productList);
       // 生产看板
       if (data.productList && data.lastItemPB) {
-        if (accountInfo.miniProgram.appId === 'wx2242bdf7b68a52dd') {
-          that.cangzhou(data, data.productList);
-        } else {
-          var zd = app.getServerUrl(zdname);
-          if (zdname == "两江站") {
-            that.liangjiang(data, data.productList);
-          } else if (zdname == "璧山站") {
-            that.bishan(data, data.productList);
-          } else if (zdname == "双石站") {
-            that.shuangshi(data, data.productList);
-          } else if (zdname == "广州站") {
-            that.guangzhou(data, data.productList);
-          } else if (zdname == "丰都站") {
-            that.fengdu(data, data.productList);
-          } else if (zdname == "朱沱站") {
-            that.zhutuo(data, data.productList);
-          }
-        }
-
+        that.cangzhou(data, data.productList);
       }
 
 

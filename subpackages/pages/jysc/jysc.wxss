@@ -145,3 +145,9 @@ page {
     border-top-color: transparent;
     border-left-color: transparent;
 }
+
+.mypicker{
+    font-weight: bold;
+    color: green;
+    display: inline-block;
+}

@@ -48,12 +48,12 @@
 
 
   <view class="navplace clear">
-    <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
+    <!-- <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/all_xmgl.png"></image>
       </view>
       <view>项目管理</view>
-    </navigator>
+    </navigator> -->
 
 
     <navigator url="/subpackages/pages/rwdglnew/rwdglnew" class="weui-flex__item flex__itemz">

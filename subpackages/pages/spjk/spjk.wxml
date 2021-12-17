@@ -13,13 +13,14 @@
     </view>
   </view> -->
   <view class="section p-10">
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="picker text-right">
-      {{array[index]}}
-    </view>
-  </picker>
-</view>
-  <view class="video-item" wx:for="{{videoList}}" wx:key="index">
-    <live-player src="{{item.monitorUrl}}" bindstatechange="statechange" binderror="error" autoplay mode="live" />
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker text-right">
+        请选择：{{array[index]}}
+      </view>
+    </picker>
+  </view>
+  <view class="video" wx:for="{{videoList}}" wx:key="index">
+    <!-- <live-player src="{{item.monitorUrl}}" bindstatechange="statechange" binderror="error" autoplay mode="RTC" /> -->
+    <video class="my-video" src="{{item.monitorUrl}}" bindstatechange="statechange" binderror="error" autoplay mode="RTC"  ></video>
   </view>
 </view>

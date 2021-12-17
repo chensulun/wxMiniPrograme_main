@@ -33,9 +33,11 @@ Page({
       },
     }).then(res => {
       console.log(res);
+      that.data.videoList = res.data.rows
       that.setData({
-        videoList: res.data.rows
+        videoList: that.data.videoList
       })
+      console.log(that.data.videoList);
     }).catch(err => {
       console.log(err);
     })

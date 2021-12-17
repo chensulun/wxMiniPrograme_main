@@ -55,7 +55,10 @@ Page({
     }, {
       "id": "100",
       "text": "100KM"
-    }, ]
+    }, ],
+    total: 0,
+    pageSize: 10,
+    pageNum: 1,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -178,25 +181,37 @@ Page({
   //绑定排程列表
   bindYPCData: function () {
     var that = this;
+    var pageNum = that.data.pageNum;
+    var pagesize = that.data.pageSize;
+    if (pageNum == 1) {
+      that.setData({
+        list_ypcdata: [],
+      });
+    }
     var bg_time1 = '';
     var ed_time1 = '';
-    that.setData({
-      list_ypcdata: [],
-    })
+    // that.setData({
+    //   list_ypcdata: [],
+    // })
     var token = wx.getStorageSync("token");
     var msId = wx.getStorageSync("station_id");
     req({
-      url: app.globalData.globalUrl + '/manage/task/list?msId=' + msId + '&params%5bunStatus%5d=' + 0,
+      url: app.globalData.globalUrl + '/manage/task/list?msId=' + msId + '&params%5bunStatus%5d=' + 0 + '&pageNum=' + pageNum + '&pageSize=' + pagesize,
       method: 'GET',
-
       header: {
         'Authorization': "Bearer " + token
       },
     }).then(res => {
       console.log(res);
       if (res.data.code == 200) {
+        if (that.data.list_ypcdata.length !== 0) {
+          that.data.list_ypcdata = that.data.list_ypcdata.concat(res.data.rows)
+        } else {
+          that.data.list_ypcdata = res.data.rows
+        }
         that.setData({
-          list_ypcdata: res.data.rows
+          list_ypcdata: that.data.list_ypcdata,
+          total: res.data.total,
         })
 
       }
@@ -590,7 +605,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("上拉");
+    var that = this;
+    that.data.pageNum++;
+    if (that.data.list_ypcdata.length >= that.data.total) {
+      return;
+    } else {
+      that.bindYPCData();
+    }
+    console.log(that.data.pageNum);
   },
 
   /**

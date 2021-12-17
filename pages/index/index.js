@@ -25,6 +25,7 @@ Page({
     // 设备url
     peDatabase: '',
     peUrl: '',
+    tempId: '7kU49HSXGqcU2uxKtoowrZ-fpIQ_5K0hWepC97JLaWI',
 
     /**
      * 下拉框测试数据
@@ -136,6 +137,7 @@ Page({
       that.bindUserzdList();
       that.getUserRights();
       that.getProductionList();
+      that.getTip();
       // wx.request({
       //   url: app.globalData.url + 'Tongzhi/getAll',
       //   data: { username: wx.getStorageSync("username") },
@@ -175,6 +177,26 @@ Page({
         }
       }
     });
+  },
+   //待办事项角标气泡
+   getTip: function () {
+    var that = this;
+    var token = wx.getStorageSync("token");
+    var msId = wx.getStorageSync("station_id");
+    req({
+      url: app.globalData.globalUrl + '/task/list?pageNum=1&pageSize=99',
+      method: 'GET',
+      header: {
+        'Authorization': "Bearer " + token
+      },
+    }).then(res => {
+      console.log(res);
+      that.setData({
+        dbsxshcount: res.data.total
+      })
+    }).catch(err => {
+      console.log(err);
+    })
   },
   dealRight() {
     let id = wx.getStorageSync("station_id");
@@ -221,7 +243,9 @@ Page({
   bindUserzdList() {
     var that = this;
     var userinfo = wx.getStorageSync("userInfo");
-
+    that.setData({
+      multiArray: [],
+    })
     if (userinfo) {
       var userinfoJson = JSON.parse(userinfo);
       var token = wx.getStorageSync("token");
@@ -243,9 +267,12 @@ Page({
           that.setData({
             multiArra: [],
           });
-          that.data.multiArra = [];
+          // that.data.multiArra = [];
+          // that.setData({
+          //   multiArray: that.data.multiArray,
+          // })
           that.data.multiArray.push(arr);
-          console.log(that.data.multiArray);
+          // console.log(that.data.multiArray);
           that.setData({
             multiArray: that.data.multiArray,
           })
@@ -260,23 +287,7 @@ Page({
           zhandian.station = res.data.rows[i].msName;
           zhandian.station_id = res.data.rows[i].msId;
           const accountInfo = wx.getAccountInfoSync()
-          if (accountInfo.miniProgram.appId === 'wx2242bdf7b68a52dd') {
-            if (res.data.rows[i].msId == 3) {
-              zhandian = new Object();
-              zhandian.station = res.data.rows[i].msName + "(3000型)";
-              zhandian.station_id = res.data.rows[i].msId;
-              zhandianlist1.push(zhandian);
-              zhandian = new Object();
-              zhandian.station = res.data.rows[i].msName + "(5000型)";
-              zhandian.station_id = res.data.rows[i].msId;
-              zhandianlist1.push(zhandian);
-
-            } else {
-              zhandianlist1.push(zhandian);
-            }
-          } else {
-            zhandianlist1.push(zhandian);
-          }
+          zhandianlist1.push(zhandian);
         }
         console.log(that.data.multiArray);
         // console.log(wx.getStorageSync("station_id"));
@@ -318,8 +329,10 @@ Page({
         'Authorization': "Bearer " + token
       }
     }).then(res => {
-      // console.log(res);
       that.data.arrColumn0 = [];
+      that.setData({
+        arrColumn0: that.data.arrColumn0
+      })
       res.data.rows.forEach(e => {
         // console.log(e);
         that.data.peDatabase = e.peDatabase;
@@ -330,6 +343,38 @@ Page({
         })
       });
       console.log(that.data.arrColumn0, that.data.peDatabase, that.data.peUrl);
+      // if (res.data.code == 401 || res.data.code == 403) {
+      //   wx.showModal({
+      //     title: '提示',
+      //     content: '用户信息过期, 请重新登录',
+      //     showCancel: false,
+      //     success(res) {
+      //       wx.removeStorage({
+      //         key: 'userInfo',
+      //         success(res) {
+      //           console.log('token过期'),
+      //             wx.switchTab({
+      //               url: '/pages/gr/gr'
+      //             })
+      //         }
+      //       })
+      //     }
+      //   })
+      // } else {
+      //   that.data.arrColumn0 = [];
+      //   that.setData({
+      //     arrColumn0: that.data.arrColumn0
+      //   })
+      //   res.data.rows.forEach(e => {
+      //     that.data.peDatabase = e.peDatabase;
+      //     that.data.peUrl = e.peUrl;
+      //     that.data.arrColumn0.push(e.peName)
+      //     that.setData({
+      //       arrColumn0: that.data.arrColumn0
+      //     })
+      //   });
+      //   console.log(that.data.arrColumn0, that.data.peDatabase, that.data.peUrl);
+      // }
     }).catch(err => {
       console.log(err);
     })
@@ -352,17 +397,10 @@ Page({
   /**
    * 生产看版
    */
-  productionkanban(zd) {
+  productionkanban() {
     var that = this;
-    // var kanbanurl = app.getServerUrl(zd);
-    var kanbanurl = 'renqiu3000'
-    // console.log(zd);
     var msId = wx.getStorageSync("station_id");
-    console.log(app.globalData.serverUrl);
-    console.log(kanbanurl);
-    // var kurl1 = app.globalData.serverUrl + kanbanurl + '/api/data/productKanBan';
-    var kurl1 = that.data.peUrl + kanbanurl + '/api/data/productKanBan';
-
+    var kurl1 = 'https://test.zgdrkj.cn:8443/cs/api/data/productKanBan';
     console.log(kurl1);
     wx.request({ //加载生产看板
       url: kurl1,
@@ -579,5 +617,6 @@ Page({
         }
       }
     })
-  }
+  },
+
 })

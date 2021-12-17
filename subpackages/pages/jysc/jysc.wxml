@@ -20,23 +20,29 @@
                 <mp-cell title="检测结果" ext-class="">
                     <view class="my-btns-flex">
                         <button class="my-btn  {{state=='1'?'select':''}}" hover-class="none" bindtap="select_jg"
-                            data-id="1">合格</button>
+                            data-id="1">进场</button>
                         <button class="my-btn  {{state=='2'?'select':''}}" hover-class="none" bindtap="select_jg"
-                            data-id="2">不合格</button>
+                            data-id="2">退场</button>
                     </view>
                 </mp-cell>
                 <mp-cell title="材料质量" ext-class="">
                     <view class="my-btns-flex">
-                        <button class="my-btn {{state2=='一般'?'select':''}}" hover-class="none" bindtap="select_zl"
-                            data-id="一般">一般</button>
-                        <button class="my-btn {{state2=='良好'?'select':''}}" hover-class="none" bindtap="select_zl"
-                            data-id="良好">良好</button>
-                        <button class="my-btn {{state2=='优等'?'select':''}}" hover-class="none" bindtap="select_zl"
-                            data-id="优等">优等</button>
+                        <button class="my-btn {{state2=='A'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="A">A</button>
+                        <button class="my-btn {{state2=='B'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="B">B</button>
+                        <button class="my-btn {{state2=='C'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="C">C</button>
                     </view>
                 </mp-cell>
-                <mp-cell title="扣重（吨/千克）" ext-class="">
-                    <input data-field="zlkz" class="weui-input pull-right" name="zlkz" placeholder="请输入" bindblur="inputValue"/>
+                <mp-cell title="扣重：" ext-class="">
+                    <picker class="mypicker" bindchange="pickerChange" value="{{value}}" range="{{formData}}"
+                        data-id="{{formData[index]}}">
+                        <view class="picker">
+                            {{formData[index]||'点击选择'}}
+                        </view>
+                    </picker>
+                    <input wx:if="{{index}}" data-field="zlkz" class="weui-input pull-right" name="zlkz"  value="0" placeholder="请输入" bindblur="inputValue" />
                 </mp-cell>
             </mp-cells>
         </view>

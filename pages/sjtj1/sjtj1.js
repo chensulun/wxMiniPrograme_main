@@ -1,4 +1,5 @@
 // pages/rwdcx/rwdcx.js
+var util = require('../../utils/util.js');
 const app = getApp();
 Page({
 
@@ -9,8 +10,8 @@ Page({
     index: 0,
     index1: 0,
     index2: 0,
-    date: '2019-01-01',
-    date1: '2020-01-01',
+    date: util.formatDate(new Date()),
+    date1: util.formatDate(new Date()),
     list: ['双石站'],
     list1: ['生产月报'],
     timeModalShow: false,
@@ -154,7 +155,7 @@ Page({
       totalCount: 0
     })
     wx.request({
-      url: app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + '/api/data/ajaxMonthList',
+      url: 'https://test.zgdrkj.cn:8443/' + 'cs' + '/api/data/ajaxMonthList',
       data: {
         product: that.data.list[that.data.index],
         beginDate: that.data.date,
@@ -197,7 +198,7 @@ Page({
     var station = e.target.dataset.station;
     var state = e.target.dataset.state;
     var that = this;
-    debugger;
+    // debugger;
     if (state == 0) {
       var data = {
         month: month,
@@ -205,33 +206,17 @@ Page({
         station: station
       }
       wx.request({
-        url: app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + '/api/data/ajaxMonthCreate',
+        url: 'https://test.zgdrkj.cn:8443/' + 'cs' + '/api/data/ajaxMonthCreate',
         data: JSON.stringify(data),
         method: "POST",
         contentType: 'application/json;utf-8',
         dataType: "json",
         success: function (res) {
-          console.log("站点：" + wx.getStorageSync("station"));
-          var zd = wx.getStorageSync("station");
-          var path;
-          if (zd == "丰都站" || zd == "江津站") {
-            path = app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + "/api/data/downloadFile/" + year + "/" + month;
-          } else {
-            path = app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + "/api/data/downloadFile/" + that.data.list[that.data.index] + "月报(" + year + "年" + month + "月).docx";
-          }
+          var path = 'https://test.zgdrkj.cn:8443/' + 'cs' + "/api/data/downloadFile/" + that.data.list[that.data.index] + "月报(" + year + "年" + month + "月).docx";
+          console.log(path);
           that.preview(path);
         }
       })
-    } else {
-      var zd = wx.getStorageSync("station");
-      var path;
-      if (zd == "丰都站" || zd == "江津站") {
-        path = app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + "/api/data/downloadFile/" + year + "/" + month;
-      } else {
-        path = app.globalData.serverUrl + app.getServerUrl(that.data.list[that.data.index]) + "/api/data/downloadFile/" + that.data.list[that.data.index] + "月报(" + year + "年" + month + "月).docx";
-      }
-      console.log(path);
-      that.preview(path);
     }
   },
   preview: function (path) {

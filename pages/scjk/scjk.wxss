@@ -121,6 +121,8 @@ scjk-banner .banner {
 }
 
 .table-th {
+  display: flex;
+  justify-content: space-between;
   background-color: #EDF1FC;
   border-radius: 4px;
   line-height: 30px;
@@ -135,16 +137,15 @@ scjk-banner .banner {
 .table-td {
   line-height: 30px;
   font-size: 13px;
-  width: calc(60% / 4);
+  width: 70px;
   text-align: center;
-  display: inline-block;
 }
 
-.table-td-lg {
-  width: 20%;
-}
+
 
 .table-tr {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #EDF1FC;
   padding: 0 8px;
 }

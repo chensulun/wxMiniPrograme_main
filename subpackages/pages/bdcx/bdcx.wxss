@@ -13,17 +13,14 @@ page {
   margin-bottom: 8px;
 }
 .header-item {
-  width: 33.33%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   height: 100%;
   line-height: 40px;
-  text-align: center;
-  border-right: 1px solid #EDEDED;
-  float: left;
-  box-sizing: border-box;
+  /* text-align: center; */
 }
-.header-item:last-child {
-  border-right: none;
-}
+
 .content-item {
   height: 170px;
   padding: 10px 120px 10px 10px;

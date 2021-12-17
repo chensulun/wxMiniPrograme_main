@@ -39,40 +39,40 @@
       </view>
       <view>质量控制</view>
     </navigator>
-    <navigator url="/subpackages/pages/ybrk/ybrk" class="weui-flex__item flex__itemz">
+    <!-- <navigator url="/subpackages/pages/ybrk/ybrk" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/icon/ruku@2x.png"></image>
       </view>
       <view>样品入库</view>
-    </navigator>
-    <navigator url="/subpackages/pages/sylr/sylr" class="weui-flex__item flex__itemz">
+    </navigator> -->
+    <!-- <navigator url="/subpackages/pages/sylr/sylr" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/icon/luru@2x.png"></image>
       </view>
       <view>试验录入</view>
-    </navigator>
-    <navigator url="/subpackages/pages/tpjsgpz/tpjsgpz" class="weui-flex__item flex__itemz">
+    </navigator> -->
+    <!-- <navigator url="/subpackages/pages/tpjsgpz/tpjsgpz" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/icon/luru@2x.png"></image>
       </view>
       <view>摊铺机</view>
-    </navigator>
-    <navigator url="/subpackages/pages/yljsgpz/yljsgpz" class="weui-flex__item flex__itemz">
+    </navigator> -->
+    <!-- <navigator url="/subpackages/pages/yljsgpz/yljsgpz" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/all_xmgl.png"></image>
       </view>
       <view>压路机</view>
-    </navigator>
+    </navigator> -->
 
 
   <!-- <text>生产执行模块</text> -->
 
-    <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
+    <!-- <navigator url="/subpackages/pages/xmgl/xmgl" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/all_xmgl.png"></image>
       </view>
       <view>项目管理</view>
-    </navigator>
+    </navigator> -->
     <navigator url="/subpackages/pages/rwdglnew/rwdglnew" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/all_rwdgl.png"></image>
@@ -105,12 +105,12 @@
 
   <!-- <text>物料模块</text> -->
 
-    <navigator url="/subpackages/pages/gysgl/gysgl" class="weui-flex__item flex__itemz">
+    <!-- <navigator url="/subpackages/pages/gysgl/gysgl" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/all_gysgl.png"></image>
       </view>
       <view>供应商管理</view>
-    </navigator>
+    </navigator> -->
     <navigator url="/subpackages/pages/bdcx/bdcx" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/wxcx.png"></image>
@@ -149,24 +149,24 @@
       </view>
       <view>通讯录</view>
     </navigator>
-    <navigator url="/subpackages/pages/dzjf/dzjf" class="weui-flex__item flex__itemz">
+    <!-- <navigator url="/subpackages/pages/dzjf/dzjf" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/icon/ruku@2x.png"></image>
       </view>
       <view>电子交付</view>
-    </navigator>
-    <navigator url="/subpackages/pages/hjjc/hjjc" class="weui-flex__item flex__itemz">
+    </navigator> -->
+    <!-- <navigator url="/subpackages/pages/hjjc/hjjc" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/icon/yibiao@2x.png"></image>
       </view>
       <view>环境监测</view>
-    </navigator>
-    <navigator url="/subpackages/pages/cjgl/cjgl" class="weui-flex__item flex__itemz">
+    </navigator> -->
+    <!-- <navigator url="/subpackages/pages/cjgl/cjgl" class="weui-flex__item flex__itemz">
       <view>
         <image class="flex__item_img" src="/img/wxcx.png"></image>
       </view>
       <view>抽检管理</view>
-    </navigator>
+    </navigator> -->
 
 
   <!-- <view class="weui-flex__item flex__itemz">

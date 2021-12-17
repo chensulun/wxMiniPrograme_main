@@ -2,22 +2,23 @@
 <view class="bj_fg0"></view>
 <view class="flex">
     <view class="flex__item head_xl1">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'msName'}}">
         <view class="picker">
-          {{array[index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+          {{array[index].msName?array[index].msName:'请选择'}}<image src="/icon/sjx.png" class="select_sj"></image>
         </view>
-      </picker>
+      </picker> -->
+      <view class="picker">常熟</view>
     </view>
   
     <view class="flex__item head_xl2">
-      <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
+      <picker mode="date"  value="{{dateStart}}" bindchange="bindDateChange_start">
         <view class="picker">
           {{dateStart}}<image src="/icon/sjx.png" class="select_sj"></image>
         </view>
       </picker>
     </view>
     <view class="flex__item head_xl2">
-      <picker mode="date"  value="{{dateEnd}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_end">
+      <picker mode="date"  value="{{dateEnd}}" bindchange="bindDateChange_end">
         <view class="picker">
           {{dateEnd}}<image src="/icon/sjx.png" class="select_sj"></image>
         </view>
@@ -26,7 +27,7 @@
       <view class="flex__item head_xl3">
       <picker bindchange="bindPickerChange_lx" value="{{lx_index}}" range="{{lx_array}}">
         <view class="picker">
-          {{lx_array[lx_index]}}<image src="/icon/sjx.png" class="select_sj"></image>
+          {{lx_array[lx_index]||'请选择'}}<image src="/icon/sjx.png" class="select_sj"></image>
         </view>
       </picker>
     </view>

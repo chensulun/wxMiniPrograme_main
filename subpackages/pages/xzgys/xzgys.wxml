@@ -3,22 +3,25 @@
   <view class="cells-item">
     <mp-form id="form" rules="{{rules}}" models="{{formData}}">
       <view>
-        <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../img/basic_info.png"></image>基本信息</view>
+        <view class="basic-title"><image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" src="../../../img/basic_info.png"></image>基本信息</view>
         <mp-cells ext-class="cells-item">
           <mp-cell title="供应商名称" ext-class="">
-             <input class="weui-input" placeholder="请输入" value='{{u_Name}}' bindinput='formu_Name'/>
+             <input class="weui-input" placeholder="请输入" value='{{supplierName}}' bindinput='formSupplierName'/>
           </mp-cell>
           <mp-cell title="供应商简称" ext-class="">
-            <input  class="weui-input" placeholder="请输入" value='{{abbreviation}}' bindinput='formabbreviation'/>
+            <input  class="weui-input" placeholder="请输入" value='{{supplierAbbreviation}}' bindinput='formSupplierAbbreviation'/>
           </mp-cell>
-           <mp-cell title="承运单位" ext-class="">
-            <input  class="weui-input" placeholder="请输入" value='{{Carrier}}' bindinput='formCarrier'/>
+           <mp-cell title="授权代表" ext-class="">
+            <input  class="weui-input" placeholder="请输入" value='{{supplierRepresentative}}' bindinput='formSupplierRepresentative'/>
+          </mp-cell>
+           <mp-cell title="联系电话" ext-class="">
+            <input  class="weui-input" placeholder="请输入" value='{{supplierPhone}}' bindinput='formSupplierPhone'/>
           </mp-cell>
         </mp-cells>
 
         <view class="basic-title" style="margin-top: 24px;">
           <image style="width: 18px;vertical-align: -3px;margin-right: 6px;" mode="widthFix" 
-            src="../../img/gys_info.png"></image>供应商信息
+            src="../../../img/gys_info.png"></image>供应商信息
             <button size="mini" bindtap="addItem" class="btn-add" style="padding: 8px 15px;">
               <mp-icon icon="add" color="#19B99B" size="{{14}}"></mp-icon>
               新增
@@ -26,15 +29,12 @@
         </view>
         <mp-cells ext-class="cells-item" wx:for="{{applierList}}" wx:key="index">
           <mp-cell title="原材料" ext-class="">
-            <picker bindchange="pickerChange" data-index="{{index}}" value="{{item.sys_Material_ID}}" range-key="name"
-            range="{{list}}" data-id="{{list[index].id}}">
-              <view class="picker">
-                {{item.sys_Material_IDName}}
-              </view>
+            <picker bindchange="pickerChange" data-index="{{index}}" value="{{item.materialName}}" range-key="materialName" range="{{list}}">
+              <view class="picker">{{item.materialName||'请选择'}}</view>
             </picker>
           </mp-cell>
           <mp-cell title="签订量(吨)" ext-class="">
-              <input data-field="name1" bindinput="formInputChange" data-index="{{index}}" value="{{item.orderAmount}}" class="weui-input" placeholder="请输入"/>
+              <input data-field="name1" bindinput="formInputChange" data-index="{{index}}" value="{{item.quantity}}" class="weui-input" placeholder="请输入"/>
           </mp-cell>
           <mp-cell title="签订价格(元/吨)" ext-class="">
               <input data-field="name1" bindinput="formInputChange1" data-index="{{index}}" value="{{item.price}}" class="weui-input" placeholder="请输入"/>
@@ -48,8 +48,8 @@
         </mp-cells>
       </view>
       <view class="mt-20 text-center">
-          <button size="mini" class="btn-red mr-10" bindtap="bindsave">保存</button>
-          <button size="mini" class="btn-gray-light mr-10" bindtap="bindsave1">添加</button>
+          <button size="mini" class="btn-green mr-10" bindtap="bindsave">保存</button>
+          <button size="mini" class="btn-gray-light mr-10" bindtap="cancel">取消</button>
           <!-- <button size="mini" class="btn-gray-light">取消</button> -->
       </view>
     </mp-form>

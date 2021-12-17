@@ -105,9 +105,10 @@
   background-color: #DBD8D8;
 }
 .item-top {
+  /* margin-left: 10px; */
   font-size:13px;
   font-family:PingFang SC;
-  font-weight:bold;
+  /* font-weight:bold; */
   color:rgba(50,50,50,1);
 }
 .item-middle {

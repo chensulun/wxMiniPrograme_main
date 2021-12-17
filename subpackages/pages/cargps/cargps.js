@@ -122,24 +122,9 @@ Page({
     qqmapsdk = new QQMapWX({
       key: 'PMNBZ-F2TCU-H3AVV-4NNS2-2NGHS-OWFOZ'
     });
-    const accountInfo = wx.getAccountInfoSync()
-    if (accountInfo.miniProgram.appId === 'wx605b2b76ff42b6b5') {
-      wx.setNavigationBarTitle({
-        title: '拌站精灵'
-      })
-    } else if (accountInfo.miniProgram.appId === 'wxdd5e6005ffd8be69') {
-      wx.setNavigationBarTitle({
-        title: '智沥系统'
-      })
-    } else if (accountInfo.miniProgram.appId === 'wx2242bdf7b68a52dd') {
       wx.setNavigationBarTitle({
         title: '数智系统'
       })
-    } else {
-      wx.setNavigationBarTitle({
-        title: 'AIS系统'
-      })
-    }
   },
 
   /**

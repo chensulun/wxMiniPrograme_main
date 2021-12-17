@@ -238,6 +238,16 @@ Page({
       data: form
     }).then(res => {
       console.log(res);
+      if (res.data.code == '200') {
+        wx.showModal({
+          title: '操作成功',
+          success(res) {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }
+        })
+      }
     }).catch(err => {
       console.log(err);
     })
