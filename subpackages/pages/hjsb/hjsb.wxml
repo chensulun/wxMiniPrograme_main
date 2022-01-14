@@ -1,0 +1,52 @@
+<!--subpackages/pages/jysc/jysc.wxml-->
+<view>
+    <view class="xzrw-container">
+        <view class="cells-item">
+            <mp-cells>
+                <mp-cell title="作业时间">
+                    <view class="select-time-content" style="margin-left: 10px;">
+                        <picker data-field="date" mode="date" value="{{bdate}}" bindchange="DateStartChange"
+                            style="border:1px solid #eee;width: 40%;display: inline-block;">
+                            <view class="weui-input select-time">{{bdate}}</view>
+                        </picker>
+                        -
+                        <picker data-field="date" mode="date" value="{{edate}}" bindchange="DateEndChange"
+                            style="border:1px solid #eee;width: 40%;display: inline-block;">
+                            <view class="weui-input select-time">{{edate}}</view>
+                        </picker>
+                    </view>
+                </mp-cell>
+                <mp-cell title="特别说明">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz" value="" placeholder="特别说明" />
+                </mp-cell>
+            </mp-cells>
+        </view>
+
+
+
+        <view class="cells-item">
+            <mp-cells>
+                <!--以下为图片选择-->
+                <view class="img_box">
+                    <view class="imgs" wx:for="{{tempFilePaths}}" wx:key="index">
+                        <image src='{{item}}' bindlongpress="DeleteImg" bindtap="PreviewImg" data-index="{{index}}"
+                            mode='widthFix' />
+                    </view>
+                    <view class="imgs">
+                        <view class="images" bindtap="ChooseImg"
+                            style="display: flex;flex-direction: column;text-align: center;">
+                            <mp-icon type="field" icon="add" color="black" size="{{25}}"></mp-icon>
+                            <text class="word-class">上传图像</text>
+                            <text class="word-class">（长按删除）</text>
+                        </view>
+                    </view>
+                </view>
+            </mp-cells>
+        </view>
+
+        <view class="my-btns">
+            <button class="my-minibtn" type="primary" hover-class="none" bindtap="submit">确认</button>
+            <button class="my-minibtn" type="default" hover-class="none" bindtap="toBack">返回</button>
+        </view>
+    </view>
+</view>

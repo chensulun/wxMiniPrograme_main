@@ -1,7 +1,9 @@
 // pages/sbbylist/sbbylist.js
+import req from '../../../utils/request';
+
 const app = getApp()
 var util = require('../../../utils/util.js');
-var pramerter = {};//保养进度查询参数列表 
+var pramerter = {}; //保养进度查询参数列表 
 Page({
 
   /**
@@ -12,7 +14,10 @@ Page({
     nav_panl1: 'block',
     dateStart: util.formatDate(new Date()),
     dateEnd: util.formatDateAdd(new Date(), 7),
-    listByjd:null
+    listByjd: null,
+    total: 0,
+    pageSize: 10,
+    pageNum: 1,
 
   },
 
@@ -34,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    pramerter = {};//保养进度查询参数列表 
+    pramerter = {}; //保养进度查询参数列表 
     this.getbyjd(pramerter)
   },
 
@@ -63,7 +68,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("上拉");
+    var that = this;
+    that.data.pageNum++;
+    if (that.data.oldlist.length >= that.data.total) {
+      return;
+    } else {
+      // that.getdata(pageNum: );
+    }
+    console.log(that.data.pageNum);
   },
 
   /**
@@ -82,7 +95,7 @@ Page({
     this.getbyjd(pramerter)
 
   },
-  getbyjd:function(prameter){//获取保养进度列表
+  getbyjd: function (prameter) { //获取保养进度列表
     var that = this;
     var userinfo = wx.getStorageSync("userInfo");
     prameter.maintain_user = wx.getStorageSync("realname");
@@ -92,21 +105,45 @@ Page({
     prameter.pageSize = 9999;
     console.log(prameter);
     if (userinfo) {
-      wx.request({
-        url: app.globalData.url + 'shebeirepair/getShebeimaintainList',
-        data: prameter,
-        dataType: 'json',
-        success: function (res) {
-          
-          console.log(res)
-          app.globalData.listByjd = res.data.list;
-          var nowdate=new Date().getTime();
-          that.setData({
-            listByjd: res.data.list
-          })
-        }
+      var token = wx.getStorageSync("token");
+      var msId = wx.getStorageSync("station_id");
+      var params = {
+        pageNum: that.data.pageNum,
+        pageSize: 10,
+        emrStatus: 0
+      }
+      req({
+        url: app.globalData.globalUrl + '/manage/equipmentMaintainRecord/listByUser',
+        data: params,
+        header: {
+          'Authorization': "Bearer " + token
+        },
+      }).then(res => {
+        console.log(res);
+        that.setData({
+          listByjd: res.data.rows
+        })
+        // that.setData({
+        //   total: res.total
+        // })
+      }).catch(err => {
+        console.log(err);
       })
-    }else{
+      // wx.request({
+      //   url: app.globalData.url + 'shebeirepair/getShebeimaintainList',
+      //   data: prameter,
+      //   dataType: 'json',
+      //   success: function (res) {
+
+      //     console.log(res)
+      //     app.globalData.listByjd = res.data.list;
+      //     var nowdate=new Date().getTime();
+      //     that.setData({
+      //       listByjd: res.data.list
+      //     })
+      //   }
+      // })
+    } else {
       wx.showToast({
         icon: 'none',
         title: "未登录",

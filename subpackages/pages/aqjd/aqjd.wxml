@@ -1,0 +1,75 @@
+<!--subpackages/pages/jysc/jysc.wxml-->
+<view>
+    <view class="xzrw-container">
+        <view class="cells-item">
+            <mp-cells>
+                <mp-cell title="交底班组">
+                    <input data-field="jdbz" class="weui-input  pull-right" name="jdbz"
+                        value="{{carInfo.weighLicensePlate}}" placeholder="交底班组" />
+                </mp-cell>
+                <mp-cell title="交底班组负责人">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighMaterialCompany}}" placeholder="交底班组负责人" />
+                </mp-cell>
+            </mp-cells>
+
+            <mp-cells>
+                <mp-cell title="被交底班组">
+                    <input data-field="jdbz" class="weui-input  pull-right" name="jdbz"
+                        value="{{carInfo.weighLicensePlate}}" placeholder="被交底班组" />
+                </mp-cell>
+                <mp-cell title="被交底班组负责人">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighMaterialCompany}}" placeholder="被交底班组负责人" />
+                </mp-cell>
+            </mp-cells>
+            <mp-cells>
+                <mp-cell title="参会缺席人员">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighMaterialCompany}}" placeholder="参会缺席人员" />
+                </mp-cell>
+            </mp-cells>
+            <mp-cells>
+                <mp-cell title="上一班工作时间">
+                    <view class="select-time-content" style="margin-left: 10px;">
+                        <picker data-field="date" mode="date" value="{{bdate}}" bindchange="DateStartChange"
+                            style="border:1px solid #eee;width: 40%;display: inline-block;">
+                            <view class="weui-input select-time">{{bdate}}</view>
+                        </picker>
+                        -
+                        <picker data-field="date" mode="date" value="{{edate}}" bindchange="DateEndChange"
+                            style="border:1px solid #eee;width: 40%;display: inline-block;">
+                            <view class="weui-input select-time">{{edate}}</view>
+                        </picker>
+                    </view>
+                </mp-cell>
+                <mp-cell title="交底内容">
+                    <input data-field="zlkz" class="weui-input  pull-right" name="zlkz"
+                        value="{{carInfo.weighMaterialCompany}}" placeholder="交底内容" />
+                </mp-cell>
+                <mp-cell title="安全程度">
+                    <view class="my-btns-flex">
+                        <button class="my-btn {{state2=='紧急'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="紧急">紧急</button>
+                        <button class="my-btn {{state2=='一般'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="一般">一般</button>
+                        <button class="my-btn {{state2=='正常'?'select':''}}" hover-class="none" bindtap="select_zl"
+                            data-id="正常">正常</button>
+                    </view>
+                </mp-cell>
+                <mp-cell title="上传附件">
+                    <button class="my-btn" bindtap="upFiles">上传附件</button>
+                </mp-cell>
+            </mp-cells>
+        </view>
+
+
+
+
+
+        <view class="my-btns">
+            <button class="my-minibtn" type="primary" hover-class="none" bindtap="submit">确认</button>
+            <button class="my-minibtn" type="default" hover-class="none" bindtap="toBack">返回</button>
+        </view>
+    </view>
+</view>

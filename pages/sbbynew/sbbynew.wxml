@@ -12,25 +12,14 @@
       <mp-form id="form" rules="{{rules}}" models="{{formData}}">
 
         <view class="weui-cells contain1">
-          <view class="weui-cell">
-            <view class="weui-cell__hd">
-              <view class="jux_title"></view>
-            </view>
-            <view class="weui-cell__bd weight_font">
-              <text space="ensp"> 设备保养</text>
-            </view>
-          </view>
-
           <view class="weui-cell weui-cell_select">
             <view class="weui-cell__hd weui-cell__hd_in-select-after">
               <text class="weui-badge weui-badge_dot"></text>
               <text class="weui-label cell_title weight_font" space="ensp"> 设备类别:</text>
             </view>
             <view class="weui-cell__bd">
-              <picker disabled="{{wxxg}}" name="assets_typeid" bindchange="bindsblbChange"
-                value="{{sblb[sblbIndex].id}}" range="{{sblb}}" range-key="typename">
-                <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{sblb[sblbIndex].typename}}</view>
-              </picker>
+              <view class="weui-select weui-select_in-select-after .weui-cell__ft">
+                {{formArr.equipmentType==0?'智能设备类':formArr.equipmentType==1?'生产设备类':'未知'}}</view>
             </view>
           </view>
 
@@ -40,27 +29,10 @@
               <text class="weui-label cell_title weight_font" space="ensp"> 资产名称:</text>
             </view>
             <view class="weui-cell__bd">
-              <picker disabled="{{wxxg}}" name="assets_id" bindchange="bindshebeiChange"
-                value="{{shebei[shebeiIndex].id}}" range="{{shebei}}" range-key="assetsname">
-                <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{shebei[shebeiIndex].assetsname}}
-                </view>
-              </picker>
+              <view class="weui-select weui-select_in-select-after .weui-cell__ft">
+                {{formArr.equipmentName}}</view>
             </view>
           </view>
-
-          <view class="weui-cell weui-cell_select">
-            <view class="weui-cell__hd weui-cell__hd_in-select-after">
-              <text class="weui-badge weui-badge_dot"></text>
-              <text class="weui-label cell_title weight_font" space="ensp"> 构件库:</text>
-            </view>
-            <view class="weui-cell__bd">
-              <picker disabled="{{wxxg}}" name="assets_clid" bindchange="bindsbclChange" value="{{sbcl[sbclIndex].id}}"
-                range="{{sbcl}}" range-key="name">
-                <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{sbcl[sbclIndex].name}}</view>
-              </picker>
-            </view>
-          </view>
-
 
           <view class="weui-cell weui-cell_select">
             <view class="weui-cell__hd weui-cell__hd_in-select-after">
@@ -68,11 +40,10 @@
               <text class="weui-label cell_title weight_font" space="ensp"> 保养类型:</text>
             </view>
             <view class="weui-cell__bd">
-              <picker disabled="{{wxxg}}" value="{{classIndex}}" name="maintain_type" range="{{checkboxItems_leibie}}">
-                <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{checkboxItems_leibie[classIndex]}}</view>
-              </picker>
+              <view class="weui-select weui-select_in-select-after .weui-cell__ft">{{formArr.emType==0?'日常检':formArr.emType==1?' 更换组件':formArr.emType==2?'中保':formArr.emType==3?'大保':'未知'}}</view>
             </view>
           </view>
+
           <view class="weui-cell">
             <view class="weui-cell__hd">
               <text class="weui-badge weui-badge_dot"></text>
@@ -81,13 +52,13 @@
               <text space="ensp"> 保养要求</text>
             </view>
           </view>
-
           <view class="weui-cell noneline">
             <view class="weui-cell__bd">
-              <textarea bindinput="inputWxsm" maxlength='200' name="maintain_require" disabled="{{wxxg}}"
-                class="weui-textarea" placeholder="请输入保养要求" rows="3" value="{{byjlgd.maintain_require}}"></textarea>
+              <textarea bindinput="inputemRemark" maxlength='200' name="maintain_require" class="weui-textarea"
+                placeholder="请输入保养要求" rows="3" value="{{formArr.emRemark}}"></textarea>
             </view>
           </view>
+
           <view class="weui-cell">
             <view class="weui-cell__hd">
               <text class="weui-badge weui-badge_dot"></text>
@@ -96,11 +67,10 @@
               <text space="ensp"> 保养标准</text>
             </view>
           </view>
-
           <view class="weui-cell noneline">
             <view class="weui-cell__bd">
-              <textarea bindinput="inputWxsm" maxlength='200' name="maintain_standard" disabled="{{wxxg}}"
-                class="weui-textarea" placeholder="请输入保养标准" rows="3" value="{{byjlgd.maintain_standard}}"></textarea>
+              <textarea bindinput="inputemStandard" maxlength='200' name="maintain_standard" class="weui-textarea"
+                placeholder="请输入保养标准" rows="3" value="{{formArr.emStandard}}"></textarea>
             </view>
           </view>
 
@@ -118,15 +88,11 @@
           </view>
           <mp-cells ext-class="cells-item" wx:for="{{partsList}}" wx:key="index">
             <mp-cell title="配件" ext-class="">
-              <picker bindchange="pickerChange" data-index="{{index}}" value="{{item.pid}}" range-key="name"
-                range="{{list}}" data-id="{{list[index].id}}">
-                <view class="picker">
-                  {{item.pname}}
-                </view>
-              </picker>
+              <input class="picker" placeholder="请输入" value="{{item.name}}" bindinput="formInputNameChange"
+                data-index="{{index}}" />
             </mp-cell>
             <mp-cell title="数量" ext-class="">
-              <input data-field="name1" bindinput="formInputChange" data-index="{{index}}" value="{{item.pnumber}}"
+              <input data-field="name1" bindinput="formInputChange" data-index="{{index}}" value="{{item.num}}"
                 class="weui-input" placeholder="请输入" />
             </mp-cell>
             <view class="clear" style="border-top: 1rpx solid rgba(0,0,0,.1);">
@@ -155,6 +121,7 @@
               </picker>
             </view>
           </view>
+
           <view class="weui-cell">
             <view class="weui-cell__hd">
               <text class="weui-badge weui-badge_dot"></text>
@@ -163,15 +130,15 @@
               <text space="ensp"> 保养情况</text>
             </view>
           </view>
-
           <view class="weui-cell noneline">
             <view class="weui-cell__bd">
-              <textarea bindinput="inputWxsm" maxlength='200' name="maintain_situation"
-                class="weui-textarea" placeholder="请输入保养情况" rows="3" value="{{maintain_situation}}"></textarea>
+              <textarea bindinput="inputemrInfo" maxlength='200' name="maintain_situation" class="weui-textarea"
+                placeholder="请输入保养情况" rows="3" value="{{formArr.emrInfo}}"></textarea>
             </view>
           </view>
 
         </view>
+
         <view class="contain1">
           <view class="weui-cell">
             <view class="weui-cell__hd">
@@ -255,11 +222,11 @@
             </view>
           </view>
         </view>
+
         <view class="mt-20 text-center">
           <view class="weui-flex__item">
             <view class="placeholder"><button class="tjyl tjan" formType="submit" type="primary">提交</button></view>
           </view>
-          <!-- <button size="mini" class="btn-gray-light">取消</button> -->
         </view>
       </mp-form>
     </view>

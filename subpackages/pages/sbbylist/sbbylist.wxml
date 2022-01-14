@@ -3,11 +3,11 @@
 <view class="weui-tab">
     <view class="flex">
       <view class="flex__item head_xl2">
-        <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
+        <!-- <picker mode="date"  value="{{dateStart}}" start="2018-09-01" end="2021-09-01" bindchange="bindDateChange_start">
           <view class="picker">
             {{dateStart}}<image src="/icon/sjx.png" class="select_sj"></image>
           </view>
-        </picker>
+        </picker> -->
       </view>
       <view class="clearfloat"></view>
     </view>
@@ -16,23 +16,22 @@
             
             <view class="weui-cells weui-cells_form ">
               <view wx:for="{{listByjd}}" wx:key="*this" class="weui-cells">
-                  <navigator url="{{'/pages/sbbynew/sbbynew?maintenanceId='+item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <navigator url="{{'/pages/sbbynew/sbbynew?emrId='+item.emrId}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                     <view style="width:100%;white-space:pre-line;">
                       <view class="weui-cell__bd">
-                          <p>{{tools.sub(item.create_time)}}</p>
+                          <p>{{tools.sub(item.createTime)}}</p>
                       </view>
                       <view class="weui-cell__bd">
-                          <p>{{item.maintain_type}}</p>
+                          <p>{{item.emType==0?'日常检':item.emType==1?'更换组件':item.emType==2?'中保':item.emType==3?'大保':'未知'}}</p>
                       </view>
                     </view>
                     <view style="width:100%;white-space:pre-line;" class=" weui-cell__ft_in-access">
                       <view class="weui-cell__bd">
-                          <p>{{item.assets_typename}}</p>
+                          <p>{{item.equipmentType==0?'智能设备类':item.equipmentType==1?'生产设备类':'未知'}}</p>
                       </view>
                       <view class="weui-cell__bd">
-                          <p>{{item.assets_name}}</p>
+                          <p>{{item.equipmentName}}</p>
                       </view>
-                      <view class="weui-cell__bd ">{{item.assets_clanme}}</view>
                     </view>
                   </navigator>
 

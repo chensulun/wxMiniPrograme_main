@@ -1,0 +1,154 @@
+/* subpackages/pages/jysc/jysc.wxss */
+page {
+    height: 100%;
+    background-color: #EDEDED;
+}
+
+.xzrw-container {
+    padding: 8px 10px;
+}
+
+.cells-item {
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+/* 提示 */
+.word-class {
+    font-size: 14px;
+    color: rgb(95, 87, 87);
+}
+
+/* 选择图片 */
+.img_box {
+    width: 690rpx;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.imgs {
+    width: 33.33333333%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+
+.imgs image {
+    width: 90%;
+    max-height: 212rpx;
+    border: 1px solid rgba(214, 212, 212, 0.1);
+}
+
+.imgs .images {
+    position: relative;
+}
+
+.images button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img_box .images {
+    width: 90%;
+    height: 212rpx;
+    border: 1px solid #E8E8E8;
+    border-radius: 4rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_box .images>image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+/* 上传按钮 */
+.UploadBtnarea {
+    width: 100%;
+    height: 32px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.bhhide {
+    display: block;
+}
+
+.UploadBtnclass {
+    height: 100%;
+    width: 90%;
+    background-color: rgb(5, 173, 5);
+    color: white;
+    align-self: center;
+    font-size: 13px;
+}
+
+.my-btns-flex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.my-btn {
+    display: inline-block;
+    height: 30px;
+    margin: 0 6px;
+    border: none;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.my-btns {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.my-minibtn {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    margin: 0 20px;
+    border: none;
+    border-radius: 25px;
+}
+
+.select {
+    /* display: inline-block; */
+    /* height: 30px; */
+    /* margin: 0 6px; */
+    border: none;
+    /* font-size: 16px; */
+    /* line-height: 30px; */
+    background-color: #e9fff4;
+    position: relative;
+}
+
+.select:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 10px solid #4ABE84;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.mypicker{
+    font-weight: bold;
+    color: green;
+    display: inline-block;
+}
+

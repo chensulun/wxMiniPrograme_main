@@ -11,14 +11,7 @@
             "list": []
         },
         "miniprogram": {
-            "list": [
-                {
-                    "name": "subpackages/pages/jysc/jysc",
-                    "pathName": "subpackages/pages/jysc/jysc",
-                    "query": "",
-                    "scene": null
-                }
-            ]
+            "list": []
         }
     }
 }

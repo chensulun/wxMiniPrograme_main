@@ -5,26 +5,26 @@
     <view class="rwdgl-add">
       <view class="rwd-add-icon">
         <view class="rwd-add-text">
-          <view class="rwd-title">{{rwcount}}</view>
-          <view class="rwd-subtitle">总任务数</view>
+          <view class="rwd-title">{{AllNum.taskCount}}</view>
+          <view class="rwd-subtitle">任务单数</view>
         </view>
       </view>
       <view class="rwd-add-icon">
         <view class="rwd-add-text">
-          <view class="rwd-title" style="color:#526EF6">{{rwwccount}}</view>
-          <view class="rwd-subtitle">已完成任务数</view>
+          <view class="rwd-title" style="color:#526EF6">{{AllNum.planCount}}</view>
+          <view class="rwd-subtitle">总计划量</view>
         </view>
       </view>
       <view class="rwd-add-icon">
         <view class="rwd-add-text">
-          <view class="rwd-title">{{rwnumber}}</view>
-          <view class="rwd-subtitle">任务总量</view>
+          <view class="rwd-title">{{AllNum.shipCount}}</view>
+          <view class="rwd-subtitle">总发货量</view>
         </view>
       </view>
       <view class="rwd-add-icon">
         <view class="rwd-add-text">
-          <view class="rwd-title" style="color:#26C44F">{{rwwcnumber}}</view>
-          <view class="rwd-subtitle">已完成量</view>
+          <view class="rwd-title" style="color:#26C44F">{{AllNum.startCount}}</view>
+          <view class="rwd-subtitle">总发货次数</view>
         </view>
       </view>
       <view class="item-middle clear">

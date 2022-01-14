@@ -59,6 +59,7 @@ Page({
     total: 0,
     pageSize: 10,
     pageNum: 1,
+    AllNum: {}
   },
   /**
    * 生命周期函数--监听页面加载
@@ -77,6 +78,7 @@ Page({
       bdate: obj.dateTimeArray
     });
     that.bindUserzdList();
+    that.getAllNum()
   },
   aaa: function (res) {
     let that = this;
@@ -621,5 +623,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getAllNum() {
+    var that = this;
+    var token = wx.getStorageSync("token");
+    var msId = wx.getStorageSync("station_id");
+    req({
+      url: app.globalData.globalUrl + '/production/scheduling/count/110',
+      header: {
+        'Authorization': "Bearer " + token
+      },
+    }).then(res => {
+      console.log(res);
+      var obj = {}
+      obj.taskCount = res.data.data.taskCount
+      obj.startCount = res.data.data.startCount
+      obj.shipCount = res.data.data.shipCount
+      obj.planCount = res.data.data.planCount
+      that.data.AllNum = obj
+      that.setData({
+        AllNum: that.data.AllNum 
+      })
+    }).catch(err => {
+      console.log(err);
+    })
   }
 })

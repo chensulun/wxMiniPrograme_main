@@ -62,14 +62,14 @@
                                     <image src="/img/已发量.png" style="width:1rem;height:1rem"></image>
                                 </view>
                                 <text class="pull-left txt-size-left1 jhl-txt font-co5570f6">
-                                    {{(item.taskStatus=='2'||item.taskStatus=='3')?item.sum:0}}</text>
+                                    {{item.sum}}</text>
                             </view>
                             <view class="yfl-view1">
                                 <view class="pull-left">
                                     <image src="/img/已发车.png" style="width:1rem;height:1rem"></image>
                                 </view>
                                 <text class="pull-left txt-size-left1 jhl-txt font-co151515">
-                                    {{(tlitem.status=='2'||tlitem.status=='3')?item.count:0}}</text>
+                                    {{item.count}}</text>
                             </view>
                         </view>
                     </view>

@@ -73,7 +73,9 @@
             "pages/dbsxnew/dbsxnew",
             "pages/xmmx/xmmx",
             "pages/zccknew/zccknew",
-            "pages/xzgys/xzgys"
+            "pages/xzgys/xzgys",
+            "pages/aqjd/aqjd",
+            "pages/hjsb/hjsb"
         ],
         "independent": false
     }],

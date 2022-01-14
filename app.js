@@ -96,7 +96,7 @@ App({
     //  url:'http://127.0.0.1:8081/',
     url: 'https://' + website + ':9443/CjManager/',
     globalUrl:'https://test.zgdrkj.cn:8686/prod-api',
-    // globalUrl:'http://192.168.1.104/dev-api',
+    // globalUrl:'http://192.168.1.105/dev-api',
     // globalUrl:'http://172.20.10.12/dev-api',
     // globalUrl:'http://154.8.200.158:7400/dev-api',
     socktHost: 'wss://' + website + '/',

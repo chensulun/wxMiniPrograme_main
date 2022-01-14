@@ -183,9 +183,9 @@ Page({
         var that = this;
         // data = JSON.stringify(data);
         // 显示加载图标
-        wx.showLoading({
-            title: '玩命加载中',
-        })
+        // wx.showLoading({
+        //     title: '玩命加载中',
+        // })
         var url = app.globalData.url;
         var token = wx.getStorageSync("token");
         var msId = wx.getStorageSync("station_id");

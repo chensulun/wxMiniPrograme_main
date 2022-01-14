@@ -1,7 +1,7 @@
 <!--viewages/sbwx/sbwx.wxml-->
 <view class="position">
   <image class="header_dw" src="/icon/dw_g.png"></image>
-  <text class="position_text">{{address}}</text>  
+  <text class="position_text">{{address}}</text>
   <image class="header_you" src="/icon/you.png"></image>
   <!-- <image class="sys_icon_header" src="/icon/sys_g.png" ></image> -->
 </view>
@@ -10,31 +10,32 @@
 
   <view class="weui-cells contain1">
     <view class="weui-cell">
-        <view class="weui-cell__hd">
-          <view class="jux_title"></view>
-        </view>
-        <view class="weui-cell__bd weight_font">
-            <text space="ensp">  异常上报</text>
-        </view>
+      <view class="weui-cell__hd">
+        <view class="jux_title"></view>
+      </view>
+      <view class="weui-cell__bd weight_font">
+        <text space="ensp"> 异常上报</text>
+      </view>
     </view>
 
     <!-- 异常上报 -->
     <view class="weui-cell noneline">
-        <view class="weui-cell__bd">
-            <textarea bindinput="inputWxsm" maxlength='200' name="xjqk" disabled="{{wxxg}}" class="weui-textarea" placeholder="请输入您上报情况" rows="3" value="{{xjqk}}"></textarea>
-        </view>
+      <view class="weui-cell__bd">
+        <textarea bindinput="inputWxsm" maxlength='200' name="xjqk" class="weui-textarea" placeholder="请输入您上报情况"
+          rows="3" value="{{sidRemark}}"></textarea>
+      </view>
     </view>
 
   </view>
 
   <view class="contain1">
     <view class="weui-cell">
-        <view class="weui-cell__hd">
-          <view class="jux_title"></view>
-        </view>
-        <view class="weui-cell__bd weight_font">
-            <text space="ensp">  上传附件</text>
-        </view>
+      <view class="weui-cell__hd">
+        <view class="jux_title"></view>
+      </view>
+      <view class="weui-cell__bd weight_font">
+        <text space="ensp"> 上传附件</text>
+      </view>
     </view>
 
     <view class="weui-cell">
@@ -63,25 +64,25 @@
 
     <view class="weui-cell lybq">
       <view class="weui-cell__bd">
-          <view class="weui-uploader__hd">
-            <view class="weui-uploader__title">录音上传</view>
-            <view class="weui-uploader__info">{{record_files.length}}/10</view>
-          </view>
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__title">录音上传</view>
+          <view class="weui-uploader__info">{{record_files.length}}/10</view>
+        </view>
       </view>
     </view>
 
     <view wx:for="{{record_files}}" class="yuyinplay">
-        <view class="yuyinlist">
-          <audio class=""  name="未知音频" author="未知作者" src="{{item}}"  controls="true">
-          </audio> 
-          <icon type="cancel" class="cancelyuyin" size="23" data-yuyinurl="{{item}}" bindtap="cancelYuyin"></icon> 
-        </view>
+      <view class="yuyinlist">
+        <audio class="" name="未知音频" author="未知作者" src="{{item}}" controls="true">
+        </audio>
+        <icon type="cancel" class="cancelyuyin" size="23" data-yuyinurl="{{item}}" bindtap="cancelYuyin"></icon>
+      </view>
     </view>
 
-    <view wx:if="{{onrecord}}"  class="weui-flex__item ly__itemz">
-          <text>{{recordingTimeqwe}}</text>
-          <image bindtap="shutRecording" class="ly_img" src="/img/luyin.png"></image>
-          <text>正在录音...</text>
+    <view wx:if="{{onrecord}}" class="weui-flex__item ly__itemz">
+      <text>{{recordingTimeqwe}}</text>
+      <image bindtap="shutRecording" class="ly_img" src="/img/luyin.png"></image>
+      <text>正在录音...</text>
     </view>
 
     <button class="yyin" bindtap="startRecorder">{{lytip}}</button>
@@ -97,8 +98,9 @@
             <view class="weui-uploader__files" id="uploaderSpFiles">
               <block wx:for="{{sp_files}}" wx:key="*this">
                 <view class="weui-uploader__file" bindtap="previewSp" id="{{item}}">
-                  <video class="video weui-uploader__img" src="{{item}}" ></video>
-                  <icon type="cancel" class="cancelship" size="23" data-shipurl="{{item}}" bindtap="cancelshiping"></icon> 
+                  <video class="video weui-uploader__img" src="{{item}}"></video>
+                  <icon type="cancel" class="cancelship" size="23" data-shipurl="{{item}}" bindtap="cancelshiping">
+                  </icon>
                 </view>
               </block>
             </view>
@@ -112,8 +114,10 @@
   </view>
 
   <view class="weui-flex">
-      <view class="weui-flex__item"><view class="placeholder"><button class="tjyl tjan" formType="submit" type="primary" >提交</button></view></view>
-      <!-- <view class="weui-flex__item"><view class="placeholder">
+    <view class="weui-flex__item">
+      <view class="placeholder"><button class="tjyl tjan" formType="submit" type="primary">提交</button></view>
+    </view>
+    <!-- <view class="weui-flex__item"><view class="placeholder">
         <navigator bindtap="toYl" url="">
           <button class="tjyl" type="default">预览</button>
         </navigator>
@@ -121,5 +125,3 @@
       </view> -->
   </view>
 </form>
-
-  

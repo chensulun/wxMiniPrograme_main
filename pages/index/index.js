@@ -178,8 +178,8 @@ Page({
       }
     });
   },
-   //待办事项角标气泡
-   getTip: function () {
+  //待办事项角标气泡
+  getTip: function () {
     var that = this;
     var token = wx.getStorageSync("token");
     var msId = wx.getStorageSync("station_id");
@@ -494,21 +494,23 @@ Page({
   // },
   syscode: function () {
     var that = this;
-
+    var token = wx.getStorageSync("token");
+    var msId = wx.getStorageSync("station_id");
     // that.setData({
     //   smModal:true
     // })
 
     wx.scanCode({ // 只允许从相机扫码
+
       onlyFromCamera: true,
       success(sys_res) {
         // that.setData({
         //   smModal: true,
         //   modal:true
         // })
-        console.log(sys_res);
-        var resu = JSON.parse(sys_res.result);
-        console.log(resu.type == 'xj');
+        var resu = sys_res.result;
+        var json = resu.replace(/^\s*/g, '');
+        resu = JSON.parse(json)
         if (resu.type == 'zc') {
           console.log(resu.key)
           //资产
@@ -540,17 +542,30 @@ Page({
         } else if (resu.type == 'xj') {
           console.log(app.globalData.url);
           wx.request({
-            url: app.globalData.url + 'wxaqxj/getModel',
+            url: app.globalData.globalUrl + '/manage/securityInspectionDetails/getInfo',
             data: {
-              wz: resu.wz,
+              position: resu.position,
               code: resu.code
             },
+            header: {
+              'Authorization': "Bearer " + token
+            },
             success: function (res) {
-
-              if (res.data.code == 0) {
+              console.log(res);
+              if (res.data.code == 200) {
                 // 回调函数
                 app.globalData.xjlaiyuan = 1;
                 console.log(app.globalData.xjlaiyuan);
+                if (!res.data.data) {
+                  wx.showToast({
+                    icon: 'none',
+                    // title: res.data.msg,
+                    title: '暂无巡检',
+                    duration: 2000,
+                  })
+                  return;
+                }
+
                 let action = "/pages/aqxj1/aqxj1?data=" + JSON.stringify(res.data.data);
                 wx.navigateTo({
                   url: action

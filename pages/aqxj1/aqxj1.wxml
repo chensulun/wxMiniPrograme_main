@@ -24,7 +24,7 @@
         <text class="weui-label cell_title weight_font" space="ensp">  类别:</text>
       </view>
       <view class="weui-cell__bd">
-        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.leibie_name}}</view>
+        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.ssType}}</view>
       </view>
     </view>
 
@@ -34,7 +34,7 @@
         <text class="weui-label cell_title weight_font" space="ensp">  位置:</text>
       </view>
       <view class="weui-cell__bd">
-          <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.wz}}</view>
+          <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.ssPosition}}</view>
       </view>
     </view>
 
@@ -44,7 +44,7 @@
         <text class="weui-label cell_title weight_font" space="ensp">  巡检类型:</text>
       </view>
       <view class="weui-cell__bd">
-        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.xj_type_name}}</view>
+        <view class="weui-select1  weui-select_in-select-after .weui-cell__ft">{{safemodel.siType}}</view>
       </view>
     </view>
 
@@ -59,7 +59,7 @@
 
     <view class="weui-cell noneline">
         <view class="weui-cell__bd">
-            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检项目" rows="3" value="{{safemodel.xm}}"></textarea>
+            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检项目" rows="3" value="{{safemodel.ssName}}"></textarea>
         </view>
     </view>
 
@@ -74,7 +74,7 @@
 
     <view class="weui-cell noneline">
         <view class="weui-cell__bd">
-            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检标准" rows="3" value="{{safemodel.bz}}"></textarea>
+            <textarea maxlength='200' disabled class="weui-textarea" placeholder="请输入巡检标准" rows="3" value="{{safemodel.ssStandard}}"></textarea>
         </view>
     </view>
     <view class="text-center pb-20">
